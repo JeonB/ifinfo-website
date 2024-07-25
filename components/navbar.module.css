@@ -1,0 +1,17 @@
+.nav {
+  background: hwb(0 40% 56%);
+  padding: 1em;
+}
+.ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ul li {
+  margin-right: 1em;
+}
+.a {
+  color: white;
+  text-decoration: none;
+}
