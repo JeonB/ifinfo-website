@@ -1,5 +1,5 @@
 .nav {
-  background: hwb(0 40% 56%);
+  background: #fbfbfb;
   padding: 1em;
 }
 .ul {
@@ -10,8 +10,9 @@
 }
 .ul li {
   margin-right: 1em;
+  align-content: center;
 }
 .a {
-  color: white;
+  color: #467fcf;
   text-decoration: none;
 }

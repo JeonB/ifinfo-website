@@ -8,15 +8,19 @@ export default function NavBar() {
     <nav className={classes.nav}>
       <ul className={classes.ul}>
         <li>
-          <Link href="/">
-            <Image src={logoImg} alt="logo" priority></Image>이프정보시스템
+          <Link className={classes.a} href="/">
+            <Image src={logoImg} alt="logo" width={200}></Image>
           </Link>
         </li>
         <li>
-          <Link href="/about">About</Link>
+          <Link className={classes.a} href="/about">
+            About
+          </Link>
         </li>
         <li>
-          <Link href="/contact">Contact</Link>
+          <Link className={classes.a} href="/contact">
+            Contact
+          </Link>
         </li>
       </ul>
       {/* <style jsx>{`
