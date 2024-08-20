@@ -1,0 +1,63 @@
+{
+    "CL1011M01": {
+        "title": {
+            "account_detail": "계좌 상세 조회"
+        },
+        "subtitle": {
+            "loan_account_status": "금일 기준 현황",
+            "schedule": "스케줄"
+        },
+        "label": {
+            "loan_tcd_nm": "상품명",
+            "account_no": "계좌 번호",
+            "loan_date": "대출 일자",
+            "loan_amt": "대출 금액",
+            "int_rate": "연 이율(%)",
+            "loan_bal": "대출 잔액",
+            "repayed_amt": "선납 금액",
+            "delay_cnt": "연체 횟수",
+            "scheduled_amt": "상환대상 금액",
+            "delay_amt": "연체 금액",
+            "schedule_date": "스케줄 일자",
+            "schedule_amt": "스케줄 금액",
+            "received_amt": "회수 금액"
+        }
+    },
+
+    "CL5551M01": {
+        "title": {
+            "loan_appl_list": "대출 신청 목록"
+        },
+        "label": {
+            "loan_tcd_nm": "상품명",
+            "appl_no": "신청 번호",
+            "appl_amt": "신청 금액",
+            "appl_status": "신청 상태"
+        },
+        "button": {
+            "search": "조회"
+        }
+    },
+    
+    "CL1551M01": {
+        "title": {
+            "loan_appl_detail": "대출 신청 상세"
+        },
+        "subtitle": {
+            "schedule": "스케줄"
+        },
+        "label": {
+            "loan_tcd_nm": "상품명",
+            "appl_no": "신청 번호",
+            "loan_period": "대출 기간",
+            "loan_days": "대출 일수",
+            "int_rate": "연 이율(%)",
+            "loan_amt": "대출 금액",
+            "seq": "회차",
+            "schedule_date": "스케줄 일자",
+            "prin_amt": "원금",
+            "int_amt": "이자",
+            "tot_amt": "합계"
+        }
+    }
+}

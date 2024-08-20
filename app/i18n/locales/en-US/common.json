@@ -1,0 +1,65 @@
+{
+  "header": {
+    "menu": {
+      "about": "About",
+      "product": "Product",
+      "notice": "Notice",
+      "qna": "Q&A"
+    },
+    "sign": {
+      "sign-in": "SignIn",
+      "sign-out": "SignOut"
+    },
+    "submenu": {
+      "loan_appl_list": "Loan Application List",
+      "user_info": "User Info.",
+      "company_about": "Company About",
+      "branch_about": "Branch About",
+      "prd_list": "Product List",
+      "notice_list": "Notice List",
+      "qna_list": "Q&A List"
+    },
+    "greet": {
+      "header_greet": "Nice To meet you.",
+      "info_greet": "Check loan information.",
+      "last_greet": ""
+    }
+  },
+
+  "component": {
+    "table": {
+      "more": "Show more"
+    }
+  },
+
+  "CM1011M01": {
+    "title": {
+      "account_list": "Account List"
+    },
+    "subtitle": {
+      "loan": "Loan",
+      "deposit": "Deposit"
+    },
+    "label": {
+      "loan_tcd_nm": "Product Name",
+      "account_no": "Account Number",
+      "mat_date": "Maturity Date",
+      "bal_amt": "Balance(MMK)"
+    },
+    "button": {
+      "search": "Detail"
+    }
+  },
+
+  "branch": {
+    "title": {
+      "branch_info": "Branch Information"
+    },
+    "label": {
+      "fax": "Fax",
+      "contact": "Contact",
+      "address": "Address",
+      "hq": " HQ"
+    }
+  }
+}

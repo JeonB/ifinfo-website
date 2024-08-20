@@ -1,0 +1,310 @@
+{
+  "common": {
+    "brandName": "GBS",
+    "ok": "အတည်ပြုသည်",
+    "cancel": "ပယ်ဖျက်ခြင်း",
+    "close": "Close",
+    "continue": "Continue",
+    "back": "Back",
+    "select": "Select",
+    "save": "Save",
+    "email": "Email",
+    "user": "User",
+    "language": {
+      "en": "အင်္ဂလိပ်စာ",
+      "ko": "ကိုးရီးယား",
+      "lo": "မြန်မာစာ",
+      "my": "မြန်မာစာ"
+    },
+    "auto_logout": "Appကို အချိန်အကြားကြီအသုံးမပြုပဲးထား​သေား​ကြောင့် အလို​လျောက် ထွက်သွားခြင်းဖြစ်သည်",
+    "update_title": "အပ်ဒိတ်အသစ်",
+    "update_new": "အပ်ဒိတ်အသစ် ရရှိ​နေပါပြီ။",
+    "update_ignore": "​ကျော်လိုက်ပါ။",
+    "update_install": "install လုပ်ပါ။",
+    "update_continue": "ဆက်သွားပါ။"
+  },
+  "errors": {
+    "homeCmsBlockId": "HOME CMS BLOCK ID ERROR",
+    "homeCmsBlockIdMessage": "Please Refer to Step 2 in setup documentation.\n https://github.com/alexakasanjeev/gbs_react_native/wiki/Setup",
+    "integrationTokenRequired": "INTEGRATION TOKEN REQUIRED ERROR",
+    "integrationTokenRequiredMessage": "Please refer to Step 1 in setup documentation.\n https://github.com/alexakasanjeev/gbs_react_native/wiki/Setup",
+    "noResponseFromServer": "ဝန်​ဆောင်မှုများကို ယာယီ သုံးစွဲး၍မရနိုင်လျင်\nခဏနေမှ ပြန်သုံးကြည့်ပါ။သို့မဟုတ် သုံးစွဲသူမေးမြန်းသို့ ဆက်သွယ်​ပေးပါ။",
+    "noResponseFromServerMessage": "ဝန်​ဆောင်မှုများကို ယာယီ သုံးစွဲး၍မရနိုင်လျင်\nခဏနေမှ ပြန်သုံးကြည့်ပါ။သို့မဟုတ် သုံးစွဲသူမေးမြန်းသို့ ဆက်သွယ်​ပေးပါ။",
+    "404error": "ဝန်​ဆောင်မှုများကို ယာယီ သုံးစွဲး၍မရနိုင်လျင်\nခဏနေမှ ပြန်သုံးကြည့်ပါ။သို့မဟုတ် သုံးစွဲသူမေးမြန်းသို့ ဆက်သွယ်​ပေးပါ။",
+    "404errorMessage": "ဝန်​ဆောင်မှုများကို ယာယီ သုံးစွဲး၍မရနိုင်လျင်\nခဏနေမှ ပြန်သုံးကြည့်ပါ။သို့မဟုတ် သုံးစွဲသူမေးမြန်းသို့ ဆက်သွယ်​ပေးပါ။",
+    "emptyFieldsMessage": "Please fill all fields",
+    "network_error": "ကွန်ရက်ချိတ်ဆက်မှု ချို့ယွင်းခြင်း"
+  },
+  "modalSelect": {
+    "scroll": "Scrollable options",
+    "cancelButton": "Cancel Button"
+  },
+  "navigation": {
+    "bottomTabMenu": {
+      "home": "ပင်မစာမျက်နာ",
+      "account": "အကောင့်",
+      "product": "ဝန်ဆောင်မှုများ",
+      "branch": "ရုံးချုပ်၊ရုံးခွဲ"
+    },
+    "drawerMenu": {
+      "login": "ဝင်မည်",
+      "sign_out": "ထွက်မည်",
+      "account": {
+        "title": "ချေးငွေ စာရင်း",
+        "loan_application_list": "လျှောက်လွှာ စာရင်းများ",
+        "account_list": "အကောင့် စာရင်း"
+      },
+      "product": {
+        "title": "ဝန်ဆောင်မှုများ",
+        "loan_product_list": "ချေးငွေ အမျိုးအစား",
+        "loan_product_description": "ချေးငွေ အမျိုးအစား အသေးစိတ်"
+      },
+      "board": {
+        "title": "ကြော်ငြာသင်ပုန်း",
+        "notice": "ကြေငြာချက်",
+        "mobile_qna": "Mobile အမေးအဖြေ"
+      },
+      "common": {
+        "title": "ကုမ္ပဏီ မိတ်ဆက်ခြင်း",
+        "branch": "ရုံးချုပ်၊ရုံးခွဲ",
+        "about_company": "JB Capital Myanmar"
+      },
+      "setting": {
+        "title": "ဆက်တင်",
+        "user_info_change": "အသုံးပြုသူအချက်အလက်ပြောင်းလဲခြင်း",
+        "password_change": "လျှို့၀ှက်ကုဒ် ပြောင်းလဲခြင်း",
+        "app_setting": "App ဆက်တင်"
+      }
+    },
+    "about_company": "JB Capital Myanmar",
+    "mobile_qna": "Mobile အမေးအဖြေ",
+    "mobile_qna_register": "Mobile အမေးအဖြေ Register",
+    "notice": "ကြေငြာချက်",
+    "notice_detail": "ကြေငြာချက်",
+    "account": "ချေးငွေ စာရင်း",
+    "account_detail": "ချေးငွေ စာရင်း",
+    "loan_application": "လျှောက်လွှာ",
+    "loan_application_detail": "လျှောက်လွှာ",
+    "product_list": "ဝန်ဆောင်မှုများ",
+    "product_detail": "ဝန်ဆောင်မှုများ",
+    "signup": "မှတ်ပုံတင်ခြင်း",
+    "find_id": "ID/Password ရှာခြင်း",
+    "reset_password": "Reset Password",
+    "password_change": "Password ပြောင်းလဲခြင်း",
+    "user_info_change": "အသုံးပြုသူအချက်အလက်ပြောင်းလဲခြင်း",
+    "app_setting": "APP Setting",
+    "login": "ဝင်မည်",
+    "logout": "ထွက်မည်"
+  },
+  "home": {
+    "login": "ဝင်မည်",
+    "welcome_login": "ကြိုဆိုပါတယ်",
+    "welcome_guest": "သုံးစွဲသူများအတွက် ကောင်းမွန်သောဘဏ္ဍာရေး ဝန်ဆောင်မှု",
+    "contact_us": "ဆက်သွယ်ရန်",
+    "contact_loan": "ချေးငွေ စုံစမ်းရန်",
+    "contact_other": "အခြား စုံစမ်းရန်",
+    "contact_bizday": "အလုပ်ရက်",
+    "customer_service": "သုံးစွဲသူမေးမြန်း",
+    "qna": "အမေးအဖြေ ",
+    "notice": "ကြေငြာချက်",
+    "company": "ကုမ္ပဏီ မိတ်ဆက်ခြင်း",
+    "nonews": "ကြေငြာပေးချက်အသစ်မရှိပါ။"
+  },
+  "product-desc": {
+    "product_description": "ချေးငွေ အမျိုးအစား အသေးစိတ်",
+    "product_condition": "ချေးငွေ အမျိုးအစား သတ်မှတ်ချက်",
+    "more_product": "ချေးငွေ အမျိုးအစား ပိုမိုကြည့်ရှု"
+  },
+  "product": {
+    "loan_term": "ပြန်ဆပ်သည့်ကာလ ",
+    "loan_amount": "ချေးငွေပမာဏ",
+    "interest_rate": "အတိုးနှုန်း(နှစ်)"
+  },
+  "product-detail": {
+    "schedule_example": "နမူနာ",
+    "loan_product": "ချေးငွေအမျိုးအစား",
+    "loan_amount": "ချေးငွေပမာဏ",
+    "input_schedule_amt": "လိုအပ်သော ချေးငွေပမာဏကို ထည့်ပါ",
+    "val_input_loan_amt": "ချေးငွေပမာဏကို ထည့်ပါ",
+    "calculate": "ကဲကူလိပ်",
+    "schedule_amt": "တစ်ကြိမ်စာ ပမာဏ",
+    "target": "ပစ်မှတ်",
+    "product_desc": "အသေးစိတ်",
+    "loan_term": "ပြန်ဆပ်သည့်ကာလ ",
+    "interest_rate": "အတိုးနှုန်း(နှစ်)"
+  },
+  "app-setting": {
+    "language": "ဘာသားစကား Setting"
+  },
+  "branch": {
+    "need_login_info": "ကျေးဇူးပြုပြီး login စစ်ဆေးပေးပါ",
+    "my_branch": "မိမိ ရုံးခွဲ",
+    "support": "Support",
+    "sales": "Sales",
+    "manager": "Manager",
+    "branch_info": "Branch Info",
+    "fax": "Fax",
+    "hq": "HQ"
+  },
+  "user-info": {
+    "user_id": "မှတ်ပုံတင်အမှတ်",
+    "user_name": "နာမည်",
+    "address": "လိပ်စာ",
+    "tel": "ဖုန်းနံပါတ်",
+    "change_phone": "ဖုန်းနံပါတ် ပြောင်းလဲခြင်း",
+    "change_success": "အသုံးပြုသူအချက်အလက်ပြောင်းလဲပြီးပါပြီ။",
+    "screen_lang": "ဖုန်းနံပါတ် ပြောင်းလဲခြင်း",
+    "screen_lang_EN": "အင်္ဂလိပ်စာ",
+    "screen_lang_KO": "ကိုးရီးယား",
+    "screen_lang_LO": "မြန်မာစာ",
+    "user_info": "User Information"
+  },
+  "account": {
+    "account_no": "အကောင့်နံပါတ်",
+    "maturity_date": "ကြေသည့်နေ့ ",
+    "balance_amt": "ချေးငွေ လက်ကျန်"
+  },
+  "account-detail": {
+    "info1": "အကြေဆပ်၍ ပေးမည့်ပမာဏက ပြောင်းလဲနိုင် ချေးငွေအရာရှိကို ကျေးဇူးပြုပြီး အဆက်လုပ်ပါ ",
+    "info2": " ချေးငွေကြေသော်လည်း စုဆောင်းငွေကို မရခဲ့လျှင် ချေးငွေအရာရှိ သို့မဟုတ် ရုံးခွဲ ကို ကျေးဇူးပြုပြီး အဆက်လုပ်ပါ ",
+    "loan_amt": "ချေးငွေပမာဏ",
+    "interest_rate": "အတိုးနှုန်း(နှစ်)",
+    "value_date": "ချေးငွေထုတ်သည့်နေ့ ",
+    "account_status": "ချေးငွေ အခြေအနေ(ဒီနေ့)",
+    "balance_amt": "ချေးငွေ လက်ကျန် ",
+    "early_repay_amt": "အကြေဆပ်ငွေ ",
+    "delay_count": "ရက်လွန်ကြိမ်",
+    "delay_amt": "ရက်လွန်ငွေ",
+    "day_repay_amt": "ယခုနေ့ ဆပ်ရမယ့် ငွေစုစုပေါင်း",
+    "loan_account_no": "ချေးငွေ အကောင့် နံပါတ် ",
+    "account_no": "စုဆောင်ငွေ အကောင့် နံပါတ် ",
+    "open_date": "စုဆောင်ငွေ အကောင့် ဖွင့်ရက်",
+    "maturity_date": "ကြေသည့်နေ့ ",
+    "exp_maturity_date": "မှန်းခြေသော ကြေမည့်ပမာဏ",
+    "schedule": "ဇယားစာရင်း",
+    "schedule_amt": "တစ်ကြိမ်စာ ပမာဏ",
+    "schedule_dat": "Schedule Date",
+    "received_amt": "Received Amount",
+    "prin_amt": "Principal Amount",
+    "int_amt": "Interest Amount",
+    "tot_amt": "Total Amount",
+    "repay_amt": "Repay Amount"
+  },
+  "loan-application": {
+    "application_no": "လျှောက်လွှာနံပါတ်",
+    "loan_amt": "ချေးငွေပမာဏ",
+    "status": "အခြေအနေ"
+  },
+  "loan-application-detail": {
+    "application_div": "ရုံးခွဲ",
+    "center": "စုရပ်အမည်",
+    "loan_amt": "ချေးငွေပမာဏ",
+    "loan_period": "ချေးငွေကာလ",
+    "loan_days": "ချေးငွေကြာချိန်",
+    "repay_method": "ပြန်လည်ပေးဆပ်မည့်ပုံစံ",
+    "interest_rate": "အတိုးနှုန်း(နှစ်)",
+    "schedule": "ဇယားစာရင်း"
+  },
+  "login": {
+    "welcome": "မင်္ဂလာပါ JBမှကြိုဆိုပါတယ်။",
+    "login_slogan": "ရှေ့ဆက်ရန် အိုင်ဒီဝင်ပါ။",
+    "user_id": "အသုံးပြူသူအိုင်ဒီ",
+    "user_id_placeholder": "အသုံးပြူသူအိုင်ဒီ",
+    "password": "လျှို့၀ှက်ကုဒ် ",
+    "password_placeholder": "လျှို့၀ှက်ကုဒ် ",
+    "forget_pass": "ID/Password ကို မေ့နေပါသလား။",
+    "login_button": "ဝင်မည်",
+    "signup_button": "မှတ်ပုံတင်ခြင်း",
+    "save_id": "ID သိမ်းဆည်ခြင်း"
+  },
+  "login-find": {
+    "title": "သင်၏ ID သို့မဟုတ် လျှို့၀ှက်ကုဒ်ကို ရှာပါ။",
+    "customer_id": "မှတ်ပုံတင်အမှတ်",
+    "customer_no": "အဖွဲ့အဝင်နံပါတ်",
+    "placeholder_id": "မှတ်ပုံတင်အမှတ်",
+    "placeholder_customer_no": "သုံးစွဲသူမေးမြန်း",
+    "submit_id": "ID ရှာပါ။",
+    "submit_password": "လျှို့၀ှက်ကုဒ် ရှာပါ။",
+    "text_user_id": "သင်၏ အသုံးပြူသူအိုင်ဒီသည်",
+    "login": "ဝင်မည်"
+  },
+  "reset-password": {
+    "title": "လျှို့၀ှက်ကုဒ် ပြန်လည်ခြင်း",
+    "new_password": "လျှို့၀ှက်ကုဒ် အသစ်",
+    "placeholder_new_password": "အက္ခရာဂဏန်း စာလုံးများ အပါအဝင် ဂဏန်း ၈ လုံးကျော်",
+    "confirm_new_password": "လျှို့၀ှက်ကုဒ် အသစ်စစ်ဆေးခြင်း",
+    "placeholder_confirm_new_password": "အက္ခရာဂဏန်း စာလုံးများ အပါအဝင် ဂဏန်း ၈ လုံးကျော်",
+    "submit_change": "လျှို့၀ှက်ကုဒ် ပြန်လည်ခြင်း",
+    "reset_success": "လျှို့၀ှက်ကုဒ် ပြန်လည်ခြင်း အောင်မြင်ပါသည်။"
+  },
+  "change-password": {
+    "title": "လျှို့၀ှက်ကုဒ် ပြောင်းလဲခြင်း",
+    "current_password": "လျှို့၀ှက်ကုဒ်အဟောင်း",
+    "new_password": "လျှို့၀ှက်ကုဒ် အသစ်",
+    "placeholder_new_password": "အက္ခရာဂဏန်း စာလုံးများ အပါအဝင် ဂဏန်း ၈ လုံးကျော်",
+    "confirm_new_password": "လျှို့၀ှက်ကုဒ် အသစ်စစ်ဆေးခြင်း",
+    "placeholder_confirm_new_password": "အက္ခရာဂဏန်း စာလုံးများ အပါအဝင် ဂဏန်း ၈ လုံးကျော်",
+    "submit_change": "လျှို့၀ှက်ကုဒ် ပြောင်းလဲခြင်း",
+    "change_success": "လျှို့၀ှက်ကုဒ်ကို အောင်မြင်စွာ ပြောင်းလဲခဲ့သည်။ ထပ်မံဝင်ရောက်ပါ။"
+  },
+  "qna": {
+    "register": "လျှောက်ထားသည်။",
+    "view_more": "ပိုမိုကြည့်ရှုရန်",
+    "subtitle": "ကျွန်ုပ်တို့သည် သင်၏စုံစမ်းမေးမြန်းမှုကို ရိုးရိုးသားသားတုံ့ပြန်ပါမည်။",
+    "password_title": "လျှို့၀ှက်ကုဒ် စစ်ဆေးခြင်း",
+    "password": "လျှို့၀ှက်ကုဒ်",
+    "keyword": "အဓိကစကားလုံကို ရိုက်ထည့်ပါ။"
+  },
+  "qna-detail": {
+    "btn_add": "အကြောင်းပြန်",
+    "btn_edit": "အမှန်ပြင်ပေးခြင်း",
+    "btn_del": "ဖျက်ခြင်း",
+    "btn_list": "စာရင်းသို့ ပြန်သွားရန်",
+    "btn_cancel": "ပယ်ဖျက်ခြင်း",
+    "btn_confirm": "အတည်ပြုသည်",
+    "edit_title": "အကြောင်းပြန် အမှန်ပြင်ပေးခြင်း",
+    "register_date": "Register Date"
+  },
+  "qna-register": {
+    "name": "နာမည်",
+    "phone_number": "ဖုန်းနံပါတ်",
+    "password": "လျှို့၀ှက်ကုဒ်",
+    "title": "ခေါင်းစဥ်",
+    "content": "အကြောင်းအရာ",
+    "register": "လျှောက်ထားခြင်း",
+    "register_success": "မေးခွန်းကို အောင်မြင်စွာ လျှောက်လိုက်ပါ။"
+  },
+  "signup": {
+    "title": "မင်္ဂလာပါ JBမှကြိုဆိုပါတယ်။",
+    "subtitle": "မှတ်ပုံတင်ခြင်း",
+    "user_id": "အသုံးပြူသူအိုင်ဒီ",
+    "customer_id": "ဖောက်သည် နံပါတ်",
+    "customer_no": "မှတ်ပုံတင် နံပါတ်",
+    "password": "လျှို့၀ှက်ကုဒ်",
+    "placeholder_password": "အက္ခရာဂဏန်း စာလုံးများ အပါအဝင် ဂဏန်း ၈ လုံးကျော်",
+    "confirm_password": "လျှို့၀ှက်ကုဒ် စစ်ဆေးခြင်း",
+    "placeholder_confirm_password": "အက္ခရာဂဏန်း စာလုံးများ အပါအဝင် ဂဏန်း ၈ လုံးကျော်",
+    "signup_success": "မှတ်ပုံတင်ပြီးပါပြီ။",
+    "recommender": "အကြံပြုသူ"
+  },
+  "notice": {
+    "desc": "ကုမ္ပဏီ၏လည်ပတ်မှုနှင့် ဖောက်သည်ဝန်ဆောင်မှုအသုံးပြုခြင်းအတွက် လိုအပ်သောကြေငြာချက်များကို သင့်အား အကြောင်းကြားပါမည်။",
+    "keyword": "အဓိကစကားလုံကို ရိုက်ထည့်ပါ။"
+  },
+  "notice-detail": {
+    "desc": "JB Capital Myanmar သည် သုံးစွဲသူများကို အမြဲဂရုစိုက်ပြီး ဝန်ဆောင်မှုများပေးသည်။\n  ကြေငြာချက်နှင့်ပတ်သက်ပြီး မေးစရာများရှိပါက ကိုယ်စားလှယ်ဖုန်းနံပါတ်09940880827ကို ဆက်သွယ်ပါ။",
+    "prev": "အရင်",
+    "next": "နောက်",
+    "list": "စာရင်းသို့ ပြန်သွားရန်"
+  },
+  "account-list": {
+    "account_list": "Account List",
+    "loan": "Loan",
+    "deposit": "Deposit"
+  },
+  "table": {
+    "more": "Show more",
+    "search": "Detail",
+    "seq": "Sequence"
+  }
+}

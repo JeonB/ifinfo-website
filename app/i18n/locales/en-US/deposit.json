@@ -1,0 +1,17 @@
+{
+    "DP1011M01": {
+        "title": {
+            "account_detail": "Account Detail"
+        },
+        "label": {
+            "dep_tcd_nm": "Deposit Product",
+            "account_no": "Deposit Account",
+            "loan_account_no": "Loan Account",
+            "open_date": "Open Date",
+            "int_rate": "Interest Rate(%)",
+            "mat_date": "Maturiy Date",
+            "balance": "Account Balance",
+            "exp_mat_amt": "Matured Amount"
+        }
+    }
+}

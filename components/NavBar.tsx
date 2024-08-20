@@ -1,8 +1,8 @@
-"use client";
-import Link from "next/link";
-import classes from "./navbar.module.css";
-import Image from "next/image";
-import logoImg from "@/assets/logo.png";
+'use client'
+import logoImg from '@/assets/logo.png'
+import Image from 'next/image'
+import Link from 'next/link'
+import classes from './navbar.module.css'
 export default function NavBar() {
   return (
     <nav className={classes.nav}>
@@ -43,5 +43,5 @@ export default function NavBar() {
         }
       `}</style> */}
     </nav>
-  );
+  )
 }

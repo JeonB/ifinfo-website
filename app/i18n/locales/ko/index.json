@@ -1,0 +1,312 @@
+{
+  "title": "테스트워딩",
+  "common": {
+    "brandName": "GBS",
+    "ok": "확인",
+    "cancel": "취소",
+    "close": "닫기",
+    "continue": "Continue",
+    "back": "돌아가기",
+    "select": "Select",
+    "save": "Save",
+    "email": "Email",
+    "user": "User",
+    "language": {
+      "en": "영어",
+      "ko": "한글",
+      "lo": "미얀마어",
+      "my": "미얀마어"
+    },
+    "auto_logout": "앱을 장시간 사용하지 않아 자동 로그아웃 되었습니다.",
+    "update_title": "신규 업데이트",
+    "update_new": "새로운 업데이트가 있습니다.",
+    "update_ignore": "무시",
+    "update_install": "설치",
+    "update_continue": "계속"
+  },
+  "errors": {
+    "homeCmsBlockId": "HOME CMS BLOCK ID ERROR",
+    "homeCmsBlockIdMessage": "Please Refer to Step 2 in setup documentation.\n https://github.com/gbs_react_native/wiki/Setup",
+    "integrationTokenRequired": "INTEGRATION TOKEN REQUIRED ERROR",
+    "integrationTokenRequiredMessage": "Please refer to Step 1 in setup documentation.\n https://github.com/gbs_react_native/wiki/Setup",
+    "noResponseFromServer": "현재 일시적으로 서비스를 이용할 수 없습니다. 잠시 후 다시 시도하시거나 고객센터에 연락해주세요.",
+    "noResponseFromServerMessage": "현재 일시적으로 서비스를 이용할 수 없습니다. 잠시 후 다시 시도하시거나 고객센터에 연락해주세요.",
+    "404error": "현재 일시적으로 서비스를 이용할 수 없습니다. 잠시 후 다시 시도하시거나 고객센터에 연락해주세요.",
+    "404errorMessage": "현재 일시적으로 서비스를 이용할 수 없습니다. 잠시 후 다시 시도하시거나 고객센터에 연락해주세요.",
+    "emptyFieldsMessage": "Please fill all fields",
+    "networkError": "네트워크 오류"
+  },
+  "modalSelect": {
+    "scroll": "Scrollable options",
+    "cancelButton": "Cancel Button"
+  },
+  "navigation": {
+    "bottomTabMenu": {
+      "home": "홈",
+      "account": "계좌",
+      "product": "상품",
+      "branch": "지점"
+    },
+    "drawerMenu": {
+      "login": "로그인",
+      "sign_out": "로그아웃",
+      "account": {
+        "title": "계좌",
+        "loan_application_list": "대출신청 목록",
+        "account_list": "계좌 목록"
+      },
+      "product": {
+        "title": "상품",
+        "loan_product_list": "대출상품 목록",
+        "loan_product_description": "대출상품"
+      },
+      "board": {
+        "title": "게시판",
+        "notice": "공지사항",
+        "mobile_qna": "모바일 Q&A"
+      },
+      "common": {
+        "title": "JBCM 소개",
+        "branch": "지점소개",
+        "about_company": "회사소개"
+      },
+      "setting": {
+        "title": "설정",
+        "user_info_change": "사용자 정보 변경",
+        "password_change": "비밀번호 변경",
+        "app_setting": "앱설정"
+      }
+    },
+    "about_company": "회사소개",
+    "mobile_qna": "모바일 Q&A",
+    "mobile_qna_register": "모바일 Q&A 등록",
+    "notice": "공지사항",
+    "notice_detail": "공지사항 상세",
+    "account": "계좌",
+    "account_detail": "계좌상세",
+    "loan_application": "대출 신청",
+    "loan_application_detail": "대출 신청 상세",
+    "product_list": "상품 목록",
+    "product_detail": "상품 상세",
+    "signup": "회원가입",
+    "find_id": "ID/비밀번호 찾기",
+    "reset_password": "비밀번호 초기화",
+    "password_change": "비밀번호 변경",
+    "user_info_change": "사용자 정보 변경",
+    "app_setting": "앱설정",
+    "login": "로그인",
+    "logout": "로그아웃"
+  },
+  "home": {
+    "login": "로그인",
+    "welcome_login": "환영합니다",
+    "welcome_guest": "고객과 함께하는 따뜻한 금융",
+    "contact_us": "문의하기",
+    "contact_loan": "대출문의",
+    "contact_other": "기타문의",
+    "contact_bizday": "영업시간",
+    "customer_service": "고객센터",
+    "qna": "문의하기",
+    "notice": "공지사항",
+    "company": "회사소개",
+    "nonews": "새로운 소식이 없습니다."
+  },
+  "product-desc": {
+    "product_description": "상품설명",
+    "product_condition": "가입조건",
+    "more_product": "더 많은 상품보기"
+  },
+  "product": {
+    "loan_term": "상환기간",
+    "loan_amount": "대출금액",
+    "interest_rate": "연이율(%)"
+  },
+  "product-detail": {
+    "schedule_example": "스케쥴 예시",
+    "loan_product": "대출 상품",
+    "loan_amount": "대출금액",
+    "input_schedule_amt": "스케쥴 금액 변경 가능",
+    "val_input_loan_amt": "금액을 입력하세요.",
+    "calculate": "계산",
+    "schedule_amt": "스케쥴 금액",
+    "target": "가입대상",
+    "product_desc": "상품상세",
+    "loan_term": "기간",
+    "interest_rate": "이자율(%)"
+  },
+  "app-setting": {
+    "language": "언어설정"
+  },
+  "branch": {
+    "need_login_info": "로그인 후 확인가능합니다.",
+    "my_branch": "내지점 정보",
+    "support": "고객지원",
+    "sales": "영업",
+    "manager": "매니저",
+    "branch_info": "지점정보",
+    "fax": "팩스",
+    "hq": "본점"
+  },
+  "user-info": {
+    "user_id": "사용자 아이디",
+    "user_name": "사용자 이름",
+    "address": "주소",
+    "tel": "전화번호",
+    "change_phone": "전화번호 변경",
+    "change_success": "사용자 정보가 변경되었습니다.",
+    "screen_lang": "화면 표시언어",
+    "screen_lang_EN": "영어",
+    "screen_lang_KO": "한글",
+    "screen_lang_LO": "미얀마어",
+    "user_info": "내 정보"
+  },
+  "account": {
+    "account_no": "계좌번호",
+    "maturity_date": "만기일자",
+    "balance_amt": "잔액"
+  },
+  "account-detail": {
+    "info1": "중도상환시 지급액이 달라질 수 있으니 담당 영업사원에게 문의요망",
+    "info2": "대출종료(중도완납, 대출만기완납)가 되었음에도 강제예금 반환이 이루어지지 않을 경우 담당영업사원 or 영업점으로 연락바랍니다",
+    "loan_amt": "대출금액",
+    "interest_rate": "이자율(%)",
+    "value_date": "기산일자",
+    "account_status": "대출계좌 상태(금일기준)",
+    "balance_amt": "잔액",
+    "early_repay_amt": "조기상환금액",
+    "delay_count": "연체횟수",
+    "delay_amt": "연체금액",
+    "day_repay_amt": "일상환금액",
+    "loan_account_no": "대출계좌번호",
+    "account_no": "계좌번호",
+    "open_date": "개설일자",
+    "maturity_date": "만기일자",
+    "exp_maturity_date": "Exp. Maturity Amt.",
+    "schedule": "스케쥴",
+    "schedule_amt": "스케쥴 금액",
+    "schedule_dat": "스케줄 일자",
+    "received_amt": "회수 금액",
+    "prin_amt": "원금",
+    "int_amt": "이자",
+    "tot_amt": "합계",
+    "repay_amt": "상환금액"
+  },
+  "loan-application": {
+    "application_no": "신청번호",
+    "loan_amt": "대출금액",
+    "status": "상태"
+  },
+  "loan-application-detail": {
+    "application_div": "지점",
+    "center": "센터",
+    "loan_amt": "대출금액",
+    "loan_period": "대출기간",
+    "loan_days": "대출일수",
+    "repay_method": "상환방법",
+    "interest_rate": "이자율(%)",
+    "schedule": "스케쥴"
+  },
+  "login": {
+    "welcome": "JB에 오신것을 환영합니다",
+    "login_slogan": "계속하려면 로그인하세요!",
+    "user_id": "로그인 아이디",
+    "user_id_placeholder": "로그인 아이디를 입력하세요",
+    "password": "비밀번호",
+    "password_placeholder": "비밀번호를 입력하세요",
+    "forget_pass": "아이디/비밀번호 찾기",
+    "login_button": "로그인",
+    "signup_button": "회원가입",
+    "save_id": "ID 저장"
+  },
+  "login-find": {
+    "title": "아이디/비밀번호 찾기",
+    "customer_id": "고객 ID",
+    "customer_no": "고객번호",
+    "placeholder_id": "ID (NRC)",
+    "placeholder_customer_no": "영업사원 또는 대표번호로 확인후 입력",
+    "submit_id": "ID 찾기",
+    "submit_password": "비밀번호 찾기",
+    "text_user_id": "사용자 ID",
+    "login": "Login"
+  },
+  "reset-password": {
+    "title": "비밀번호 재설정",
+    "new_password": "신규 비밀번호",
+    "placeholder_new_password": "영문, 숫자 포함 8자리 이상",
+    "confirm_new_password": "신규 비밀번호 확인",
+    "placeholder_confirm_new_password": "영문, 숫자 포함 8자리 이상",
+    "submit_change": "비밀번호 재설정",
+    "reset_success": "비밀번호가 재설정 되었습니다."
+  },
+  "change-password": {
+    "title": "비밀번호 변경",
+    "current_password": "현재 비밀번호",
+    "new_password": "신규 비밀번호",
+    "placeholder_new_password": "영문, 숫자 포함 8자리 이상",
+    "confirm_new_password": "신규 비밀번호 확인",
+    "placeholder_confirm_new_password": "영문, 숫자 포함 8자리 이상",
+    "submit_change": "비밀번호 변경",
+    "change_success": "비밀번호가 변경되었습니다. 다시 로그인해주세요."
+  },
+  "qna": {
+    "register": "등록",
+    "view_more": "더보기",
+    "subtitle": "고객님께서 문의한 내용에 대하여 성실히 답변드리겠습니다",
+    "password_title": "비밀번호 확인",
+    "password": "비밀번호",
+    "keyword": "키워드를 입력하세요."
+  },
+  "qna-detail": {
+    "btn_add": "댓글 등록",
+    "btn_edit": "수정",
+    "btn_del": "삭제",
+    "btn_list": "리스트 보기",
+    "btn_cancel": "취소",
+    "btn_confirm": "확인",
+    "edit_title": "댓글 수정",
+    "register_date": "등록 일자"
+  },
+  "qna-register": {
+    "register_title": "질문 남기기",
+    "name": "등록자",
+    "phone_number": "전화번호",
+    "password": "비밀번호",
+    "title": "제목",
+    "title_holder": "제목을 입력해주세요",
+    "content": "내용",
+    "register": "등록",
+    "register_success": "질문이 성공적으로 등록되었습니다."
+  },
+  "signup": {
+    "title": "JB에 오신것을 환영합니다.",
+    "subtitle": "회원등록",
+    "user_id": "로그인 ID",
+    "customer_id": "고객 ID",
+    "customer_no": "고객번호",
+    "password": "비밀번호",
+    "placeholder_password": "영문, 숫자 포함 8자리 이상",
+    "confirm_password": "비밀번호 확인",
+    "placeholder_confirm_password": "영문, 숫자 포함 8자리 이상",
+    "recommender": "추천인"
+  },
+  "notice": {
+    "desc": "회사운영 및 고객서비스 이용에 필요한 공지사항을 알려드립니다",
+    "keyword": "키워드를 입력하세요"
+  },
+  "notice-detail": {
+    "desc": "JB Capital Myanma는 언제나 고객을 생각하며, 서비스를 제공하고 있습니다\n공지사항 내용중 궁금한 사항이 있으신 경우 대표번호 09940880827로 연락바랍니다",
+    "prev": "이전글",
+    "next": "다음글",
+    "list": "목록으로 가기"
+  },
+  "account-list": {
+    "account_list": "계좌 목록",
+    "loan": "대출",
+    "deposit": "예금"
+  },
+  "table": {
+    "more": "더 보기",
+    "search": "조회",
+    "seq": "회차"
+  }
+}

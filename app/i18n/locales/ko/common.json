@@ -1,0 +1,65 @@
+{
+  "header": {
+    "menu": {
+      "about": "소개",
+      "product": "상품",
+      "notice": "공지",
+      "qna": "문의"
+    },
+    "sign": {
+      "sign-in": "로그인",
+      "sign-out": "로그아웃"
+    },
+    "submenu": {
+      "loan_appl_list": "대출 신청 목록",
+      "user_info": "내 정보",
+      "company_about": "회사소개",
+      "branch_about": "지점소개",
+      "prd_list": "상품목록",
+      "notice_list": "공지사항 목록",
+      "qna_list": "질문 목록"
+    },
+    "greet": {
+      "header_greet": "반갑습니다.",
+      "info_greet": "대출정보를 한눈에 확인하세요.",
+      "last_greet": "님"
+    }
+  },
+
+  "component": {
+    "table": {
+      "more": "더 보기"
+    }
+  },
+
+  "CM1011M01": {
+    "title": {
+      "account_list": "계좌 목록"
+    },
+    "subtitle": {
+      "loan": "대출",
+      "deposit": "예금"
+    },
+    "label": {
+      "loan_tcd_nm": "상품명",
+      "account_no": "계좌번호",
+      "mat_date": "만기일자",
+      "bal_amt": "잔액(MMK)"
+    },
+    "button": {
+      "search": "조회"
+    }
+  },
+
+  "branch": {
+    "title": {
+      "branch_info": "지점안내"
+    },
+    "label": {
+      "fax": "팩스",
+      "contact": "연락처",
+      "address": "주소",
+      "hq": "본점"
+    }
+  }
+}

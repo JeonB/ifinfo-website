@@ -1,0 +1,62 @@
+{
+    "CL1011M01": {
+        "title": {
+            "account_detail": "Account Detail"
+        },
+        "subtitle": {
+            "loan_account_status": "Loan Account Status (As of Today)",
+            "schedule": "Schedule"
+        },
+        "label": {
+            "loan_tcd_nm": "Loan Product",
+            "account_no": "Account Number",
+            "loan_date": "Loan Date",
+            "loan_amt": "Loan Amount",
+            "int_rate": "Interest Rate(%)",
+            "loan_bal": "Loan Balance",
+            "repayed_amt": "Repayed Amount",
+            "delay_cnt": "Delay Count",
+            "schedule_amt": "Schedule Amount",
+            "delay_amt": "Delayed Amount",
+            "schedule_date": "Schedule Date",
+            "received_amt": "Received Amount"
+        }
+    },
+
+    "CL5551M01": {
+        "title": {
+            "loan_appl_list": "Loan Application List"
+        },
+        "label": {
+            "loan_tcd_nm": "Loan Product",
+            "appl_no": "Application Number",
+            "appl_amt": "Application Amount",
+            "appl_status": "Application Status"
+        },
+        "button": {
+            "search": "Detail"
+        }
+    },
+    
+    "CL1551M01": {
+        "title": {
+            "loan_appl_detail": "Loan Application Detail"
+        },
+        "subtitle": {
+            "schedule": "Schedule"
+        },
+        "label": {
+            "loan_tcd_nm": "Loan Product",
+            "appl_no": "Application No.",
+            "loan_period": "Loan Period",
+            "loan_days": "Loan Days",
+            "int_rate": "Interest Rate(%)",
+            "loan_amt": "Loan Amount",
+            "seq": "Sequence",
+            "schedule_date": "Schedule Date",
+            "prin_amt": "Principal Amount",
+            "int_amt": "Interest Amount",
+            "tot_amt": "Total Amount"
+        }
+    }
+}

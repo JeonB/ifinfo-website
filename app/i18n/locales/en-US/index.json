@@ -1,0 +1,313 @@
+{
+  "title": "Teststeetedtestwording",
+  "common": {
+    "brandName": "GBS",
+    "ok": "Confirm",
+    "cancel": "Cancel",
+    "close": "Close",
+    "continue": "Continue",
+    "back": "Back",
+    "select": "Select",
+    "save": "Save",
+    "email": "Email",
+    "user": "User",
+    "language": {
+      "en": "English",
+      "ko": "Korean",
+      "lo": "Myanmar",
+      "my": "Myanmar"
+    },
+    "auto_logout": "The app has been automatically logged out because it has not been used for a long time.",
+    "update_title": "NEW UPDATE",
+    "update_new": "New update is available",
+    "update_ignore": "Ignore",
+    "update_install": "Install",
+    "update_continue": "Continue"
+  },
+  "errors": {
+    "homeCmsBlockId": "HOME CMS BLOCK ID ERROR",
+    "homeCmsBlockIdMessage": "Please Refer to Step 2 in setup documentation.\n https://github.com/alexakasanjeev/gbs_react_native/wiki/Setup",
+    "integrationTokenRequired": "INTEGRATION TOKEN REQUIRED ERROR",
+    "integrationTokenRequiredMessage": "Please refer to Step 1 in setup documentation.\n https://github.com/alexakasanjeev/gbs_react_native/wiki/Setup",
+    "noResponseFromServer": "Service is temporarily unavailable. Please try again later or contact the service center",
+    "noResponseFromServerMessage": "Service is temporarily unavailable. Please try again later or contact the service center",
+    "404error": "Service is temporarily unavailable. Please try again later or contact the service center",
+    "404errorMessage": "Service is temporarily unavailable. Please try again later or contact the service center",
+    "emptyFieldsMessage": "Please fill all fields",
+    "networkError": "Network connection failure"
+  },
+  "modalSelect": {
+    "scroll": "Scrollable options",
+    "cancelButton": "Cancel Button"
+  },
+  "navigation": {
+    "bottomTabMenu": {
+      "home": "Home",
+      "account": "Account",
+      "product": "Product",
+      "branch": "Branch"
+    },
+    "drawerMenu": {
+      "login": "Login",
+      "sign_out": "Logout",
+      "account": {
+        "title": "Account",
+        "loan_application_list": "Loan Application List",
+        "account_list": "Account List"
+      },
+      "product": {
+        "title": "Product",
+        "loan_product_list": "Loan Product List",
+        "loan_product_description": "Loan Product Description"
+      },
+      "board": {
+        "title": "Board",
+        "notice": "Notice",
+        "mobile_qna": "Mobile Q&A"
+      },
+      "common": {
+        "title": "About JBCM",
+        "branch": "Branch",
+        "about_company": "About Company"
+      },
+      "setting": {
+        "title": "Setting",
+        "user_info_change": "User Information Change",
+        "password_change": "Password Change",
+        "app_setting": "APP Setting"
+      }
+    },
+    "about_company": "About Company",
+    "mobile_qna": "Mobile Q&A",
+    "mobile_qna_register": "Mobile Q&A Register",
+    "notice": "Notice",
+    "notice_detail": "Notice Detail",
+    "account": "Account",
+    "account_detail": "Account Detail",
+    "loan_application": "Loan Application",
+    "loan_application_detail": "Loan Application Detail",
+    "product_list": "Product List",
+    "product_detail": "Product Detail",
+    "signup": "Sign Up",
+    "find_id": "Find ID/Password",
+    "reset_password": "Reset Password",
+    "password_change": "Change Password",
+    "user_info_change": "User Information Change",
+    "app_setting": "APP Setting",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "home": {
+    "login": "Login",
+    "welcome_login": "Welcome",
+    "welcome_guest": "Finance with Customers",
+    "contact_us": "Contact Us",
+    "contact_loan": "Loan Inquiry",
+    "contact_other": "Other Inquiry",
+    "contact_bizday": "Biz Day",
+    "customer_service": "Customer Service",
+    "qna": "Q & A",
+    "notice": "Notice",
+    "company": "Company",
+    "nonews": "No new notices."
+  },
+  "product-desc": {
+    "product_description": "Product Description",
+    "product_condition": "Product Condition",
+    "more_product": "View more products"
+  },
+  "product": {
+    "loan_term": "Repayment Term",
+    "loan_amount": "Loan Amount",
+    "interest_rate": "Yearly Interest Rate(%)"
+  },
+  "product-detail": {
+    "schedule_example": "Schedule Example",
+    "loan_product": "Loan Product",
+    "loan_amount": "Loan Amount",
+    "input_schedule_amt": "Input the desired Loan Amt",
+    "val_input_loan_amt": "Please input loan amount.",
+    "calculate": "CALCULATE",
+    "schedule_amt": "Schedule Amt",
+    "target": "Target",
+    "product_desc": "Description",
+    "loan_term": "Repayment Term",
+    "interest_rate": "Yearly Interest Rate(%)"
+  },
+  "app-setting": {
+    "language": "Language Setting"
+  },
+  "branch": {
+    "need_login_info": "Please login to check.",
+    "my_branch": "My Branch",
+    "support": "Support",
+    "sales": "Sales",
+    "manager": "Manager",
+    "branch_info": "Branch Info",
+    "fax": "Fax",
+    "hq": "HQ"
+  },
+  "user-info": {
+    "user_id": "User ID",
+    "user_name": "User Name",
+    "address": "Address",
+    "tel": "Phone",
+    "change_phone": "Change Phone Number",
+    "change_success": "User information changed successfully.",
+    "screen_lang": "Screen Language",
+    "screen_lang_EN": "English",
+    "screen_lang_KO": "Korean",
+    "screen_lang_LO": "Myanmar",
+    "user_info": "User Information"
+  },
+  "account": {
+    "account_no": "Account No",
+    "maturity_date": "Maturity Date",
+    "balance_amt": "Balance Amount"
+  },
+  "account-detail": {
+    "info1": "Please ask to Loan Officer Because amount will be change up to Prepaid",
+    "info2": "Please contact Loan Officer or Branch If you didn't receive Compulsory Saving in spite of Loan Close(Prepaid, Mature) ",
+    "loan_amt": "Loan Amount",
+    "interest_rate": "Yearly Interest Rate(%)",
+    "value_date": "Value Date",
+    "account_status": "Loan Account Status (As of Today)",
+    "balance_amt": "Balance Amount",
+    "early_repay_amt": "Prepaid Amt.",
+    "delay_count": "Delay Count",
+    "delay_amt": "Delay Amt.",
+    "day_repay_amt": "Day Repay Amt.",
+    "loan_account_no": "Loan Account No",
+    "account_no": "Saving Account No",
+    "open_date": "Account Open Date",
+    "maturity_date": "Maturity Date",
+    "exp_maturity_date": "Exp. Maturity Amt.",
+    "schedule": "Schedule",
+    "schedule_amt": "Schedule Amount",
+    "schedule_dat": "Schedule Date",
+    "received_amt": "Received Amount",
+    "prin_amt": "Principal Amount",
+    "int_amt": "Interest Amount",
+    "tot_amt": "Total Amount",
+    "repay_amt": "Repay Amount"
+  },
+  "loan-application": {
+    "application_no": "Application No.",
+    "loan_amt": "Loan Amount",
+    "status": "Status"
+  },
+  "loan-application-detail": {
+    "application_div": "Branch",
+    "center": "Center",
+    "loan_amt": "Loan Amount",
+    "loan_period": "Loan Period",
+    "loan_days": "Loan Days",
+    "repay_method": "Repayment Method",
+    "interest_rate": "Yearly Int. Rate(%)",
+    "schedule": "Schedule"
+  },
+  "login": {
+    "welcome": "Welcome to JB",
+    "login_slogan": "Login to continue!",
+    "user_id": "User ID",
+    "user_id_placeholder": "User ID",
+    "password": "Password",
+    "password_placeholder": "Password",
+    "forget_pass": "Forget ID/Password?",
+    "login_button": "LOGIN",
+    "signup_button": "SIGN UP",
+    "save_id": "Save ID"
+  },
+  "login-find": {
+    "title": "Find your ID or Password",
+    "customer_id": "Customer ID",
+    "customer_no": "Customer No.",
+    "placeholder_id": "ID (NRC)",
+    "placeholder_customer_no": "Please check with customer center",
+    "submit_id": "Find ID",
+    "submit_password": "Find Password",
+    "text_user_id": "Your User ID is",
+    "login": "Login"
+  },
+  "reset-password": {
+    "title": "Reset Password",
+    "new_password": "New Password",
+    "placeholder_new_password": "More than 8 digits including alphanumeric characters",
+    "confirm_new_password": "Confirm New Password",
+    "placeholder_confirm_new_password": "More than 8 digits including alphanumeric characters",
+    "submit_change": "Reset Password",
+    "reset_success": "Reset password success!"
+  },
+  "change-password": {
+    "title": "Change Password",
+    "current_password": "Current Password",
+    "new_password": "New Password",
+    "placeholder_new_password": "More than 8 digits including alphanumeric characters",
+    "confirm_new_password": "Confirm New Password",
+    "placeholder_confirm_new_password": "More than 8 digits including alphanumeric characters",
+    "submit_change": "Change Password",
+    "change_success": "Password changed successfully. Please login again."
+  },
+  "qna": {
+    "register": "Register",
+    "view_more": "View More",
+    "subtitle": "We will respond sincerely to your inquiry",
+    "password_title": "Password Check",
+    "password": "Password",
+    "keyword": "Enter keyword"
+  },
+  "qna-detail": {
+    "btn_add": "Add comment",
+    "btn_edit": "Edit",
+    "btn_del": "Delete",
+    "btn_list": "Goto List",
+    "btn_cancel": "Cancel",
+    "btn_confirm": "Confirm",
+    "edit_title": "Edit Comment",
+    "register_date": "Register Date"
+  },
+  "qna-register": {
+    "register_title": "Question",
+    "name": "Name",
+    "phone_number": "Phone Number",
+    "password": "Password",
+    "title": "Title",
+    "title_holder": "Please input a title",
+    "content": "Content",
+    "register": "Register",
+    "register_success": "Question registered successfully"
+  },
+  "signup": {
+    "title": "Welcome to JB",
+    "subtitle": "Sign Up!",
+    "user_id": "User ID",
+    "customer_id": "Customer ID",
+    "customer_no": "Customer No.",
+    "password": "Password",
+    "placeholder_password": "More than 8 digits including alphanumeric characters",
+    "confirm_password": "Confirm Password",
+    "placeholder_confirm_password": "More than 8 digits including alphanumeric characters",
+    "signup_success": "Signup success",
+    "recommender": "Recommender"
+  },
+  "notice": {
+    "desc": "We will inform you of the necessary announcements for the operation of the company and the use of customer service",
+    "keyword": "Enter keyword"
+  },
+  "notice-detail": {
+    "desc": "JB Capital Myanmar always cares about customers and provides services.\n  If you have any questions about the announcement, please contact the representative number 09940880827.",
+    "prev": "Previous",
+    "next": "Next",
+    "list": "Goto List"
+  },
+  "account-list": {
+    "account_list": "Account List",
+    "loan": "Loan",
+    "deposit": "Deposit"
+  },
+  "table": {
+    "more": "Show more",
+    "search": "Detail",
+    "seq": "Sequence"
+  }
+}
