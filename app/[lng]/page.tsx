@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { Trans } from 'react-i18next/TransWithoutContext'
 import { useTranslation } from '../i18n'
 import { fallbackLng, languages } from '../i18n/settings'
-import { Footer } from './components/Footer'
 
 export default async function Page({
   params: { lng },
@@ -16,7 +15,7 @@ export default async function Page({
 
   return (
     <>
-      <main>
+      <div style={{ padding: '20px' }}>
         <h2>
           <Trans t={t} i18nKey="welcome">
             Welcome to Next.js v13 <small>appDir</small> and i18next
@@ -46,9 +45,7 @@ export default async function Page({
             <button type="button">{t('to-client-page')}</button>
           </Link>
         </div>
-      </main>
-      {/* @ts-expect-error 비동기 컴포넌트를 사용할 때 발생하는 경고 무시 */}
-      <Footer lng={lng} />
+      </div>
     </>
   )
 }
