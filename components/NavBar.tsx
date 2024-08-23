@@ -1,47 +1,43 @@
 'use client'
 import logoImg from '@/assets/logo.png'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
 import classes from './navbar.module.css'
 export default function NavBar() {
+  const LocaleSwitcher = dynamic(() => import('./LocaleSwitcher'), {
+    ssr: false,
+  })
   return (
     <nav className={classes.nav}>
+      <Link href="/">
+        <Image src={logoImg} alt="logo" className={classes.logo} />
+      </Link>
       <ul className={classes.ul}>
-        <li>
-          <Link className={classes.a} href="/">
-            <Image src={logoImg} alt="logo" width={200}></Image>
-          </Link>
-        </li>
-        <li>
+        <li className={classes.li}>
           <Link className={classes.a} href="/about">
-            About
+            COMPANY
           </Link>
         </li>
-        <li>
+        <li className={classes.li}>
           <Link className={classes.a} href="/contact">
-            Contact
+            BUSINESS
           </Link>
+        </li>
+        <li className={classes.li}>
+          <Link className={classes.a} href="/product">
+            PRODUCT
+          </Link>
+        </li>
+        <li className={classes.li}>
+          <Link className={classes.a} href="/recruit">
+            RECRUIT
+          </Link>
+        </li>
+        <li className={classes.li}>
+          <LocaleSwitcher />
         </li>
       </ul>
-      {/* <style jsx>{`
-        nav {
-          background: #333;
-          padding: 1em;
-        }
-        ul {
-          display: flex;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-        }
-        li {
-          margin-right: 1em;
-        }
-        a {
-          color: white;
-          text-decoration: none;
-        }
-      `}</style> */}
     </nav>
   )
 }

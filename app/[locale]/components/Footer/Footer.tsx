@@ -10,7 +10,7 @@ import {
 
 export const Footer = () => {
   return (
-    <Box bg={'gbs.g'} color={useColorModeValue('gray.500', 'gray.200')}>
+    <Box bg={'gbs.footer'} color={useColorModeValue('gbs.f', 'gbs.a')}>
       <Container as={Stack} maxW={'6xl'} py={10}>
         <Flex justifyContent={'space-between;'}>
           <Box>
@@ -33,7 +33,7 @@ export const Footer = () => {
 
           <Box>
             <Stack>
-              <Text color={'#505050'} fontSize={'13px'}>
+              <Text fontSize={'13px'}>
                 <span className="footSpan">
                   본 사이트의 콘텐츠는 저작권법의 보호를 받는바, 무단 전재,
                   복사, 배포 등을 금합니다.
@@ -41,12 +41,10 @@ export const Footer = () => {
               </Text>
             </Stack>
             <Stack mt={'15px'}>
-              <Text color={'#505050'} fontSize={'13px'}>
+              <Text fontSize={'13px'}>
                 <span className="footSpan">
-                  <p>
-                    &copy; Copyright 2001- {new Date().getFullYear()} IF
-                    Information Systems All Rights Reserved.
-                  </p>
+                  &copy; 2001 - {new Date().getFullYear()} IF Information
+                  Systems All Rights Reserved.
                 </span>
               </Text>
             </Stack>

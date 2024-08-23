@@ -1,18 +1,36 @@
+/* navbar.module.css */
+
 .nav {
-  background: #fbfbfb;
-  padding: 1em;
-}
-.ul {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ul {
   list-style: none;
+  display: flex;
   margin: 0;
   padding: 0;
 }
-.ul li {
-  margin-right: 1em;
-  align-content: center;
+
+.li {
+  margin-left: 2rem;
 }
+
 .a {
-  color: #467fcf;
   text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.a:hover {
+  color: #0070f3; /* 링크에 마우스를 올렸을 때 색상 변경 */
+}
+
+.logo {
+  width: 200px; /* 로고의 크기 조정 */
 }

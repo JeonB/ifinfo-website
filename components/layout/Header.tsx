@@ -1,3 +1,5 @@
+'use client'
+
 import { ChevronDownIcon, CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import { useMediaQuery } from '@chakra-ui/media-query'
 import {
@@ -11,7 +13,6 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  // Link,
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -23,56 +24,27 @@ import {
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react'
-import { signOut, useSession } from 'next-auth/react'
-import { useTranslation } from 'next-i18next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useCallback, useEffect, useState } from 'react'
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
-// states
-import dynamic from 'next/dynamic'
-import { authSeletor } from '~/states/auth/selector'
-import { CommonState } from '~/states/biz/CommonAtom'
+import { useState } from 'react'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { useTranslation } from '../../app/i18n'
 import FadeInview from '../common/utill/FadeInview'
-// import { LocaleSwitcher } from '~/components/common/locale'
 
 export const Header = () => {
   const { t } = useTranslation('common')
   const router = useRouter()
-  // status 'loading' | 'authenticated' | 'unauthenticated'
-  const { status } = useSession()
   const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onToggle } = useDisclosure()
   const [isSmallScreen] = useMediaQuery('(min-width:750px)')
 
   const [authState, setAuthState] = useState(false)
-  const authValue = useRecoilValue<any>(authSeletor)
-  const setAuthValue = useSetRecoilState(authSeletor)
 
   const LocaleSwitcher = dynamic(
     () => import('~/components/common/locale/index'),
     { ssr: false },
   )
-
-  useEffect(() => {
-    // 세션값 있고, 세션스토리지 값 없으면 로그아웃 처리
-    if (status === 'authenticated') {
-      console.log('authValue >>', authValue)
-      if (!authValue) {
-        setAuthValue(null)
-        setAuthState(false)
-
-        signOut({ callbackUrl: '/', redirect: true })
-      }
-    }
-  }, [status])
-
-  const onClickSignOut = useCallback(() => {
-    setAuthValue(null)
-    setAuthState(false)
-
-    signOut({ callbackUrl: '/', redirect: true })
-  }, [])
 
   return (
     <FadeInview type="scale" range="0.3">
@@ -172,26 +144,8 @@ export const Header = () => {
                         {t('header.submenu.user_info')}
                       </Link>
                     </MenuItem>
-                    <MenuItem onClick={onClickSignOut}>
-                      {t('header.sign.sign-out')}
-                    </MenuItem>
                   </MenuList>
                 </Menu>
-                <Button
-                  fontSize={'19px'}
-                  sx={{
-                    borderStyle: 'none',
-                  }}
-                  display={{ base: 'flex', md: 'none' }}
-                  _hover={{
-                    backgroundColor: 'none',
-                  }}
-                  _active={{
-                    backgroundColor: 'none',
-                  }}
-                  onClick={onClickSignOut}>
-                  {t('header.sign.sign-out')}
-                </Button>
               </>
             ) : status === 'loading' ? (
               <Spinner size="md" />
@@ -437,129 +391,4 @@ const NAV_ITEMS: Array<NavItem> = [
       },
     ],
   },
-  // {
-  //   label: 'Test',
-  //   children: [
-  //     {
-  //       label: 'swr',
-  //       subLabel: 'swr test',
-  //       href: '/test/swr',
-  //     },
-  //     {
-  //       label: 'React Query',
-  //       href: '/test/query',
-  //     },
-  //     {
-  //       label: 'session',
-  //       href: '/test/session',
-  //     },
-  //     {
-  //       label: 'sample',
-  //       href: '/test/sample',
-  //     },
-  //     {
-  //       label: 'CSR(Client Side Rendering)',
-  //       href: '/test/csr',
-  //     },
-  //     {
-  //       label: 'SSR(Server Side Rendering)',
-  //       href: '/test/ssr',
-  //     },
-  //     {
-  //       label: 'SSG(Static Site Generation)',
-  //       href: '/test/ssg',
-  //     },
-  //     {
-  //       label: 'ISR(Incremental Static Regeneration)',
-  //       href: '/test/isr',
-  //     },
-  //   ],
-  // },
-  // {
-  //   label: 'Biz',
-  //   children: [
-  //     {
-  //       label: 'CM1011M01',
-  //       href: '/biz/CM1011M01',
-  //     },
-  //     {
-  //       label: '정보수정',
-  //       href: '/auth/UserInfo',
-  //     },
-  //     {
-  //       label: 'CL5551M01',
-  //       href: '/biz/CL5551M01',
-  //     },
-  //     {
-  //       label: 'Home',
-  //       href: '/',
-  //     },
-  //     {
-  //       label: 'Oversea Branch Banking',
-  //       href: '#',
-  //     },
-  //     {
-  //       label: 'Statutory Report[Korea]',
-  //       href: '#',
-  //     },
-  //     {
-  //       label: 'Statutory Report[Other]',
-  //       href: '#',
-  //     },
-  //   ],
-  // },
-  // {
-  //   label: 'Product',
-  //   children: [
-  //     {
-  //       label: 'GBS',
-  //       href: '#',
-  //     },
-  //     {
-  //       label: 'IF-Framework',
-  //       href: '#',
-  //     },
-  //     {
-  //       label: 'IF-TradeFinance',
-  //       href: '#',
-  //     },
-  //     {
-  //       label: 'IF-Accounting',
-  //       href: '#',
-  //     },
-  //     {
-  //       label: 'IF-Loan',
-  //       href: '#',
-  //     },
-  //     {
-  //       label: 'IF-Deposit',
-  //       href: '#',
-  //     },
-  //     {
-  //       label: 'IF-Reconcile',
-  //       href: '#',
-  //     },
-  //     {
-  //       label: 'IF-Foreign Exchange',
-  //       href: '#',
-  //     },
-  //   ],
-  // },
-  // {
-  //   label: 'Recruit',
-  //   children: [
-  //     {
-  //       label: 'Recruit',
-  //       href: '#',
-  //     },
-  //     {
-  //       label: 'Human Resources',
-  //       href: '#',
-  //     },
-  //   ],
-  // },
-  // {
-  //   label: 'Intranet',
-  //   href: '#',
-  // },
 ]

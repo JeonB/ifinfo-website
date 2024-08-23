@@ -1,4 +1,8 @@
 {
+  "HomePage": {
+    "title": "Home",
+    "content": "Welcome to the Loan Management System."
+  },
   "header": {
     "menu": {
       "about": "About",

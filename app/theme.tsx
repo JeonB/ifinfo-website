@@ -33,6 +33,7 @@ const colors = {
     l: '#E3E3E3',
     m: '#6D6969',
     n: '#D9D9D9',
+    footer: '#518bff',
   },
 }
 

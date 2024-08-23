@@ -1,3 +1,4 @@
+'use client'
 import {
   Box,
   Container,
@@ -15,25 +16,41 @@ export const Footer = () => {
           <Box>
             <Stack>
               <Text fontSize={'13px'}>
-                <span className="footSpan">대출문의 02.6383.3104</span> |
-                영업시간 09:00 ~ 17:00
+                <span className="footSpan">
+                  주소 : 서울 강서구 마곡서로 152 두산더랜드타워 B동
+                  801호(마곡동)
+                </span>
               </Text>
             </Stack>
 
             <Stack>
               <Text mt={'15px'} fontSize={'13px'}>
-                <span className="footSpan">기타문의 02.6383.3101</span> |
-                영업시간 09:00 ~ 17:00
+                <span className="footSpan">대표번호 : 02-6383-3101</span> | 팩스
+                : 02-6383-3104
               </Text>
             </Stack>
           </Box>
 
-          <Stack mt={'18px'}>
-            <Text color={'#505050'} fontSize={'13px'}>
-              <span className="footSpan">대표지점</span> 서울시 강서구 마곡서로
-              152, 두산더랜드타워, B동
-            </Text>
-          </Stack>
+          <Box>
+            <Stack>
+              <Text color={'#505050'} fontSize={'13px'}>
+                <span className="footSpan">
+                  본 사이트의 콘텐츠는 저작권법의 보호를 받는바, 무단 전재,
+                  복사, 배포 등을 금합니다.
+                </span>
+              </Text>
+            </Stack>
+            <Stack mt={'15px'}>
+              <Text color={'#505050'} fontSize={'13px'}>
+                <span className="footSpan">
+                  <p>
+                    &copy; 2001 - {new Date().getFullYear()} IF Information
+                    Systems All Rights Reserved.
+                  </p>
+                </span>
+              </Text>
+            </Stack>
+          </Box>
         </Flex>
       </Container>
     </Box>
