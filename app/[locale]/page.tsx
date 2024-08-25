@@ -2,7 +2,7 @@
 import FadeInview from '@/components/common/utill/FadeInview'
 import { Box, Flex, Heading, Image, Link } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
-import { fallbackLng, languages } from '../i18n/settings'
+// import { fallbackLng, languages } from '../i18n/settings'
 export default function Page({
   params: { lng },
 }: {
@@ -10,11 +10,15 @@ export default function Page({
     lng: string
   }
 }) {
-  if (languages.indexOf(lng) < 0) lng = fallbackLng
+  // if (languages.indexOf(lng) < 0) lng = fallbackLng
   const t = useTranslations('HomePage')
   return (
     <>
-      <video autoPlay muted loop style={{ width: '100%', height: 'auto' }}>
+      <video
+        autoPlay
+        muted
+        loop
+        style={{ width: '100%', height: '80vh', objectFit: 'cover' }}>
         <source src="/intro-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>

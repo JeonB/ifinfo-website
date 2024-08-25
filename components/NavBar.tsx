@@ -1,8 +1,8 @@
 'use client'
 import logoImg from '@/assets/logo.png'
+import { Link } from '@/navigation'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-import Link from 'next/link'
 import classes from './navbar.module.css'
 export default function NavBar() {
   const LocaleSwitcher = dynamic(() => import('./LocaleSwitcher'), {

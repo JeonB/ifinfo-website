@@ -1,4 +1,4 @@
 import { LocalePrefix } from 'next-intl/routing'
 
-export const locales = ['en-US', 'ko', 'my'] as const
-export const localePrefix = 'always' satisfies LocalePrefix
+export const locales = ['en', 'ko', 'my'] as const
+export const localePrefix = 'never' satisfies LocalePrefix

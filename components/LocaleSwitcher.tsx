@@ -1,5 +1,5 @@
 'use client'
-import { useRouter } from '@/navigation'
+import { usePathname, useRouter } from '@/navigation'
 import {
   Box,
   Image,
@@ -8,27 +8,35 @@ import {
   MenuItem,
   MenuList,
 } from '@chakra-ui/react'
-import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
+
 export const LocaleSwitcher = () => {
   const router = useRouter()
   const pathname = usePathname()
-  console.log('pathname', pathname)
-  const handleLocaleChange = (locale: string) => {
-    // 정규 표현식을 사용하여 URL에서 첫 번째 로케일 부분을 찾아 새 로케일로 대체
-    const newPath = pathname.replace(/^\/[a-z]{2}(-[A-Z]{2})?/, `/${locale}`)
+  const [locale, setLocale] = useState<string>('')
 
+  const handleLocaleChange = (locale: string) => {
     // 업데이트된 URL로 라우팅
-    router.push(newPath)
+    setLocale(locale)
   }
+
+  useEffect(() => {
+    if (locale) {
+      const pathWithoutLocale = pathname.replace(/^\/(en|ko|my)(\/|$)/, '')
+      const newPath = `/${pathWithoutLocale === '' ? '/' : pathWithoutLocale}`
+      router.replace(newPath, { locale: locale })
+    }
+  }, [locale])
+
   return (
     <Box>
-      <Box borderWidth="1px" borderRadius="md" borderStyle="none" px={4} h={10}>
+      <Box borderWidth="1px" borderRadius="md" borderStyle="none" px={8} h={10}>
         <Menu>
           <MenuButton>
             <Image src="/images/locale.png" alt="test" />
           </MenuButton>
           <MenuList>
-            <MenuItem onClick={() => handleLocaleChange('en-US')}>
+            <MenuItem onClick={() => handleLocaleChange('en')}>
               English
             </MenuItem>
             <MenuItem onClick={() => handleLocaleChange('ko')}>한국어</MenuItem>

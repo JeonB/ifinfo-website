@@ -2,18 +2,16 @@ import NavBar from '@/components/NavBar'
 import { ColorModeScript } from '@chakra-ui/react'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import { Providers } from './providers'
 import { Footer } from './[locale]/components/Footer/Footer'
+import { Providers } from './providers'
 export default async function RootLayout({
   children,
-  params: { locale },
 }: {
   children: React.ReactNode
-  params: { locale: string }
 }) {
   const messages = await getMessages()
   return (
-    <html lang={locale}>
+    <html>
       <head>
         <title>(주)이프정보시스템</title>
         <link rel="icon" href="images/favicon.ico" />
