@@ -1,7 +1,20 @@
 {
-  "HomePage": {
+  "Main": {
     "title": "Home",
-    "content": "Welcome to the Loan Management System."
+    "consulting": "Proposing the optimal financial software solution tailored to the client's requirements",
+    "outsourcing": "Delegating professional financial software development and maintenance to external experts",
+    "solution": "Providing customized financial software to solve the client's business problems",
+    "business": "Innovative software solutions supporting the digital transformation and operational efficiency of financial institutions",
+    "product": "Innovative software that optimizes every aspect of financial operations",
+    "clients": "We are collaborating with numerous domestic and international financial institutions and companies."
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, ko {🇰🇷 한국어} en {🇺🇸 English} my {🇲🇲 မြန်မာဘာသာ} other {Unknown}}"
+  },
+  "LocaleLayout": {
+    "title": "International Finance Systems",
+    "description": "At the heart of global banking, IF Information System Co., Ltd"
   },
   "header": {
     "menu": {

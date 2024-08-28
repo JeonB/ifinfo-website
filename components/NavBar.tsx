@@ -15,12 +15,12 @@ export default function NavBar() {
       </Link>
       <ul className={classes.ul}>
         <li className={classes.li}>
-          <Link className={classes.a} href="/about">
+          <Link className={classes.a} href="/company">
             COMPANY
           </Link>
         </li>
         <li className={classes.li}>
-          <Link className={classes.a} href="/contact">
+          <Link className={classes.a} href="/business">
             BUSINESS
           </Link>
         </li>
