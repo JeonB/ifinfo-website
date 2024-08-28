@@ -8,7 +8,7 @@ const FadeInview = ({
   children,
 }: {
   type: string
-  range: number
+  range: string
   children: React.ReactNode
 }) => {
   const { ref, inView, entry } = useInView({
