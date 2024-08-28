@@ -2,7 +2,15 @@
 import { ScaleFade, SlideFade } from '@chakra-ui/react'
 import { useInView } from 'react-intersection-observer'
 
-const FadeInview = ({ type, range, children }) => {
+const FadeInview = ({
+  type,
+  range,
+  children,
+}: {
+  type: string
+  range: number
+  children: React.ReactNode
+}) => {
   const { ref, inView, entry } = useInView({
     threshold: range || 0.3,
   })
