@@ -92,7 +92,7 @@ export default function Page({
       </div>
 
       {/* Business */}
-      <FadeInview type="scale" range="0.3">
+      <FadeInview type="scale" range={0.3}>
         <Flex
           justify="center"
           style={{
@@ -180,7 +180,7 @@ export default function Page({
       </FadeInview>
 
       {/* Product */}
-      <FadeInview type="scale" range="0.3">
+      <FadeInview type="scale" range={0.3}>
         <Flex
           justify="center"
           style={{
@@ -228,7 +228,7 @@ export default function Page({
       </FadeInview>
 
       {/* Clients */}
-      <FadeInview type="scale" range="0.3">
+      <FadeInview type="scale" range={0.3}>
         <Flex
           justify="center"
           style={{
