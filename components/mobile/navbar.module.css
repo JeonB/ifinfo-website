@@ -1,0 +1,46 @@
+/* navbar.module.css */
+
+.nav {
+  align-items: center;
+  padding: 1rem 2rem;
+  width: '50%';
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ul {
+  list-style: none;
+  display: flex;
+  margin-top: 1rem;
+  padding: 0;
+  justify-content:;
+}
+
+.li {
+  margin-left: 2rem;
+}
+
+.a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+  display: block;
+}
+
+.a:hover {
+  color: #0070f3; /* 링크에 마우스를 올렸을 때 색상 변경 */
+}
+
+.logo {
+  width: 200px; /* 로고의 크기 조정 */
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}

@@ -1,4 +1,6 @@
+import { isMobi } from '@/components/common/utill/device'
 import { Footer } from '@/components/layout/Footer'
+import MobileHeader from '@/components/mobile/MobileHeader'
 import NavBar from '@/components/NavBar'
 import { locales } from '@/config'
 import { ColorModeScript } from '@chakra-ui/react'
@@ -9,9 +11,11 @@ import {
   unstable_setRequestLocale,
 } from 'next-intl/server'
 import { Inter } from 'next/font/google'
+import { headers } from 'next/headers' // next/headers로 헤더 가져오기
 import { ReactNode } from 'react'
 import '../../styles/global.css'
 import { Providers } from '../providers'
+
 const inter = Inter({ subsets: ['latin'] })
 
 type Props = {
@@ -30,10 +34,13 @@ export default async function LocaleLayout({
   // Enable static rendering
   unstable_setRequestLocale(locale)
 
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages()
   const t = await getTranslations({ locale, namespace: 'LocaleLayout' })
+
+  // 서버에서 헤더를 통해 user-agent 가져오기
+  const userAgent = headers().get('user-agent') || ''
+  const isMobile = isMobi(userAgent) // 모바일 여부 판별
+
   return (
     <html lang={locale}>
       <head>
@@ -45,7 +52,8 @@ export default async function LocaleLayout({
         <Providers>
           <NextIntlClientProvider messages={messages}>
             <div className="container">
-              <NavBar />
+              {/* 모바일 여부에 따라 헤더 선택 */}
+              {isMobile ? <MobileHeader /> : <NavBar />}
               <ColorModeScript />
               <main style={{ flex: '1' }}>{children}</main>
             </div>
