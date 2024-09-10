@@ -1,22 +1,9 @@
 'use client'
-import FadeInview from '@/components/common/utill/FadeInview'
-import { Link } from '@/navigation'
-import {
-  AspectRatio,
-  Box,
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  Flex,
-  Heading,
-  Image,
-  Stack,
-  Text,
-} from '@chakra-ui/react'
+import { Section } from '@/components/common/utill/Section'
+import BusinessCarousel from '@/components/desktop/business'
+import { Image } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
-import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import './card-styles.css'
 
@@ -109,255 +96,47 @@ export default function Page({
       </div>
 
       {/* Business */}
-      <FadeInview type="scale" range={0.3}>
-        <Flex
-          justify="center"
-          style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-          }}>
-          <Box style={{ width: '100%', marginBottom: '3em' }}>
-            <Heading
-              className="mainSection1text"
-              size={{ base: 'lg', md: '3xl' }} // 반응형 폰트 크기 설정
-              style={{
-                fontStyle: 'italic',
-                textAlign: 'center',
-              }}>
-              Business
-            </Heading>
-            <Heading
-              className="mainSection1text"
-              size={{ base: 'sm', md: 'lg' }} // 반응형 폰트 크기 설정
-              style={{
-                textAlign: 'center',
-                fontWeight: '400',
-                marginTop: 10,
-              }}>
-              {t('business')}
-            </Heading>
-            {isMobile ? (
-              <Carousel
-                showDots={true}
-                // centerMode={true}
-                partialVisbile={true}
-                responsive={responsive}
-                infinite={true}
-                autoPlay={true}
-                autoPlaySpeed={3000}
-                transitionDuration={500}
-                removeArrowOnDeviceType={['tablet', 'mobile']}
-                dotListClass="custom-dot-list-style"
-                itemClass="carousel-item-padding-40-px"
-                containerClass="carousel-container">
-                {slides.map((slide, index) => (
-                  <Box
-                    key={index}
-                    style={{ width: '90%', height: 'auto', padding: 0 }}>
-                    <Card
-                      direction={{ base: 'column', sm: 'row' }}
-                      variant="outline"
-                      size={'lg'}
-                      alignItems="center"
-                      width="100%"
-                      height="auto"
-                      display="flex"
-                      flexDirection={{ base: 'column', md: 'row' }}>
-                      <AspectRatio
-                        ratio={16 / 9}
-                        width={{ base: '100%', md: '50%' }}>
-                        <Image
-                          style={{ padding: 20, borderRadius: 30 }}
-                          src={slide.image}
-                          alt={slide.title}
-                          objectFit="cover"
-                          width="100%"
-                          height="100%"
-                        />
-                      </AspectRatio>
-                      <Stack flex="1" padding={4}>
-                        <CardBody>
-                          <Heading
-                            fontSize={{ base: '2em', md: '3em' }} // fontSize 속성을 직접 설정
-                            color="#586cdb">
-                            {slide.title}
-                          </Heading>
-                          <Text
-                            py="0"
-                            fontSize={{ base: '1em', md: '1.5em' }} // fontSize 속성을 직접 설정
-                          >
-                            {slide.description}
-                          </Text>
-                        </CardBody>
-                        <CardFooter>
-                          <Button variant="solid" colorScheme="blue">
-                            <Link href="/business">Learn More</Link>
-                          </Button>
-                        </CardFooter>
-                      </Stack>
-                    </Card>
-                  </Box>
-                ))}
-              </Carousel>
-            ) : (
-              <Carousel
-                showDots={true}
-                centerMode={true}
-                // partialVisbile={true}
-                responsive={responsive}
-                infinite={true}
-                autoPlay={true}
-                autoPlaySpeed={3000}
-                removeArrowOnDeviceType={['tablet', 'mobile']}
-                dotListClass="custom-dot-list-style"
-                itemClass="carousel-item-padding-20-px"
-                containerClass="carousel-container">
-                {slides.map((slide, index) => (
-                  <Box
-                    key={index}
-                    style={{ width: '95%', height: 'auto', padding: 0 }}>
-                    <Card
-                      direction={{ base: 'column', sm: 'row' }}
-                      variant="outline"
-                      size={'lg'}
-                      alignItems="center"
-                      width="100%"
-                      height="auto"
-                      display="flex"
-                      flexDirection={{ base: 'column', md: 'row' }}>
-                      <AspectRatio
-                        ratio={16 / 9}
-                        width={{ base: '100%', md: '50%' }}>
-                        <Image
-                          style={{ padding: 20, borderRadius: 30 }}
-                          src={slide.image}
-                          alt={slide.title}
-                          objectFit="cover"
-                          width="100%"
-                          height="100%"
-                        />
-                      </AspectRatio>
-                      <Stack flex="1" padding={4}>
-                        <CardBody>
-                          <Heading
-                            fontSize={{ base: '2em', md: '3em' }} // fontSize 속성을 직접 설정
-                            color="#586cdb">
-                            {slide.title}
-                          </Heading>
-                          <Text
-                            py="0"
-                            fontSize={{ base: '1em', md: '1.5em' }} // fontSize 속성을 직접 설정
-                          >
-                            {slide.description}
-                          </Text>
-                        </CardBody>
-                        <CardFooter>
-                          <Button variant="solid" colorScheme="blue">
-                            <Link href="/business">Learn More</Link>
-                          </Button>
-                        </CardFooter>
-                      </Stack>
-                    </Card>
-                  </Box>
-                ))}
-              </Carousel>
-            )}
-          </Box>
-        </Flex>
-      </FadeInview>
+      <Section title="Business" description={t('business')}>
+        {isMobile ? (
+          <BusinessCarousel
+            slides={slides}
+            responsive={responsive}
+            mode="mobile"
+          />
+        ) : (
+          <BusinessCarousel slides={slides} responsive={responsive} />
+        )}
+      </Section>
 
       {/* Product */}
-      <FadeInview type="scale" range={0.3}>
-        <Flex
-          justify="center"
+      <Section title="Product" description={t('product')}>
+        <Image
           style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-          }}>
-          <Box
-            style={{
-              width: '100%',
-              marginBottom: '3em',
-            }}>
-            <Heading
-              className="mainSection1text"
-              size={{ base: 'lg', md: '3xl' }} // 반응형 폰트 크기 설정
-              style={{
-                fontStyle: 'italic',
-                textAlign: 'center',
-              }}>
-              Product
-            </Heading>
-            <Heading
-              className="mainSection1text"
-              size={{ base: 'sm', md: 'lg' }} // 반응형 폰트 크기 설정
-              style={{
-                textAlign: 'center',
-                fontWeight: '400',
-                marginTop: 10,
-              }}>
-              {t('product')}
-            </Heading>
-            <Image
-              style={{
-                padding: 20,
-                borderRadius: 30,
-                margin: '0 auto',
-              }}
-              src="./images/product.png"
-              alt="product"
-              width="90%"
-              height="80%"
-            />
-          </Box>
-        </Flex>
-      </FadeInview>
+            padding: 20,
+            borderRadius: 30,
+            margin: '0 auto',
+          }}
+          src="./images/product.png"
+          alt="product"
+          width="90%"
+          height="80%"
+        />
+      </Section>
 
       {/* Clients */}
-      <FadeInview type="scale" range={0.3}>
-        <Flex
-          justify="center"
+      <Section title="Clients" description={t('clients')}>
+        <Image
           style={{
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-          }}>
-          <Box style={{ width: '100%', marginBottom: '3em' }}>
-            <Heading
-              className="mainSection1text"
-              size={{ base: 'lg', md: '3xl' }} // 반응형 폰트 크기 설정
-              style={{
-                fontStyle: 'italic',
-                textAlign: 'center',
-              }}>
-              Clients
-            </Heading>
-            <Heading
-              className="mainSection1text"
-              size={{ base: 'sm', md: 'lg' }} // 반응형 폰트 크기 설정
-              style={{
-                textAlign: 'center',
-                fontWeight: '400',
-                marginTop: 10,
-              }}>
-              {t('clients')}
-            </Heading>
-            <Image
-              style={{
-                padding: 20,
-                borderRadius: 30,
-                margin: '0 auto',
-              }}
-              src="./images/clients.png"
-              alt="product"
-              width="90%"
-              height="80%"
-            />
-          </Box>
-        </Flex>
-      </FadeInview>
+            padding: 20,
+            borderRadius: 30,
+            margin: '0 auto',
+          }}
+          src="./images/clients.png"
+          alt="product"
+          width="90%"
+          height="80%"
+        />
+      </Section>
     </>
   )
 }
