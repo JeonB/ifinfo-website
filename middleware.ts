@@ -11,7 +11,7 @@ export const config = {
   // matcher: '/:lng*'
   matcher: [
     '/',
-    '/(ko|en|my)/:path*',
+    '/(ko|en)/:path*',
     '/((?!api|_next/static|_next/image|assets|favicon.ico|.*\\..*|sw.js|site.webmanifest).*)',
   ],
 }

@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-width: 755px;
   padding: 1rem 2rem;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -33,7 +34,7 @@
 
 .logo {
   width: 90%;
-  min-width: 70%; /* 로고의 크기 조정 */
+  min-width: 180px; /* 로고의 크기 조정 */
 }
 
 .carousel-container {
@@ -47,12 +48,12 @@
 @media (max-width: 768px) {
   .logo {
     width: 80%;
-    min-width: 100px; /* 최소 너비를 고정된 값으로 설정 */
+    min-width: 150px; /* 최소 너비를 고정된 값으로 설정 */
   }
 }
 @media (max-width: 480px) {
   .logo {
     width: 70%;
-    min-width: 80px; /* 더 작은 화면에서는 더 작은 최소 너비 설정 */
+    min-width: 120px; /* 더 작은 화면에서는 더 작은 최소 너비 설정 */
   }
 }
