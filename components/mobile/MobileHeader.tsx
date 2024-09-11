@@ -16,12 +16,14 @@ import {
   useDisclosure,
   VStack,
 } from '@chakra-ui/react'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import LocaleSwitcher from '../LocaleSwitcher'
 import classes from './navbar.module.css'
 export const MobileHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const t = useTranslations('Header')
   return (
     <>
       <Flex justifyContent="space-between">
@@ -47,25 +49,25 @@ export const MobileHeader = () => {
               align="stretch">
               <Box h="40px" bg="yellow.200" onClick={onClose}>
                 <Link className={classes.a} href="/company">
-                  COMPANY
+                  {t('about_us')}
                 </Link>
               </Box>
               <Box h="40px" bg="green.200" onClick={onClose}>
                 <Link className={classes.a} href="/business">
-                  BUSINESS
+                  {t('business')}
                 </Link>
               </Box>
               <Box h="40px" bg="blue.200" onClick={onClose}>
                 <Link className={classes.a} href="/product">
-                  PRODUCT
+                  {t('product')}
                 </Link>
               </Box>
               <Box h="40px" bg="tomato" onClick={onClose}>
                 <Link className={classes.a} href="/recruit">
-                  RECRUIT
+                  {t('career')}
                 </Link>
               </Box>
-              <Box h="40px" bg="pink.100" onClick={onClose}>
+              <Box h="40px" bg="pink.100">
                 <LocaleSwitcher />
               </Box>
             </VStack>
