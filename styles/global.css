@@ -8,19 +8,22 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  min-height: 90vh;
+  min-height: 100vh;
   padding: 0;
   box-sizing: border-box; /* 패딩과 보더가 너비에 포함되도록 설정 */
 }
+main {
+  flex-grow: 1; /* 가변적으로 확장되도록 설정 */
+}
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .container {
-    padding: 0px; /* 태블릿 및 모바일에서 좀 더 적은 패딩 */
+    padding: 0px;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 0px; /* 작은 모바일 화면에서 더 적은 패딩 */
+    padding: 0px;
   }
-}
+} */

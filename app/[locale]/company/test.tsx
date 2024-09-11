@@ -1,7 +1,7 @@
 'use client'
 import { Box, Heading } from '@chakra-ui/react'
-import { ReactNode, useEffect, useRef, useState } from 'react'
-import './page.module.css'
+import React, { useEffect, useRef } from 'react'
+import './styles.css' // CSS 파일을 import
 
 const useIntersectionObserver = (setVisible: (visible: boolean) => void) => {
   const ref = useRef<HTMLDivElement | null>(null)
@@ -30,8 +30,8 @@ const useIntersectionObserver = (setVisible: (visible: boolean) => void) => {
   return ref
 }
 
-const Section = ({ children }: { children: ReactNode }) => {
-  const [visible, setVisible] = useState(false)
+const Section = ({ children }: { children: React.ReactNode }) => {
+  const [visible, setVisible] = React.useState(false)
   const ref = useIntersectionObserver(setVisible)
 
   return (
@@ -47,46 +47,13 @@ const Page = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    let isScrolling = false
-    let start: number | null = null
-    let targetScrollTop: number | null = null
-
     const handleScroll = (event: WheelEvent) => {
       event.preventDefault()
-      if (isScrolling) return
-
-      const container = containerRef.current
-      if (container) {
-        const currentScrollTop = container.scrollTop
-        const sectionHeight = window.innerHeight
-        const direction = event.deltaY > 0 ? 1 : -1
-        targetScrollTop = currentScrollTop + direction * sectionHeight
-
-        isScrolling = true
-        start = null
-        requestAnimationFrame(step)
-      }
-    }
-
-    const step = (timestamp: number) => {
-      if (!start) start = timestamp
-      const progress = timestamp - start
-      const duration = 1000 // 스크롤 애니메이션 지속 시간 (밀리초)
-      const container = containerRef.current
-
-      if (container && targetScrollTop !== null) {
-        const currentScrollTop = container.scrollTop
-        const distance = targetScrollTop - currentScrollTop
-        const scrollAmount = distance * (progress / duration)
-
-        container.scrollTop = currentScrollTop + scrollAmount
-
-        if (progress < duration) {
-          requestAnimationFrame(step)
-        } else {
-          container.scrollTop = targetScrollTop
-          isScrolling = false
-        }
+      if (containerRef.current) {
+        containerRef.current.scrollBy({
+          top: event.deltaY > 0 ? window.innerHeight : -window.innerHeight,
+          behavior: 'smooth',
+        })
       }
     }
 
@@ -104,7 +71,19 @@ const Page = () => {
 
   return (
     <div className="container" ref={containerRef}>
-      <div>
+      <header
+        style={{
+          position: 'fixed',
+          top: 0,
+          width: '100%',
+          backgroundColor: 'white',
+          zIndex: 1000,
+        }}>
+        <h1>Header</h1>
+      </header>
+      <div style={{ paddingTop: '60px' }}>
+        {' '}
+        {/* 헤더 높이만큼 패딩 추가 */}
         <Section>
           <Box style={{ width: '100%', marginBottom: '3em' }}>
             <Heading
@@ -124,7 +103,6 @@ const Page = () => {
                 fontWeight: '400',
                 marginTop: 10,
               }}></Heading>
-            아무거나 넣어봅시다그럴까여
           </Box>
         </Section>
         <Section>
@@ -146,7 +124,6 @@ const Page = () => {
                 fontWeight: '400',
                 marginTop: 10,
               }}></Heading>
-            아무거나 넣어봅시다
           </Box>
         </Section>
         <Section>

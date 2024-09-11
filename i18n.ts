@@ -7,9 +7,17 @@ const locales = ['ko', 'en', 'my']
 export default getRequestConfig(async ({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as any)) notFound()
-
+  // 각각의 JSON 파일을 import하여 합친다
+  const commonMessages = (
+    await import(`./app/i18n/locales/${locale}/common.json`)
+  ).default
+  const footerMessages = (
+    await import(`./app/i18n/locales/${locale}/footer.json`)
+  ).default
+  const indexMessages = (
+    await import(`./app/i18n/locales/${locale}/index.json`)
+  ).default
   return {
-    messages: (await import(`./app/i18n/locales/${locale}/common.json`))
-      .default,
+    messages: { ...commonMessages, ...footerMessages, ...indexMessages },
   }
 })

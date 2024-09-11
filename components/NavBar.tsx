@@ -1,6 +1,7 @@
 'use client'
 import logoImg from '@/assets/logo.png'
 import { Link } from '@/navigation'
+import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import classes from './navbar.module.css'
@@ -8,6 +9,7 @@ export default function NavBar() {
   const LocaleSwitcher = dynamic(() => import('./LocaleSwitcher'), {
     ssr: false,
   })
+  const t = useTranslations('Header')
   return (
     <nav className={classes.nav}>
       <Link href="/">
@@ -16,22 +18,22 @@ export default function NavBar() {
       <ul className={classes.ul}>
         <li className={classes.li}>
           <Link className={classes.a} href="/company">
-            COMPANY
+            {t('about_us')}
           </Link>
         </li>
         <li className={classes.li}>
           <Link className={classes.a} href="/business">
-            BUSINESS
+            {t('business')}
           </Link>
         </li>
         <li className={classes.li}>
           <Link className={classes.a} href="/product">
-            PRODUCT
+            {t('product')}
           </Link>
         </li>
         <li className={classes.li}>
           <Link className={classes.a} href="/recruit">
-            RECRUIT
+            {t('career')}
           </Link>
         </li>
         <li className={classes.li}>

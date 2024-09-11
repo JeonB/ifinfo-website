@@ -5,7 +5,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  width: '50%';
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -33,7 +32,8 @@
 }
 
 .logo {
-  width: 200px; /* 로고의 크기 조정 */
+  width: 90%;
+  min-width: 70%; /* 로고의 크기 조정 */
 }
 
 .carousel-container {
@@ -43,4 +43,16 @@
   width: 50%;
   position: relative;
   overflow: hidden;
+}
+@media (max-width: 768px) {
+  .logo {
+    width: 80%;
+    min-width: 100px; /* 최소 너비를 고정된 값으로 설정 */
+  }
+}
+@media (max-width: 480px) {
+  .logo {
+    width: 70%;
+    min-width: 80px; /* 더 작은 화면에서는 더 작은 최소 너비 설정 */
+  }
 }

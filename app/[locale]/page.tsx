@@ -5,7 +5,7 @@ import { Image } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import 'react-multi-carousel/lib/styles.css'
-import './card-styles.css'
+import './page.module.css'
 
 export default function Page({
   params: { locale },
@@ -29,7 +29,7 @@ export default function Page({
     return () => {
       window.removeEventListener('resize', checkMobile)
     }
-  }, [])
+  }, [isMobile])
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
