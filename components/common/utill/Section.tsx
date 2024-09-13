@@ -43,7 +43,7 @@ export const Section = ({
           </Heading>
           <Heading
             className="mainSection1text"
-            size={{ base: 'sm', md: 'lg' }} // 반응형 폰트 크기 설정
+            size={{ base: 'sm', md: 'md' }} // 반응형 폰트 크기 설정
             style={{
               textAlign: 'center',
               fontWeight: '400',

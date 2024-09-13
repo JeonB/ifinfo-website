@@ -1,26 +1,31 @@
 /* navbar.module.css */
+.container {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px; /* 최대 너비 설정 */
+}
 
 .nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  min-width: 755px;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 770px;
   padding: 1rem 2rem;
   background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1); */
 }
 
 .ul {
   list-style: none;
   display: flex;
-  margin-top: 1rem;
   padding: 0;
 }
 
 .li {
   margin-left: 2rem;
 }
-
 .a {
   text-decoration: none;
   color: #333;
@@ -33,8 +38,8 @@
 }
 
 .logo {
-  width: 90%;
-  min-width: 180px; /* 로고의 크기 조정 */
+  width: 80%;
+  min-width: 140px; /* 로고의 크기 조정 */
 }
 
 .carousel-container {

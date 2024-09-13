@@ -5,7 +5,6 @@ import { Image } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import 'react-multi-carousel/lib/styles.css'
-import './page.module.css'
 
 export default function Page({
   params: { locale },
@@ -49,7 +48,7 @@ export default function Page({
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
-      partialVisibilityGutter: 45,
+      partialVisibilityGutter: 80,
     },
   }
   const t = useTranslations('Main')
@@ -79,7 +78,7 @@ export default function Page({
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          marginBottom: '3em',
+          marginBottom: 20,
         }}>
         <video
           autoPlay
@@ -87,7 +86,7 @@ export default function Page({
           loop
           style={{
             width: '100%',
-            height: '80vh',
+            height: '92vh',
             objectFit: 'cover',
           }}>
           <source src="/intro-video.mp4" type="video/mp4" />

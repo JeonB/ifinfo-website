@@ -1,7 +1,7 @@
 'use client'
 import { Box, Heading } from '@chakra-ui/react'
-import { ReactNode, useEffect, useRef, useState } from 'react'
-import './page.module.css'
+import React, { useEffect, useRef } from 'react'
+import './styles.css' // CSS 파일을 import
 
 const useIntersectionObserver = (setVisible: (visible: boolean) => void) => {
   const ref = useRef<HTMLDivElement | null>(null)
@@ -30,12 +30,19 @@ const useIntersectionObserver = (setVisible: (visible: boolean) => void) => {
   return ref
 }
 
-const Section = ({ children }: { children: ReactNode }) => {
-  const [visible, setVisible] = useState(false)
+const Section = ({
+  id,
+  children,
+}: {
+  id: string
+  children: React.ReactNode
+}) => {
+  const [visible, setVisible] = React.useState(false)
   const ref = useIntersectionObserver(setVisible)
 
   return (
     <div
+      id={id}
       ref={ref}
       className={`section fade-in-section ${visible ? 'is-visible' : ''}`}>
       {children}
@@ -43,69 +50,71 @@ const Section = ({ children }: { children: ReactNode }) => {
   )
 }
 
-const Page = () => {
-  const containerRef = useRef<HTMLDivElement | null>(null)
-
-  useEffect(() => {
-    let isScrolling = false
-    let start: number | null = null
-    let targetScrollTop: number | null = null
-
-    const handleScroll = (event: WheelEvent) => {
-      event.preventDefault()
-      if (isScrolling) return
-
-      const container = containerRef.current
-      if (container) {
-        const currentScrollTop = container.scrollTop
-        const sectionHeight = window.innerHeight
-        const direction = event.deltaY > 0 ? 1 : -1
-        targetScrollTop = currentScrollTop + direction * sectionHeight
-
-        isScrolling = true
-        start = null
-        requestAnimationFrame(step)
-      }
+const TableOfContents = ({
+  sections,
+}: {
+  sections: { id: string; title: string }[]
+}) => {
+  const handleClick = (id: string) => {
+    const section = document.getElementById(id)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' })
     }
-
-    const step = (timestamp: number) => {
-      if (!start) start = timestamp
-      const progress = timestamp - start
-      const duration = 1000 // 스크롤 애니메이션 지속 시간 (밀리초)
-      const container = containerRef.current
-
-      if (container && targetScrollTop !== null) {
-        const currentScrollTop = container.scrollTop
-        const distance = targetScrollTop - currentScrollTop
-        const scrollAmount = distance * (progress / duration)
-
-        container.scrollTop = currentScrollTop + scrollAmount
-
-        if (progress < duration) {
-          requestAnimationFrame(step)
-        } else {
-          container.scrollTop = targetScrollTop
-          isScrolling = false
-        }
-      }
-    }
-
-    const container = containerRef.current
-    if (container) {
-      container.addEventListener('wheel', handleScroll)
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener('wheel', handleScroll)
-      }
-    }
-  }, [])
+  }
 
   return (
-    <div className="container" ref={containerRef}>
-      <div>
-        <Section>
+    <nav className="table-of-contents">
+      <h1 style={{ fontSize: 30, marginBottom: 20 }}>Company</h1>
+      <ul>
+        {sections.map(section => (
+          <li key={section.id}>
+            <button onClick={() => handleClick(section.id)}>
+              {section.title}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+const MobileTableOfContents = ({
+  sections,
+}: {
+  sections: { id: string }[]
+}) => {
+  const handleClick = (id: string) => {
+    const section = document.getElementById(id)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  return (
+    <div className="mobile-toc">
+      {sections.map(section => (
+        <button
+          key={section.id}
+          onClick={() => handleClick(section.id)}></button>
+      ))}
+    </div>
+  )
+}
+
+const Page = () => {
+  const sections = [
+    { id: 'section1', title: 'Overview' },
+    { id: 'section2', title: 'Vision' },
+    { id: 'section3', title: 'Organization' },
+    { id: 'section4', title: 'History' },
+  ]
+
+  return (
+    <div style={{ display: 'flex' }}>
+      <TableOfContents sections={sections} />
+      <MobileTableOfContents sections={sections} />
+      <div className="container">
+        <Section id="section1">
           <Box style={{ width: '100%', marginBottom: '3em' }}>
             <Heading
               className="mainSection1text"
@@ -114,7 +123,7 @@ const Page = () => {
                 fontStyle: 'italic',
                 textAlign: 'center',
               }}>
-              Company
+              Overview
             </Heading>
             <Heading
               className="mainSection1text"
@@ -124,10 +133,9 @@ const Page = () => {
                 fontWeight: '400',
                 marginTop: 10,
               }}></Heading>
-            아무거나 넣어봅시다그럴까여
           </Box>
         </Section>
-        <Section>
+        <Section id="section2">
           <Box style={{ width: '100%', marginBottom: '3em' }}>
             <Heading
               className="mainSection1text"
@@ -136,29 +144,7 @@ const Page = () => {
                 fontStyle: 'italic',
                 textAlign: 'center',
               }}>
-              Company2
-            </Heading>
-            <Heading
-              className="mainSection1text"
-              size="lg"
-              style={{
-                textAlign: 'center',
-                fontWeight: '400',
-                marginTop: 10,
-              }}></Heading>
-            아무거나 넣어봅시다
-          </Box>
-        </Section>
-        <Section>
-          <Box style={{ width: '100%', marginBottom: '3em' }}>
-            <Heading
-              className="mainSection1text"
-              size="3xl"
-              style={{
-                fontStyle: 'italic',
-                textAlign: 'center',
-              }}>
-              Company3
+              Vision
             </Heading>
             <Heading
               className="mainSection1text"
@@ -170,7 +156,48 @@ const Page = () => {
               }}></Heading>
           </Box>
         </Section>
-        {/* 다른 섹션들도 동일한 방식으로 추가 */}
+        <Section id="section3">
+          <Box style={{ width: '100%', marginBottom: '3em' }}>
+            <Heading
+              className="mainSection1text"
+              size="3xl"
+              style={{
+                fontStyle: 'italic',
+                textAlign: 'center',
+              }}>
+              Organization
+            </Heading>
+            <Heading
+              className="mainSection1text"
+              size="lg"
+              style={{
+                textAlign: 'center',
+                fontWeight: '400',
+                marginTop: 10,
+              }}></Heading>
+          </Box>
+        </Section>
+        <Section id="section4">
+          <Box style={{ width: '100%', marginBottom: '3em' }}>
+            <Heading
+              className="mainSection1text"
+              size="3xl"
+              style={{
+                fontStyle: 'italic',
+                textAlign: 'center',
+              }}>
+              History
+            </Heading>
+            <Heading
+              className="mainSection1text"
+              size="lg"
+              style={{
+                textAlign: 'center',
+                fontWeight: '400',
+                marginTop: 10,
+              }}></Heading>
+          </Box>
+        </Section>
       </div>
     </div>
   )
