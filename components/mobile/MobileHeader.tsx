@@ -32,7 +32,8 @@ export const MobileHeader = () => {
         </Link>
         <Button
           onClick={onOpen}
-          fontSize={{ base: 'xl', md: 'md' }}
+          paddingRight={4}
+          fontSize={{ base: 'lg', lg: 'xl' }}
           border="none">
           <HamburgerIcon boxSize={'1.8em'} />
         </Button>
