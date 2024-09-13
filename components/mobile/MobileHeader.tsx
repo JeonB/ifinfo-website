@@ -26,15 +26,15 @@ export const MobileHeader = () => {
   const t = useTranslations('Header')
   return (
     <>
-      <Flex justifyContent="space-between">
-        <Link href="/" style={{ width: '30%', padding: 5 }}>
+      <Flex justifyContent="space-between" alignItems="center">
+        <Link href="/" className={classes.logo}>
           <Image src={logoImg} alt="logo" />
         </Link>
         <Button
           onClick={onOpen}
           fontSize={{ base: 'xl', md: 'md' }}
           border="none">
-          <HamburgerIcon />
+          <HamburgerIcon boxSize={'1.4em'} />
         </Button>
       </Flex>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
