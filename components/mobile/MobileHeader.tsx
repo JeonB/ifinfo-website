@@ -34,7 +34,7 @@ export const MobileHeader = () => {
           onClick={onOpen}
           fontSize={{ base: 'xl', md: 'md' }}
           border="none">
-          <HamburgerIcon boxSize={'1.4em'} />
+          <HamburgerIcon boxSize={'1.8em'} />
         </Button>
       </Flex>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
