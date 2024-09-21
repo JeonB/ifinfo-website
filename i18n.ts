@@ -19,5 +19,6 @@ export default getRequestConfig(async ({ locale }) => {
   ).default
   return {
     messages: { ...commonMessages, ...footerMessages, ...indexMessages },
+    timeZone: 'Asia/Seoul',
   }
 })

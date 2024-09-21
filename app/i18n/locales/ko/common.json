@@ -21,5 +21,11 @@
     "business": "사업분야",
     "product": "제품",
     "career": "채용"
+  },
+  "Company": {
+    "overview": "개요",
+    "vision": "목표",
+    "organization": "사업부",
+    "history": "연혁"
   }
 }

@@ -21,5 +21,11 @@
     "business": "Business Areas",
     "product": "Products",
     "career": "Careers"
+  },
+  "Company": {
+    "overview": "Overview",
+    "vision": "Vision",
+    "organization": "Organization",
+    "history": "History"
   }
 }

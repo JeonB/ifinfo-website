@@ -17,7 +17,7 @@
   scroll-snap-align: start;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  height: 100vh;
   justify-content: center;
 }
 
@@ -66,7 +66,9 @@
 .table-of-contents button:hover {
   text-decoration: underline;
 }
-
+.mainSection1text {
+  font-style: italic;
+}
 /* 모바일 대응 */
 @media (max-width: 768px) {
   .table-of-contents {
