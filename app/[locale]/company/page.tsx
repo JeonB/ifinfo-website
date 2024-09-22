@@ -3,7 +3,7 @@ import HistoryTimeline from '@/components/common/History'
 import { Box, Heading } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import React, { useEffect, useRef } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 import './styles.css'
 
 const useIntersectionObserver = (setVisible: (visible: boolean) => void) => {
@@ -36,12 +36,18 @@ const useIntersectionObserver = (setVisible: (visible: boolean) => void) => {
 const Section = ({
   id,
   children,
+  setVisibleSections,
 }: {
   id: string
-  children: React.ReactNode
+  children: ReactNode
+  setVisibleSections: (id: string, visible: boolean) => void
 }) => {
-  const [visible, setVisible] = React.useState(false)
+  const [visible, setVisible] = useState(false)
   const ref = useIntersectionObserver(setVisible)
+
+  useEffect(() => {
+    setVisibleSections(id, visible)
+  }, [visible, id])
 
   return (
     <div
@@ -84,8 +90,10 @@ const TableOfContents = ({
 
 const MobileTableOfContents = ({
   sections,
+  visibleSections,
 }: {
   sections: { id: string }[]
+  visibleSections: { [key: string]: boolean }
 }) => {
   const handleClick = (id: string) => {
     const section = document.getElementById(id)
@@ -99,7 +107,8 @@ const MobileTableOfContents = ({
       {sections.map(section => (
         <button
           key={section.id}
-          onClick={() => handleClick(section.id)}></button>
+          onClick={() => handleClick(section.id)}
+          className={visibleSections[section.id] ? 'active' : ''}></button>
       ))}
     </div>
   )
@@ -113,12 +122,22 @@ const Page = () => {
     { id: 'section4', title: 'History' },
   ]
   const t = useTranslations('Company')
+  const [visibleSections, setVisibleSections] = useState<{
+    [key: string]: boolean
+  }>({})
+
+  const handleSetVisibleSections = (id: string, visible: boolean) => {
+    setVisibleSections(prev => ({ ...prev, [id]: visible }))
+  }
   return (
     <div style={{ display: 'flex' }}>
       <TableOfContents sections={sections} />
-      <MobileTableOfContents sections={sections} />
+      <MobileTableOfContents
+        sections={sections}
+        visibleSections={visibleSections}
+      />
       <div className="container">
-        <Section id="section1">
+        <Section id="section1" setVisibleSections={handleSetVisibleSections}>
           <Box style={{ width: '100%', margin: '0 1em 3em 1em' }}>
             <Heading
               className="mainSection1text"
@@ -162,7 +181,7 @@ const Page = () => {
             </Heading>
           </Box>
         </Section>
-        <Section id="section2">
+        <Section id="section2" setVisibleSections={handleSetVisibleSections}>
           <Box
             style={{
               width: '100%',
@@ -255,7 +274,7 @@ const Page = () => {
             </Box>
           </Box>
         </Section>
-        <Section id="section3">
+        <Section id="section3" setVisibleSections={handleSetVisibleSections}>
           <Box style={{ width: '100%', marginBottom: '3em' }}>
             <Heading
               className="mainSection1text"
@@ -342,7 +361,7 @@ const Page = () => {
           </Box>
         </Section>
 
-        <Section id="section4">
+        <Section id="section4" setVisibleSections={handleSetVisibleSections}>
           <Box style={{ width: '100%', marginBottom: '3em' }}>
             <Heading
               className="mainSection1text"

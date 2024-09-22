@@ -80,7 +80,7 @@
     flex-direction: column;
     position: fixed;
     top: 50%;
-    right: 1rem;
+    right: 0.2rem;
     transform: translateY(-50%);
     z-index: 1000;
   }
@@ -92,14 +92,17 @@
     height: 1rem;
     margin: 0.5rem 0;
     border-radius: 50%;
-    background-color: #007bff;
+    background-color: #439af8;
     cursor: pointer;
   }
 
-  .mobile-toc button:hover {
+  /* .mobile-toc button:hover {
+    background-color: #0056b3;
+  } */
+
+  .mobile-toc button.active {
     background-color: #0056b3;
   }
-
   .container {
     margin-left: 0; /* 모바일에서는 margin-left 제거 */
   }
