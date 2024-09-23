@@ -1,6 +1,6 @@
 'use client'
+import BusinessCarousel from '@/components/business'
 import { Section } from '@/components/common/utill/Section'
-import BusinessCarousel from '@/components/desktop/business'
 import { Image } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'

@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from '@chakra-ui/react'
+import { Box, Heading, SimpleGrid, Text } from '@chakra-ui/react'
 
 const historyData = [
   {
@@ -31,17 +31,9 @@ const historyData = [
 
 const HistoryTimeline = () => {
   return (
-    <Box>
+    <SimpleGrid columns={2} spacing={4}>
       {historyData.map((yearData, index) => (
-        <Box
-          key={index}
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1px 1fr', // 좌우 균등한 그리드 설정
-            alignItems: 'center',
-            margin: '20px 0',
-            padding: '0 20px', // 양쪽에 일정한 패딩 추가
-          }}>
+        <Box key={index}>
           {/* 왼쪽 연혁 (2024년) */}
           {yearData.year === '2024' && (
             <>
@@ -88,7 +80,7 @@ const HistoryTimeline = () => {
           )}
         </Box>
       ))}
-    </Box>
+    </SimpleGrid>
   )
 }
 
