@@ -3,12 +3,58 @@ import HistoryTimeline from '@/components/common/History'
 import { Box, Heading } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { ReactNode, useState } from 'react'
-import classes from './page.module.css'
+import { ReactNode, useEffect, useRef, useState } from 'react'
+import './styles.css'
 
-const Section = ({ id, children }: { id: string; children: ReactNode }) => {
+const useIntersectionObserver = (setVisible: (visible: boolean) => void) => {
+  const ref = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting)
+      },
+      {
+        threshold: 0.5, // 50%가 뷰포트에 들어오면 트리거
+      },
+    )
+
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current)
+      }
+    }
+  }, [ref, setVisible])
+
+  return ref
+}
+
+const Section = ({
+  id,
+  children,
+  setVisibleSections,
+}: {
+  id: string
+  children: ReactNode
+  setVisibleSections: (id: string, visible: boolean) => void
+}) => {
+  const [visible, setVisible] = useState(false)
+  const ref = useIntersectionObserver(setVisible)
+
+  useEffect(() => {
+    setVisibleSections(id, visible)
+  }, [visible, id])
+
   return (
-    <div id={id} style={{ minHeight: '100vh' }}>
+    <div
+      id={id}
+      ref={ref}
+      className={`section fade-in-section ${visible ? 'is-visible' : ''}`}
+      style={{ height: '100vh' }}>
       {children}
     </div>
   )
@@ -27,7 +73,7 @@ const TableOfContents = ({
   }
 
   return (
-    <nav className={classes[`table-of-contents`]}>
+    <nav className="table-of-contents">
       <h1 style={{ fontSize: 30, marginBottom: 20 }}>Company</h1>
       <ul>
         {sections.map(section => (
@@ -57,7 +103,7 @@ const MobileTableOfContents = ({
   }
 
   return (
-    <div className={classes[`mobile-toc`]}>
+    <div className="mobile-toc">
       {sections.map(section => (
         <button
           key={section.id}
@@ -83,19 +129,18 @@ const Page = () => {
   const handleSetVisibleSections = (id: string, visible: boolean) => {
     setVisibleSections(prev => ({ ...prev, [id]: visible }))
   }
-
   return (
     <div style={{ display: 'flex' }}>
       <TableOfContents sections={sections} />
-      {/* <MobileTableOfContents
+      <MobileTableOfContents
         sections={sections}
         visibleSections={visibleSections}
-      /> */}
-      <div className={classes.container}>
-        <Section id="section1">
-          <Box style={{ width: '100%' }}>
+      />
+      <div className="container">
+        <Section id="section1" setVisibleSections={handleSetVisibleSections}>
+          <Box style={{ width: '100%', margin: '0 1em 3em 1em' }}>
             <Heading
-              className={classes.mainSection1text}
+              className="mainSection1text"
               size="3xl"
               p={7}
               style={{
@@ -136,7 +181,7 @@ const Page = () => {
             </Heading>
           </Box>
         </Section>
-        <Section id="section2">
+        <Section id="section2" setVisibleSections={handleSetVisibleSections}>
           <Box
             style={{
               width: '100%',
@@ -145,7 +190,7 @@ const Page = () => {
               whiteSpace: 'nowrap',
             }}>
             <Heading
-              className={classes.mainSection1text}
+              className="mainSection1text"
               size="3xl"
               p={7}
               style={{ color: '#4ba256' }}>
@@ -229,10 +274,10 @@ const Page = () => {
             </Box>
           </Box>
         </Section>
-        <Section id="section3">
+        <Section id="section3" setVisibleSections={handleSetVisibleSections}>
           <Box style={{ width: '100%', marginBottom: '3em' }}>
             <Heading
-              className={classes.mainSection1text}
+              className="mainSection1text"
               size="3xl"
               p={7}
               style={{
@@ -316,10 +361,10 @@ const Page = () => {
           </Box>
         </Section>
 
-        <Section id="section4">
+        <Section id="section4" setVisibleSections={handleSetVisibleSections}>
           <Box style={{ width: '100%', marginBottom: '3em' }}>
             <Heading
-              className={classes.mainSection1text}
+              className="mainSection1text"
               size="3xl"
               p={7}
               style={{

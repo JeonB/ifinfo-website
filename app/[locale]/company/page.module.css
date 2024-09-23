@@ -1,10 +1,11 @@
 /* 스크롤바 숨기기 */
 .container {
   display: flex;
+  flex-direction: column;
   width: 100%;
+  padding: 0 100px;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
-  height: 100vh;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
@@ -104,6 +105,7 @@
     background-color: #0056b3;
   }
   .container {
+    padding: 0;
     margin-left: 0; /* 모바일에서는 margin-left 제거 */
   }
 }

@@ -41,15 +41,6 @@
   width: 1rem;
   min-width: 140px; /* 로고의 크기 조정 */
 }
-
-.carousel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  position: relative;
-  overflow: hidden;
-}
 @media (max-width: 768px) {
   .logo {
     width: 80%;
