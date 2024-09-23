@@ -10,13 +10,10 @@ import {
   getTranslations,
   unstable_setRequestLocale,
 } from 'next-intl/server'
-import { Inter } from 'next/font/google'
-import { headers } from 'next/headers' // next/headers로 헤더 가져오기
+import { headers } from 'next/headers'
 import { ReactNode } from 'react'
 import '../../styles/global.css'
 import { Providers } from '../providers'
-
-const inter = Inter({ subsets: ['latin'] })
 
 type Props = {
   children: ReactNode
