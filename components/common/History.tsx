@@ -31,56 +31,60 @@ const historyData = [
 
 const HistoryTimeline = () => {
   return (
-    <SimpleGrid columns={2} spacing={4}>
+    <>
       {historyData.map((yearData, index) => (
         <Box key={index}>
-          {/* 왼쪽 연혁 (2024년) */}
-          {yearData.year === '2024' && (
-            <>
-              <Box style={{ paddingRight: '20px', textAlign: 'right' }}>
-                <Heading size="lg">{yearData.year}</Heading>
-                {yearData.events.map((event, idx) => (
-                  <Box key={idx}>
-                    <Text>{event.description}</Text>
-                    <Text>{event.period}</Text>
-                  </Box>
-                ))}
-              </Box>
-              <Box
-                style={{
-                  width: '1px',
-                  backgroundColor: 'black',
-                  height: '100%',
-                  minHeight: '150px', // 중앙선이 확실히 보이도록 설정
-                }}
-              />
-            </>
-          )}
-          {/* 오른쪽 연혁 (2023년) */}
-          {yearData.year === '2023' && (
-            <>
-              <Box
-                style={{
-                  width: '1px',
-                  backgroundColor: 'black',
-                  height: '100%',
-                  minHeight: '150px', // 중앙선이 확실히 보이도록 설정
-                }}
-              />
-              <Box style={{ paddingLeft: '20px', textAlign: 'left' }}>
-                <Heading size="lg">{yearData.year}</Heading>
-                {yearData.events.map((event, idx) => (
-                  <Box key={idx}>
-                    <Text>{event.description}</Text>
-                    <Text>{event.period}</Text>
-                  </Box>
-                ))}
-              </Box>
-            </>
-          )}
+          <SimpleGrid columns={3} spacing={0} templateColumns="1fr 0.05fr 1fr">
+            {/* 왼쪽 연혁 */}
+            {index % 2 === 0 && (
+              <>
+                <Box style={{ paddingRight: '20px', textAlign: 'right' }}>
+                  <Heading size="lg">{yearData.year}</Heading>
+                  {yearData.events.map((event, idx) => (
+                    <Box key={idx}>
+                      <Text>{event.description}</Text>
+                      <Text>{event.period}</Text>
+                    </Box>
+                  ))}
+                </Box>
+                <Box
+                  style={{
+                    width: '1px',
+                    backgroundColor: 'black',
+                    height: '100%',
+                    margin: '0 auto',
+                  }}
+                />
+                <Box />
+              </>
+            )}
+            {/* 오른쪽 연혁 */}
+            {index % 2 !== 0 && (
+              <>
+                <Box />
+                <Box
+                  style={{
+                    width: '1px',
+                    backgroundColor: 'black',
+                    height: '100%',
+                    margin: '0 auto',
+                  }}
+                />
+                <Box style={{ paddingLeft: '20px', textAlign: 'left' }}>
+                  <Heading size="lg">{yearData.year}</Heading>
+                  {yearData.events.map((event, idx) => (
+                    <Box key={idx}>
+                      <Text>{event.description}</Text>
+                      <Text>{event.period}</Text>
+                    </Box>
+                  ))}
+                </Box>
+              </>
+            )}
+          </SimpleGrid>
         </Box>
       ))}
-    </SimpleGrid>
+    </>
   )
 }
 

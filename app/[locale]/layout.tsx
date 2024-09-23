@@ -3,6 +3,7 @@ import { Footer } from '@/components/layout/Footer'
 import MobileHeader from '@/components/mobile/MobileHeader'
 import NavBar from '@/components/NavBar'
 import { locales } from '@/config'
+import '@/styles/global.css'
 import { ColorModeScript } from '@chakra-ui/react'
 import { NextIntlClientProvider } from 'next-intl'
 import {
@@ -12,7 +13,6 @@ import {
 } from 'next-intl/server'
 import { headers } from 'next/headers'
 import { ReactNode } from 'react'
-import '../../styles/global.css'
 import { Providers } from '../providers'
 
 type Props = {

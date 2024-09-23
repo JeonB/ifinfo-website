@@ -84,10 +84,11 @@ export default function Page({
           autoPlay
           muted
           loop
+          playsInline
           style={{
             width: '100%',
             height: '92vh',
-            objectFit: 'cover',
+            objectFit: 'fill',
           }}>
           <source src="/intro-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
