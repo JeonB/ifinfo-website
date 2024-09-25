@@ -1,10 +1,12 @@
 import { defineStyleConfig, extendTheme } from '@chakra-ui/react'
-// import  '@fontsource/inter'
-
+import '@fontsource/inter'
+import '@fontsource/lato'
+import '@fontsource/open-sans'
+import '@fontsource/raleway'
 // const fonts = { mono: `'Menlo', monospace` }
 const fonts = {
-  heading: `'Inter'`,
-  body: `'Inter'`,
+  heading: `'Inter', sans-serif`,
+  body: `'Lato', sans-serif`,
 }
 
 // 화면 크기 구간

@@ -1,5 +1,5 @@
 'use client'
-import logoImg from '@/assets/logo.png'
+import logoImg from '@/public/images/logo.png'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import {
   Box,

@@ -1,0 +1,76 @@
+/* 스크롤바 숨기기 */
+.container {
+  display: flex;
+  width: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.overviewText {
+  text-align: center;
+  color: hsl(0, 23%, 95%);
+  font-weight: 800;
+  padding: 0 0 3em 0;
+}
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(0px);
+  transition:
+    opacity 0.9s ease-out,
+    transform 0.9s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.mobile-toc {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  right: 0.2rem;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.mobile-toc button {
+  background: none;
+  border: none;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin: 2rem 5rem 0 0;
+  background-color: #d8e8f9;
+  cursor: pointer;
+}
+.mobile-toc button.active {
+  background-color: #7f8386;
+}
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .mobile-toc button {
+    background: none;
+    border: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 1rem 0.7rem 0 0;
+    background-color: #d8e8f9;
+    cursor: pointer;
+  }
+}

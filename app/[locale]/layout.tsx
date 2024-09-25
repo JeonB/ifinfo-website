@@ -49,16 +49,17 @@ export default async function LocaleLayout({
         <Providers>
           <NextIntlClientProvider messages={messages}>
             <div className="container">
-              {/* 모바일 여부에 따라 헤더 선택 */}
               <header
                 style={{
                   position: 'relative',
                   top: 0,
                   width: '100%',
                   zIndex: 1000,
+                  backgroundColor: 'white',
                 }}>
                 {isMobile ? <MobileHeader /> : <NavBar />}
               </header>
+
               <ColorModeScript />
               <main>{children}</main>
 

@@ -43,13 +43,13 @@
 }
 @media (max-width: 768px) {
   .logo {
-    width: 80%;
-    min-width: 150px; /* 최소 너비를 고정된 값으로 설정 */
+    width: 1rem;
+    min-width: 120px; /* 최소 너비를 고정된 값으로 설정 */
   }
 }
 @media (max-width: 480px) {
   .logo {
-    width: 70%;
-    min-width: 120px; /* 더 작은 화면에서는 더 작은 최소 너비 설정 */
+    width: 1rem;
+    min-width: 110px; /* 더 작은 화면에서는 더 작은 최소 너비 설정 */
   }
 }

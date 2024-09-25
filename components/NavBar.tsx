@@ -1,6 +1,6 @@
 'use client'
-import logoImg from '@/assets/logo.png'
 import { Link } from '@/navigation'
+import logoImg from '@/public/images/logo.png'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'

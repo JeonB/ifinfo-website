@@ -79,7 +79,6 @@ const Page = () => {
   const [visibleSections, setVisibleSections] = useState<{
     [key: string]: boolean
   }>({})
-
   const handleSetVisibleSections = (id: string, visible: boolean) => {
     setVisibleSections(prev => ({ ...prev, [id]: visible }))
   }
