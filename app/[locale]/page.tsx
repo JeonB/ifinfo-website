@@ -116,7 +116,7 @@ export default function Page({
             borderRadius: 30,
             margin: '0 auto',
           }}
-          src="./images/product.png"
+          src="/images/main/product.png"
           alt="product"
           width="90%"
           height="80%"
@@ -131,7 +131,7 @@ export default function Page({
             borderRadius: 30,
             margin: '0 auto',
           }}
-          src="./images/clients.png"
+          src="/images/main/clients.png"
           alt="product"
           width="90%"
           height="80%"

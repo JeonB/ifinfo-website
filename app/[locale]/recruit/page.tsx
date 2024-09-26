@@ -1,8 +1,8 @@
 export default function About() {
   return (
     <div>
-      <h1>Recruit</h1>
-      <p>Recruit Page Test</p>
+      <h1>Recurit Page Test</h1>
+      <p>뽑을사람이 없네 에휴</p>
     </div>
   )
 }

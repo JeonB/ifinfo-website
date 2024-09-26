@@ -12,7 +12,7 @@
   justify-content: space-between;
   width: 100%;
   min-width: 770px;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   background-color: white;
   /* box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1); */
 }
@@ -25,12 +25,16 @@
 
 .li {
   margin-left: 2rem;
+  position: relative;
+  display: flex; /* li 내부에서 수평 정렬을 위해 flex 사용 */
+  align-items: center;
 }
 .a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
   font-size: 1rem;
+  padding: 1em 0;
 }
 
 .a:hover {
@@ -41,6 +45,31 @@
   width: 1rem;
   min-width: 140px; /* 로고의 크기 조정 */
 }
+
+.submenu {
+  white-space: nowrap;
+  border-radius: 5%;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -20%;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+.li:hover .submenu {
+  display: block;
+}
+.submenu li {
+  padding: 1rem;
+  list-style: none;
+}
+
+.submenu li a {
+  text-decoration: none;
+  color: black;
+}
+
 @media (max-width: 768px) {
   .logo {
     width: 1rem;

@@ -181,6 +181,7 @@ const Page = () => {
             </Heading>
           </Box>
         </Section>
+
         <Section id="section2" setVisibleSections={handleSetVisibleSections}>
           <Box
             style={{
@@ -274,6 +275,7 @@ const Page = () => {
             </Box>
           </Box>
         </Section>
+
         <Section id="section3" setVisibleSections={handleSetVisibleSections}>
           <Box style={{ width: '100%', marginBottom: '3em' }}>
             <Heading

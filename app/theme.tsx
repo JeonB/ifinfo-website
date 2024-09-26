@@ -1,6 +1,9 @@
 import { defineStyleConfig, extendTheme } from '@chakra-ui/react'
+import '@fontsource/dancing-script'
 import '@fontsource/inter'
 import '@fontsource/lato'
+import '@fontsource/nanum-gothic'
+import '@fontsource/nanum-pen-script'
 import '@fontsource/open-sans'
 import '@fontsource/raleway'
 // const fonts = { mono: `'Menlo', monospace` }

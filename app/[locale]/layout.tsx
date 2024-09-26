@@ -1,7 +1,7 @@
 import { isMobi } from '@/components/common/utill/device'
 import { Footer } from '@/components/layout/Footer'
-import MobileHeader from '@/components/mobile/MobileHeader'
-import NavBar from '@/components/NavBar'
+import MobileHeader from '@/components/layout/mobile/MobileHeader'
+import NavBar from '@/components/layout/NavBar'
 import { locales } from '@/config'
 import '@/styles/global.css'
 import { ColorModeScript } from '@chakra-ui/react'
@@ -42,7 +42,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <head>
         <title>{t('title')}</title>
-        <link rel="icon" href="images/favicon.ico" />
+        <link rel="icon" href="/images/favicon.ico" />
         <meta name="description" content={t('description')} />
       </head>
       <body>
