@@ -1,4 +1,5 @@
 'use client'
+
 import { Box, Flex, HStack, Text, VStack } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
 
@@ -79,8 +80,8 @@ export default function HistoryPage() {
     {
       year: 2024,
       events: [
-        { date: '2024.03', description: 'ë†í˜‘ìì‚°ê´€ë¦¬íšŒì‚¬ ì—…ë¬´ì‹œìŠ¤í…œ ì¬êµ¬ì¶•' },
-        { date: '2024.01', description: 'í•˜ë‚˜ì€í–‰ CLS ê²°ì œì‹œìŠ¤í…œ ì¬êµ¬ì¶•' },
+        { date: '2024.03', description: '³óÇùÀÚ»ê°ü¸®È¸»ç ¾÷¹«½Ã½ºÅÛ Àç±¸Ãà' },
+        { date: '2024.01', description: 'ÇÏ³ªÀºÇà CLS °áÁ¦½Ã½ºÅÛ Àç±¸Ãà' },
       ],
     },
     {
@@ -88,11 +89,11 @@ export default function HistoryPage() {
       events: [
         {
           date: '2024.03',
-          description: 'í•˜ë‚˜ì€í–‰ ì±„ê¶Œê±°ë˜ì‹œìŠ¤í…œ ë””ì§€í„¸í™” ê°œë°œ',
+          description: 'ÇÏ³ªÀºÇà Ã¤±Ç°Å·¡½Ã½ºÅÛ µğÁöÅĞÈ­ °³¹ß',
         },
         {
           date: '2024.03',
-          description: 'í•˜ë‚˜ì€í–‰(ì¤‘êµ­)ìœ í•œê³µì‚¬ ì°¨ì„¸ëŒ€ì‹œìŠ¤í…œ êµ¬ì¶•',
+          description: 'ÇÏ³ªÀºÇà(Áß±¹)À¯ÇÑ°ø»ç Â÷¼¼´ë½Ã½ºÅÛ ±¸Ãà',
         },
       ],
     },
@@ -105,8 +106,8 @@ export default function HistoryPage() {
           {t('history')}
         </Text>
         <Text fontSize="xl" fontWeight="bold" mb={6}>
-          2001ë…„, ê³ ê°ì„ í–¥í•œ
-          <br />ì²« ê±¸ìŒì„ ì‹œì‘í–ˆìŠµë‹ˆë‹¤.
+          2001³â, °í°´À» ÇâÇÑ
+          <br />Ã¹ °ÉÀ½À» ½ÃÀÛÇß½À´Ï´Ù.
         </Text>
         <Timeline data={timelineData} />
       </Box>
