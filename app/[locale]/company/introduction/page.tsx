@@ -189,7 +189,7 @@ const Page = () => {
             {t('section5.heading')}
           </Heading>
           <Grid
-            margin={3}
+            margin={0}
             w={['22em', '30em', '40em']}
             h={['6em', '8em', '10em']}
             templateRows="repeat(2, 1fr)"

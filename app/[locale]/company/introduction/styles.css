@@ -93,3 +93,13 @@
     padding-bottom: 10rem;
   }
 }
+@media (max-width: 480px) {
+  .mobile-toc button {
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 1rem 0.7rem 0 0;
+  }
+  .section {
+    padding-bottom: 5rem;
+  }
+}
