@@ -21,7 +21,6 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
-  padding-bottom: 30%;
 }
 .overviewText {
   text-align: center;
@@ -86,12 +85,11 @@
 /* 모바일 대응 */
 @media (max-width: 768px) {
   .mobile-toc button {
-    background: none;
-    border: none;
     width: 0.5rem;
     height: 0.5rem;
     margin: 1rem 0.7rem 0 0;
-    background-color: #d8e8f9;
-    cursor: pointer;
+  }
+  .section {
+    padding-bottom: 10rem;
   }
 }
