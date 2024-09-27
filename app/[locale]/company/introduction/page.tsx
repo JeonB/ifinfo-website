@@ -198,7 +198,7 @@ const Page = () => {
             <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
               <Box maxHeight={100} maxWidth={100}>
                 <Image
-                  src="/images/iconlist/bankicon.png"
+                  src="/images/iconlist/bank.png"
                   alt="bank Image"
                   width={100}
                   height={100}
@@ -228,7 +228,7 @@ const Page = () => {
             <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
               <Box maxHeight={100} maxWidth={100}>
                 <Image
-                  src="/images/iconlist/bagicon.png"
+                  src="/images/iconlist/bag.png"
                   alt="bank Image"
                   width={100}
                   height={100}
@@ -258,7 +258,7 @@ const Page = () => {
             <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
               <Box maxHeight={100} maxWidth={100}>
                 <Image
-                  src="/images/iconlist/moneyicon.png"
+                  src="/images/iconlist/money.png"
                   alt="bank Image"
                   width={100}
                   height={100}
