@@ -80,7 +80,7 @@ export const MobileHeader = () => {
                   )}
                 </Heading>
                 <Collapse in={toggle} animateOpacity>
-                  <Box p="1em" color="white" mt="4" rounded="md" shadow="md">
+                  <Box p="1em" mt="4">
                     <Link
                       className={classes.a}
                       href="/company/introduction"

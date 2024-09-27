@@ -1,159 +1,114 @@
-import { Box, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react'
+import { Box, Flex, HStack, Text, VStack } from '@chakra-ui/react'
+import { useTranslations } from 'next-intl'
 
-const historyData = [
-  {
-    year: '2024',
-    events: [
-      {
-        description: '농협자산관리회사 업무시스템 재구축',
-        period: '2024-03 ~ 2024-11',
-      },
-      {
-        description: '하나은행 CLS 결제시스템 재구축',
-        period: '2024-01 ~ 2025-03',
-      },
-    ],
-  },
-  {
-    year: '2023',
-    events: [
-      {
-        description: '하나은행 재정거래시스템 디지털화 개발',
-        period: '2023-09 ~ 2025-05',
-      },
-      {
-        description: '하나은행(중국)유한공사 차세대 시스템 구축 참여',
-        period: '2023-09 ~ 2024-12',
-      },
-      {
-        description: '인도네시아 하나은행 차세대 리드빌 사업',
-        period: '2023-07 ~ 2024-06',
-      },
-      {
-        description:
-          '인도네시아 우리소다라은행 현지보고서시스템 인터페이스 개선 컨설팅',
-        period: '2023-07 ~ 2023-09',
-      },
-      {
-        description: 'AIFUL 리보 전용 카드시스템 구축(회원정산)',
-        period: '2023-06 ~ 2024-06',
-      },
-      {
-        description:
-          'KDB 산업은행 글로벌 표준뱅킹시스템 재구축을 위한 요건정의 컨설팅',
-        period: '2023-06 ~ 2024-04',
-      },
-    ],
-  },
-  {
-    year: '2022',
-    events: [
-      {
-        description: '하나은행 Canada 뱅킹시스템 구축(LDW)',
-        period: '2022-10 ~ 2024-11',
-      },
-      {
-        description: 'JB Capital Myanmar GBS 운영',
-        period: '2022-09 ~ 2023-08',
-      },
-      {
-        description: 'AIFUL리보 전용 카드시스템 구축(채권/영업)',
-        period: '2022-09 ~ 2023-05',
-      },
+const TimelineItem = ({
+  date,
+  description,
+}: {
+  date: string
+  description: string
+}) => (
+  <HStack align="flex-start" spacing={4} mb={6}>
+    <Box position="relative">
+      <Box
+        width="10px"
+        height="10px"
+        bg="blue.500"
+        borderRadius="full"
+        position="relative"
+        zIndex="1"
+      />
+      <Box
+        position="absolute"
+        top="10px"
+        left="4px"
+        width="2px"
+        height="calc(100% + 20px)"
+        bg="gray.300"
+        zIndex="0"
+      />
+    </Box>
+    <Box>
+      <Text fontWeight="bold" fontSize="sm">
+        {date}
+      </Text>
+      <Text>{description}</Text>
+    </Box>
+  </HStack>
+)
 
-      {
-        description: '유앤아이대부 정보보호 시스템 구축',
-        period: '2022-08 ~ 2023-01',
-      },
-      {
-        description: 'NongHyup Finance Myanmar GBS 모바일시스템 구축',
-        period: '2022-07 ~ 2022-12',
-      },
+const TimelineYear = ({
+  year,
+  events,
+}: {
+  year: number
+  events: { date: string; description: string }[]
+}) => (
+  <Box>
+    <Text fontWeight="bold" fontSize="lg" color="blue.500" mb={4}>
+      {year}
+    </Text>
+    {events.map((event, idx) => (
+      <TimelineItem
+        key={idx}
+        date={event.date}
+        description={event.description}
+      />
+    ))}
+  </Box>
+)
 
-      {
-        description: 'KB국민은행 E-Capital Market 운영',
-        period: '2022-04 ~ 2024-05',
-      },
+const Timeline = ({
+  data,
+}: {
+  data: { year: number; events: { date: string; description: string }[] }[]
+}) => (
+  <VStack align="start" spacing={6} position="relative">
+    {data.map((yearData, idx) => (
+      <Box key={idx} w="100%" position="relative">
+        <TimelineYear year={yearData.year} events={yearData.events} />
+      </Box>
+    ))}
+  </VStack>
+)
 
-      {
-        description: 'KB국민은행 E-Capital Market',
-        period: '2022-02 ~ 2022-12',
-      },
-    ],
-  },
-]
+export default function HistoryPage() {
+  const t = useTranslations('Company')
+  const timelineData = [
+    {
+      year: 2024,
+      events: [
+        { date: '2024.03', description: '농협자산관리회사 업무시스템 재구축' },
+        { date: '2024.01', description: '하나은행 CLS 결제시스템 재구축' },
+      ],
+    },
+    {
+      year: 2023,
+      events: [
+        {
+          date: '2024.03',
+          description: '하나은행 채권거래시스템 디지털화 개발',
+        },
+        {
+          date: '2024.03',
+          description: '하나은행(중국)유한공사 차세대시스템 구축',
+        },
+      ],
+    },
+  ]
 
-const HistoryTimeline = () => {
   return (
-    <Flex
-      direction="column"
-      align="center"
-      justify="center"
-      minH="100vh"
-      py="10"
-      px="4">
-      {historyData.map((yearData, index) => (
-        <Box key={index}>
-          <SimpleGrid columns={3} spacing={0} templateColumns="1fr 0.05fr 1fr">
-            {/* 왼쪽 연혁 */}
-            {index % 2 === 0 && (
-              <>
-                <Box
-                  style={{
-                    paddingRight: '20px',
-                    textAlign: 'right',
-                  }}>
-                  <Heading size="lg">{yearData.year}</Heading>
-                  {yearData.events.map((event, idx) => (
-                    <Box key={idx}>
-                      <Text>{event.description}</Text>
-                      <Text>{event.period}</Text>
-                    </Box>
-                  ))}
-                </Box>
-                <Box
-                  style={{
-                    width: '1px',
-                    backgroundColor: 'black',
-                    height: '100%',
-                    margin: '0 auto',
-                  }}
-                />
-                <Box />
-              </>
-            )}
-            {/* 오른쪽 연혁 */}
-            {index % 2 !== 0 && (
-              <>
-                <Box />
-                <Box
-                  style={{
-                    width: '1px',
-                    backgroundColor: 'black',
-                    height: '100%',
-                    margin: '0 auto',
-                  }}
-                />
-                <Box
-                  style={{
-                    paddingLeft: '20px',
-                    textAlign: 'left',
-                  }}>
-                  <Heading size="lg">{yearData.year}</Heading>
-                  {yearData.events.map((event, idx) => (
-                    <Box key={idx}>
-                      <Text>{event.description}</Text>
-                      <Text>{event.period}</Text>
-                    </Box>
-                  ))}
-                </Box>
-              </>
-            )}
-          </SimpleGrid>
-        </Box>
-      ))}
+    <Flex direction="column" align="center" justify="center" pl="4">
+      <Box maxW="600px" mx="auto" mt={10}>
+        <Text fontWeight="bold" fontSize="2xl" mb={4}>
+          {t('history')}
+        </Text>
+        <Text fontSize="xl" fontWeight="bold" mb={6}>
+          2001년, 고객을 향한
+          <br />첫 걸음을 시작했습니다.
+        </Text>
+        <Timeline data={timelineData} />
+      </Box>
     </Flex>
   )
 }
-
-export default HistoryTimeline
