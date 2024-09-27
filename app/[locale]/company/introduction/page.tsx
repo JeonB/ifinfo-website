@@ -124,7 +124,7 @@ const Page = () => {
             {t('section1.text')}
           </Text>
           <Heading
-            fontSize={['3xl', '4xl', '5xl', '6xl']}
+            fontSize={['3xl', '5xl', '6xl', '7xl']}
             className="overviewText">
             {t('section1.heading')}
           </Heading>
@@ -142,7 +142,7 @@ const Page = () => {
             fontSize={['4xl', '5xl', '6xl', '7xl']}>
             {t('section2.heading')}
           </Heading>
-          <Text className="vision-text" fontSize={['xl', '2xl', '3xl', '4xl']}>
+          <Text className="vision-text" fontSize={['2xl', '2xl', '3xl', '4xl']}>
             {t('section2.description')}
           </Text>
         </Section>
@@ -198,7 +198,7 @@ const Page = () => {
             <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
               <Box maxHeight={100} maxWidth={100}>
                 <Image
-                  src="/images/icons/bankicon.png"
+                  src="/images/iconlist/bankicon.png"
                   alt="bank Image"
                   width={100}
                   height={100}
@@ -228,7 +228,7 @@ const Page = () => {
             <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
               <Box maxHeight={100} maxWidth={100}>
                 <Image
-                  src="/images/icons/bagicon.png"
+                  src="/images/iconlist/bagicon.png"
                   alt="bank Image"
                   width={100}
                   height={100}
@@ -258,7 +258,7 @@ const Page = () => {
             <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
               <Box maxHeight={100} maxWidth={100}>
                 <Image
-                  src="/images/icons/moneyicon.png"
+                  src="/images/iconlist/moneyicon.png"
                   alt="bank Image"
                   width={100}
                   height={100}
@@ -288,7 +288,7 @@ const Page = () => {
             <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
               <Box maxHeight={100} maxWidth={100}>
                 <Image
-                  src="/images/icons/Financeicon.png"
+                  src="/images/iconlist/Financeicon.png"
                   alt="bank Image"
                   width={100}
                   height={100}

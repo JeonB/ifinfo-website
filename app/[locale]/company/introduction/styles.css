@@ -37,7 +37,7 @@
 .vision-header {
   color: black;
   padding-right: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
   white-space: pre-line;
 }
 .vision-text {
@@ -46,7 +46,7 @@
   font-weight: 500;
   padding-bottom: 5em;
   white-space: pre-line;
-  line-height: 1.8;
+  line-height: 2;
 }
 .fade-in-section {
   opacity: 0;
