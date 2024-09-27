@@ -69,13 +69,14 @@ export const MobileHeader = () => {
               align="stretch">
               <Box>
                 <Heading
+                  whiteSpace={'nowrap'}
                   fontSize={['lg', 'xl', '2xl', '3xl']}
                   onClick={onToggle}>
-                  {t('Header.about_us')}{' '}
+                  {t('Header.about_us')}
                   {toggle ? (
-                    <ChevronUpIcon ml={'5em'} />
+                    <ChevronUpIcon ml={'1em'} />
                   ) : (
-                    <ChevronDownIcon ml={'5em'} />
+                    <ChevronDownIcon ml={'1em'} />
                   )}
                 </Heading>
                 <Collapse in={toggle} animateOpacity>

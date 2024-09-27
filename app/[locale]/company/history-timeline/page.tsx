@@ -1,4 +1,4 @@
-import { Box, Heading, SimpleGrid, Text } from '@chakra-ui/react'
+import { Box, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react'
 
 const historyData = [
   {
@@ -49,7 +49,7 @@ const historyData = [
     year: '2022',
     events: [
       {
-        description: '하나은행 Canada 뱅킹시스템 구축(LDW',
+        description: '하나은행 Canada 뱅킹시스템 구축(LDW)',
         period: '2022-10 ~ 2024-11',
       },
       {
@@ -85,7 +85,13 @@ const historyData = [
 
 const HistoryTimeline = () => {
   return (
-    <>
+    <Flex
+      direction="column"
+      align="center"
+      justify="center"
+      minH="100vh"
+      py="10"
+      px="4">
       {historyData.map((yearData, index) => (
         <Box key={index}>
           <SimpleGrid columns={3} spacing={0} templateColumns="1fr 0.05fr 1fr">
@@ -146,7 +152,7 @@ const HistoryTimeline = () => {
           </SimpleGrid>
         </Box>
       ))}
-    </>
+    </Flex>
   )
 }
 

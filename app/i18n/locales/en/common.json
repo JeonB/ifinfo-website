@@ -27,6 +27,47 @@
     "vision": "Vision",
     "organization": "Organization",
     "history": "History Timeline",
-    "ceo": "CEO's Message"
+    "ceo": "CEO's Message",
+    "section1": {
+      "text": "Trusted based on expertise",
+      "heading": "International\n Financial Partner \nIF Information Systems"
+    },
+    "section2": {
+      "text": "Vision 1",
+      "heading": "🙋Satisfaction",
+      "description": "We constantly strive to provide\n the best service that exceeds\n customer expectations."
+    },
+    "section3": {
+      "text": "Vision 2",
+      "heading": "🔥Craftsmanship",
+      "description": "We maintain the highest quality\n of products with meticulous \nattention and dedication based on craftsmanship."
+    },
+    "section4": {
+      "text": "Vision 3",
+      "heading": "💥Innovation",
+      "description": "We provide innovative solutions\n considering the environment \nand pursue long-term business development."
+    },
+    "section5": {
+      "text": "Business Areas",
+      "heading": "Core Business Areas",
+      "items": {
+        "item1": {
+          "heading": "Global Banking System",
+          "description": "Overseas Branch and Local Bank System"
+        },
+        "item2": {
+          "heading": "Capital Market Dealing",
+          "description": "Capital Market System"
+        },
+        "item3": {
+          "heading": "Financial Information",
+          "description": "Financial Information System"
+        },
+        "item4": {
+          "heading": "GBS, TFS, IF-Reconcile",
+          "description": "Financial Package"
+        }
+      }
+    }
   }
 }

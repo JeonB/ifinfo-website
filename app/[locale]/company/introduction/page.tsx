@@ -1,5 +1,5 @@
 'use client'
-import { Heading, Text } from '@chakra-ui/react'
+import { Box, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import './styles.css'
@@ -40,7 +40,7 @@ const Section = ({
   id: string
   children: ReactNode
   setVisibleSections: (id: string, visible: boolean) => void
-  backgroundImage: string
+  backgroundImage?: string
 }) => {
   const [visible, setVisible] = useState(false)
   const ref = useIntersectionObserver(setVisible)
@@ -96,6 +96,7 @@ const Page = () => {
     { id: 'section2' },
     { id: 'section3' },
     { id: 'section4' },
+    { id: 'section5' },
   ]
   const t = useTranslations('Company')
   const [visibleSections, setVisibleSections] = useState<{
@@ -119,67 +120,46 @@ const Page = () => {
           <Text
             fontSize={['md', 'xl', '2xl', '3xl']}
             color={' hsl(0, 23%, 95%)'}>
-            전문성을 바탕으로 신뢰받는
+            {t('section1.text')}
           </Text>
           <Heading
             fontSize={['3xl', '4xl', '5xl', '6xl']}
             className="overviewText">
-            국제금융 파트너 <br />
-            이프정보시스템
+            {t('section1.heading')}
           </Heading>
         </Section>
+
         <Section
           id="section2"
           setVisibleSections={handleSetVisibleSections}
           backgroundImage="/images/company/vision1.png">
-          <Text
-            fontSize={['md', 'lg', 'xl', '2xl']}
-            color={'#142567'}
-            marginBottom={'1em'}>
-            Vision 1
+          <Text fontSize={['lg', 'xl', '2xl', '3xl']} className="vision">
+            {t('section2.text')}
           </Text>
           <Heading
-            fontSize={['3xl', '4xl', '5xl', '6xl']}
-            color={'black'}
-            marginBottom={'1em'}>
-            👍고객만족
+            className="vision-header"
+            fontSize={['4xl', '5xl', '6xl', '7xl']}>
+            {t('section2.heading')}
           </Heading>
-          <Text
-            textAlign={'center'}
-            fontWeight={'bold'}
-            fontSize={['md', 'xl', '2xl', '3xl']}
-            color={'black'}
-            paddingBottom={'5em'}>
-            고객의 기대를 초과하는
-            <br /> 최상의 서비스를 제공하기 위해
-            <br /> 끈임없이 노력합니다.
+          <Text className="vision-text" fontSize={['xl', '2xl', '3xl', '4xl']}>
+            {t('section2.description')}
           </Text>
         </Section>
+
         <Section
           id="section3"
           setVisibleSections={handleSetVisibleSections}
           backgroundImage="/images/company/vision2.png">
-          <Text
-            fontSize={['md', 'lg', 'xl', '2xl']}
-            color={'#142567'}
-            marginBottom={'1em'}>
-            Vision 2
+          <Text fontSize={['lg', 'xl', '2xl', '3xl']} className="vision">
+            {t('section3.text')}
           </Text>
           <Heading
-            fontSize={['3xl', '4xl', '5xl', '6xl']}
-            color={'black'}
-            marginBottom={'1em'}>
-            👍장인정신
+            fontSize={['4xl', '5xl', '6xl', '7xl']}
+            className="vision-header">
+            {t('section3.heading')}
           </Heading>
-          <Text
-            textAlign={'center'}
-            fontWeight={'bold'}
-            fontSize={['md', 'xl', '2xl', '3xl']}
-            color={'black'}
-            paddingBottom={'5em'}>
-            장인정신을 바탕으로
-            <br /> 세심한 주의와 정성을 다해 제품의
-            <br /> 최고 품질을 유지합니다.
+          <Text fontSize={['xl', '2xl', '3xl', '4xl']} className="vision-text">
+            {t('section3.description')}
           </Text>
         </Section>
 
@@ -187,28 +167,137 @@ const Page = () => {
           id="section4"
           setVisibleSections={handleSetVisibleSections}
           backgroundImage="/images/company/vision3.png">
-          <Text
-            fontSize={['md', 'lg', 'xl', '2xl']}
-            color={'#142567'}
-            marginBottom={'1em'}>
-            Vision 3
+          <Text fontSize={['lg', 'xl', '2xl', '3xl']} className="vision">
+            {t('section4.text')}
           </Text>
           <Heading
-            fontSize={['3xl', '4xl', '5xl', '6xl']}
-            color={'black'}
-            marginBottom={'1em'}>
-            👍혁신
+            fontSize={['4xl', '5xl', '6xl', '7xl']}
+            className="vision-header">
+            {t('section4.heading')}
           </Heading>
-          <Text
-            textAlign={'center'}
-            fontWeight={'bold'}
-            fontSize={['md', 'xl', '2xl', '3xl']}
-            color={'black'}
-            paddingBottom={'5em'}>
-            환경을 고려한 혁신적인
-            <br /> 솔루션을 제공하며 장기적인
-            <br /> 비즈니스 발전을 추구합니다.
+          <Text fontSize={['xl', '2xl', '3xl', '4xl']} className="vision-text">
+            {t('section4.description')}
           </Text>
+        </Section>
+
+        <Section id="section5" setVisibleSections={handleSetVisibleSections}>
+          <Text fontSize={['md', 'lg', 'xl', '2xl']} className="vision">
+            {t('section5.text')}
+          </Text>
+          <Heading fontSize={['4xl', '5xl', '6xl', '7xl']} textAlign={'center'}>
+            {t('section5.heading')}
+          </Heading>
+          <Grid
+            margin={3}
+            w={['22em', '30em', '40em']}
+            h={['6em', '8em', '10em']}
+            templateRows="repeat(2, 1fr)"
+            templateColumns="repeat(4, 1fr)"
+            gap={1}>
+            <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
+              <Box
+                as="img"
+                src="/images/icons/bankicon.png"
+                alt="bank Image"
+                width={['50px', '75px', '100px'] as const}
+                height={['50px', '75px', '100px'] as const}
+              />
+            </GridItem>
+            <GridItem colSpan={3} alignContent={'center'}>
+              <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
+                {t('section5.items.item1.heading')}
+              </Heading>
+            </GridItem>
+            <GridItem colSpan={3}>
+              <Text fontSize={['sm', 'lg', 'xl', '2xl']} fontWeight={400}>
+                {t('section5.items.item1.description')}
+              </Text>
+            </GridItem>
+          </Grid>
+
+          <Grid
+            margin={3}
+            w={['22em', '30em', '40em']}
+            h={['6em', '8em', '10em']}
+            templateRows="repeat(2, 1fr)"
+            templateColumns="repeat(4, 1fr)"
+            gap={1}>
+            <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
+              <Box
+                as="img"
+                src="/images/icons/bagicon.png"
+                alt="bank Image"
+                width={['50px', '75px', '100px'] as const}
+                height={['50px', '75px', '100px'] as const}
+              />
+            </GridItem>
+            <GridItem colSpan={3} alignContent={'center'}>
+              <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
+                {t('section5.items.item2.heading')}
+              </Heading>
+            </GridItem>
+            <GridItem colSpan={3}>
+              <Text fontSize={['sm', 'lg', 'xl', '2xl']} fontWeight={400}>
+                {t('section5.items.item2.description')}
+              </Text>
+            </GridItem>
+          </Grid>
+
+          <Grid
+            margin={3}
+            w={['22em', '30em', '40em']}
+            h={['6em', '8em', '10em']}
+            templateRows="repeat(2, 1fr)"
+            templateColumns="repeat(4, 1fr)"
+            gap={1}>
+            <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
+              <Box
+                as="img"
+                src="/images/icons/moneyicon.png"
+                alt="bank Image"
+                width={['50px', '75px', '100px'] as const}
+                height={['50px', '75px', '100px'] as const}
+              />
+            </GridItem>
+            <GridItem colSpan={3} alignContent={'center'}>
+              <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
+                {t('section5.items.item3.heading')}
+              </Heading>
+            </GridItem>
+            <GridItem colSpan={3}>
+              <Text fontSize={['sm', 'lg', 'xl', '2xl']} fontWeight={400}>
+                {t('section5.items.item3.description')}
+              </Text>
+            </GridItem>
+          </Grid>
+
+          <Grid
+            margin={3}
+            w={['22em', '30em', '40em']}
+            h={['6em', '8em', '10em']}
+            templateRows="repeat(2, 1fr)"
+            templateColumns="repeat(4, 1fr)"
+            gap={1}>
+            <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
+              <Box
+                as="img"
+                src="/images/icons/Financeicon.png"
+                alt="bank Image"
+                width={['50px', '75px', '100px'] as const}
+                height={['50px', '75px', '100px'] as const}
+              />
+            </GridItem>
+            <GridItem colSpan={3} alignContent={'center'}>
+              <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
+                {t('section5.items.item4.heading')}
+              </Heading>
+            </GridItem>
+            <GridItem colSpan={3}>
+              <Text fontSize={['sm', 'lg', 'xl', '2xl']} fontWeight={400}>
+                {t('section5.items.item4.description')}
+              </Text>
+            </GridItem>
+          </Grid>
         </Section>
       </div>
     </div>

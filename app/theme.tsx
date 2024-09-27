@@ -9,7 +9,7 @@ import '@fontsource/raleway'
 // const fonts = { mono: `'Menlo', monospace` }
 const fonts = {
   heading: `'Inter', sans-serif`,
-  body: `'Lato', sans-serif`,
+  body: `'Inter', sans-serif`,
 }
 
 // 화면 크기 구간

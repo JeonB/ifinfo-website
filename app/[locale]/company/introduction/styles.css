@@ -21,12 +21,33 @@
   height: 100vh;
   justify-content: center;
   align-items: center;
+  padding-bottom: 30%;
 }
 .overviewText {
   text-align: center;
   color: hsl(0, 23%, 95%);
   font-weight: 800;
-  padding: 0 0 3em 0;
+  padding: 0.3em 0 3em 0;
+  white-space: pre-line;
+}
+.vision {
+  color: #142567;
+  margin-bottom: 1em;
+  font-weight: bold;
+}
+.vision-header {
+  color: black;
+  padding-right: 1em;
+  margin-bottom: 1em;
+  white-space: pre-line;
+}
+.vision-text {
+  text-align: center;
+  color: black;
+  font-weight: 500;
+  padding-bottom: 5em;
+  white-space: pre-line;
+  line-height: 1.8;
 }
 .fade-in-section {
   opacity: 0;
@@ -60,7 +81,7 @@
   cursor: pointer;
 }
 .mobile-toc button.active {
-  background-color: #7f8386;
+  background-color: #e68d28;
 }
 /* 모바일 대응 */
 @media (max-width: 768px) {
