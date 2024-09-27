@@ -288,7 +288,7 @@ const Page = () => {
             <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
               <Box maxHeight={100} maxWidth={100}>
                 <Image
-                  src="/images/iconlist/Financeicon.png"
+                  src="/images/iconlist/financeicon.png"
                   alt="bank Image"
                   width={100}
                   height={100}
