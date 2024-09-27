@@ -1,3 +1,4 @@
+'use client'
 import { Box, Flex, HStack, Text, VStack } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
 
