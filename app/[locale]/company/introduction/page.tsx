@@ -1,6 +1,7 @@
 'use client'
 import { Box, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import './styles.css'
 
@@ -195,13 +196,15 @@ const Page = () => {
             templateColumns="repeat(4, 1fr)"
             gap={1}>
             <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
-              <Box
-                as="img"
-                src="/images/icons/bankicon.png"
-                alt="bank Image"
-                width={['50px', '75px', '100px'] as const}
-                height={['50px', '75px', '100px'] as const}
-              />
+              <Box maxHeight={100} maxWidth={100}>
+                <Image
+                  src="/images/icons/bankicon.png"
+                  alt="bank Image"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                />
+              </Box>
             </GridItem>
             <GridItem colSpan={3} alignContent={'center'}>
               <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
@@ -223,13 +226,15 @@ const Page = () => {
             templateColumns="repeat(4, 1fr)"
             gap={1}>
             <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
-              <Box
-                as="img"
-                src="/images/icons/bagicon.png"
-                alt="bank Image"
-                width={['50px', '75px', '100px'] as const}
-                height={['50px', '75px', '100px'] as const}
-              />
+              <Box maxHeight={100} maxWidth={100}>
+                <Image
+                  src="/images/icons/bagicon.png"
+                  alt="bank Image"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                />
+              </Box>
             </GridItem>
             <GridItem colSpan={3} alignContent={'center'}>
               <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
@@ -251,13 +256,15 @@ const Page = () => {
             templateColumns="repeat(4, 1fr)"
             gap={1}>
             <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
-              <Box
-                as="img"
-                src="/images/icons/moneyicon.png"
-                alt="bank Image"
-                width={['50px', '75px', '100px'] as const}
-                height={['50px', '75px', '100px'] as const}
-              />
+              <Box maxHeight={100} maxWidth={100}>
+                <Image
+                  src="/images/icons/moneyicon.png"
+                  alt="bank Image"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                />
+              </Box>
             </GridItem>
             <GridItem colSpan={3} alignContent={'center'}>
               <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
@@ -279,13 +286,15 @@ const Page = () => {
             templateColumns="repeat(4, 1fr)"
             gap={1}>
             <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
-              <Box
-                as="img"
-                src="/images/icons/Financeicon.png"
-                alt="bank Image"
-                width={['50px', '75px', '100px'] as const}
-                height={['50px', '75px', '100px'] as const}
-              />
+              <Box maxHeight={100} maxWidth={100}>
+                <Image
+                  src="/images/icons/Financeicon.png"
+                  alt="bank Image"
+                  width={100}
+                  height={100}
+                  layout="responsive"
+                />
+              </Box>
             </GridItem>
             <GridItem colSpan={3} alignContent={'center'}>
               <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
