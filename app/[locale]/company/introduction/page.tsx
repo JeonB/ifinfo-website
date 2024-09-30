@@ -107,6 +107,72 @@ const Page = () => {
   const handleSetVisibleSections = (id: string, visible: boolean) => {
     setVisibleSections(prev => ({ ...prev, [id]: visible }))
   }
+
+  const items = [
+    {
+      src: '/images/iconlist/bank.png',
+      alt: 'bank Image',
+      heading: 'section5.items.item1.heading',
+      description: 'section5.items.item1.description',
+    },
+    {
+      src: '/images/iconlist/bag.png',
+      alt: 'bag Image',
+      heading: 'section5.items.item2.heading',
+      description: 'section5.items.item2.description',
+    },
+    {
+      src: '/images/iconlist/money.png',
+      alt: 'money Image',
+      heading: 'section5.items.item3.heading',
+      description: 'section5.items.item3.description',
+    },
+    {
+      src: '/images/iconlist/finance.png',
+      alt: 'finance Image',
+      heading: 'section5.items.item4.heading',
+      description: 'section5.items.item4.description',
+    },
+  ]
+
+  interface ItemGridProps {
+    src: string
+    alt: string
+    heading: string
+    description: string
+  }
+  const ItemGrid = ({ src, alt, heading, description }: ItemGridProps) => (
+    <Grid
+      margin={3}
+      w={['22em', '30em', '40em']}
+      h={['6em', '8em', '10em']}
+      templateRows="repeat(2, 1fr)"
+      templateColumns="repeat(4, 1fr)"
+      gap={1}>
+      <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
+        <Box maxHeight={100} maxWidth={100}>
+          <Image
+            src={src}
+            alt={alt}
+            width={100}
+            height={100}
+            layout="responsive"
+          />
+        </Box>
+      </GridItem>
+      <GridItem colSpan={3} alignContent={'center'}>
+        <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
+          {t(heading)}
+        </Heading>
+      </GridItem>
+      <GridItem colSpan={3}>
+        <Text fontSize={['sm', 'lg', 'xl', '2xl']} fontWeight={400}>
+          {t(description)}
+        </Text>
+      </GridItem>
+    </Grid>
+  )
+
   return (
     <div style={{ display: 'flex' }}>
       <MobileTableOfContents
@@ -188,125 +254,15 @@ const Page = () => {
           <Heading fontSize={['4xl', '5xl', '6xl', '7xl']} textAlign={'center'}>
             {t('section5.heading')}
           </Heading>
-          <Grid
-            margin={0}
-            w={['22em', '30em', '40em']}
-            h={['6em', '8em', '10em']}
-            templateRows="repeat(2, 1fr)"
-            templateColumns="repeat(4, 1fr)"
-            gap={1}>
-            <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
-              <Box maxHeight={100} maxWidth={100}>
-                <Image
-                  src="/images/iconlist/bank.png"
-                  alt="bank Image"
-                  width={100}
-                  height={100}
-                  layout="responsive"
-                />
-              </Box>
-            </GridItem>
-            <GridItem colSpan={3} alignContent={'center'}>
-              <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
-                {t('section5.items.item1.heading')}
-              </Heading>
-            </GridItem>
-            <GridItem colSpan={3}>
-              <Text fontSize={['sm', 'lg', 'xl', '2xl']} fontWeight={400}>
-                {t('section5.items.item1.description')}
-              </Text>
-            </GridItem>
-          </Grid>
-
-          <Grid
-            margin={3}
-            w={['22em', '30em', '40em']}
-            h={['6em', '8em', '10em']}
-            templateRows="repeat(2, 1fr)"
-            templateColumns="repeat(4, 1fr)"
-            gap={1}>
-            <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
-              <Box maxHeight={100} maxWidth={100}>
-                <Image
-                  src="/images/iconlist/bag.png"
-                  alt="bank Image"
-                  width={100}
-                  height={100}
-                  layout="responsive"
-                />
-              </Box>
-            </GridItem>
-            <GridItem colSpan={3} alignContent={'center'}>
-              <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
-                {t('section5.items.item2.heading')}
-              </Heading>
-            </GridItem>
-            <GridItem colSpan={3}>
-              <Text fontSize={['sm', 'lg', 'xl', '2xl']} fontWeight={400}>
-                {t('section5.items.item2.description')}
-              </Text>
-            </GridItem>
-          </Grid>
-
-          <Grid
-            margin={3}
-            w={['22em', '30em', '40em']}
-            h={['6em', '8em', '10em']}
-            templateRows="repeat(2, 1fr)"
-            templateColumns="repeat(4, 1fr)"
-            gap={1}>
-            <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
-              <Box maxHeight={100} maxWidth={100}>
-                <Image
-                  src="/images/iconlist/money.png"
-                  alt="bank Image"
-                  width={100}
-                  height={100}
-                  layout="responsive"
-                />
-              </Box>
-            </GridItem>
-            <GridItem colSpan={3} alignContent={'center'}>
-              <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
-                {t('section5.items.item3.heading')}
-              </Heading>
-            </GridItem>
-            <GridItem colSpan={3}>
-              <Text fontSize={['sm', 'lg', 'xl', '2xl']} fontWeight={400}>
-                {t('section5.items.item3.description')}
-              </Text>
-            </GridItem>
-          </Grid>
-
-          <Grid
-            margin={3}
-            w={['22em', '30em', '40em']}
-            h={['6em', '8em', '10em']}
-            templateRows="repeat(2, 1fr)"
-            templateColumns="repeat(4, 1fr)"
-            gap={1}>
-            <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
-              <Box maxHeight={100} maxWidth={100}>
-                <Image
-                  src="/images/iconlist/finance.png"
-                  alt="bank Image"
-                  width={100}
-                  height={100}
-                  layout="responsive"
-                />
-              </Box>
-            </GridItem>
-            <GridItem colSpan={3} alignContent={'center'}>
-              <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
-                {t('section5.items.item4.heading')}
-              </Heading>
-            </GridItem>
-            <GridItem colSpan={3}>
-              <Text fontSize={['sm', 'lg', 'xl', '2xl']} fontWeight={400}>
-                {t('section5.items.item4.description')}
-              </Text>
-            </GridItem>
-          </Grid>
+          {items.map((item, index) => (
+            <ItemGrid
+              key={index}
+              src={item.src}
+              alt={item.alt}
+              heading={item.heading}
+              description={item.description}
+            />
+          ))}
         </Section>
       </div>
     </div>

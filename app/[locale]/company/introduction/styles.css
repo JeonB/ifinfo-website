@@ -90,7 +90,7 @@
     margin: 1rem 0.7rem 0 0;
   }
   .section {
-    padding-bottom: 10rem;
+    padding-bottom: 5rem;
   }
 }
 @media (max-width: 480px) {
@@ -100,6 +100,6 @@
     margin: 1rem 0.7rem 0 0;
   }
   .section {
-    padding-bottom: 5rem;
+    padding-bottom: 1rem;
   }
 }
