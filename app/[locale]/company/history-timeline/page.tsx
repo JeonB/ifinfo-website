@@ -2,6 +2,7 @@
 
 import { Box, Flex, HStack, Text, VStack } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
+import { useEffect, useState } from 'react'
 
 const TimelineItem = ({
   date,
@@ -76,28 +77,22 @@ const Timeline = ({
 
 export default function HistoryPage() {
   const t = useTranslations('Company')
-  const timelineData = [
-    {
-      year: 2024,
-      events: [
-        { date: '2024.03', description: '농협자산관리회사 업무시스템 재구축' },
-        { date: '2024.01', description: '하나은행 CLS 결제시스템 재구축' },
-      ],
-    },
-    {
-      year: 2023,
-      events: [
-        {
-          date: '2024.03',
-          description: '하나은행 채권거래시스템 디지털화 개발',
-        },
-        {
-          date: '2024.03',
-          description: '하나은행(중국)유한공사 차세대시스템 구축 ',
-        },
-      ],
-    },
-  ]
+  const [timelineData, setTimelineData] = useState<
+    { year: number; events: { date: string; description: string }[] }[]
+  >([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('/api/timeline')
+      if (response.ok) {
+        const data = await response.json()
+        setTimelineData(data)
+      } else {
+        console.error('Failed to fetch data:', response.statusText)
+      }
+    }
+    fetchData()
+  }, [])
 
   return (
     <Flex direction="column" align="center" justify="center" pl="4">
