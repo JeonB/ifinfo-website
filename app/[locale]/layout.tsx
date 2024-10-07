@@ -28,7 +28,6 @@ export default async function LocaleLayout({
   children,
   params: { locale },
 }: Props) {
-  // Enable static rendering
   unstable_setRequestLocale(locale)
 
   const messages = await getMessages()
