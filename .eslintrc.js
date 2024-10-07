@@ -35,7 +35,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'react'],
   settings: {
     react: {
-      version: 'detect', // React 버전을 자동으로 감지하도록 설정
+      version: 'detect',
     },
   },
   rules: {
