@@ -1,9 +1,9 @@
 import User from '@/models/User'
+import { connectDB } from '@/utils/connectdb'
 import jwt from 'jsonwebtoken'
 import { NextRequest, NextResponse } from 'next/server'
-import { connectDB } from '../../timeline/route'
 
-export const POST = async (req: NextRequest) => {
+export async function POST(req: NextRequest) {
   await connectDB()
 
   const { email, password } = await req.json()
@@ -34,5 +34,3 @@ export const POST = async (req: NextRequest) => {
 
   return response
 }
-
-export default POST
