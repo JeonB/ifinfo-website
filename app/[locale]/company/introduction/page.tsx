@@ -1,7 +1,6 @@
 'use client'
-import { Box, Grid, GridItem, Heading, Text } from '@chakra-ui/react'
+import { Grid, GridItem, Heading, Image, Text } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import './styles.css'
 
@@ -149,21 +148,16 @@ const Page = () => {
       templateRows="repeat(2, 1fr)"
       templateColumns="repeat(4, 1fr)"
       gap={1}>
-      <GridItem rowSpan={2} colSpan={1} p={4} alignContent={'center'}>
-        <Box maxHeight={100} maxWidth={100}>
-          <Image
-            src={src}
-            alt={alt}
-            width={100}
-            height={100}
-            layout="responsive"
-          />
-        </Box>
+      <GridItem
+        rowSpan={2}
+        colSpan={1}
+        p={4}
+        alignContent={'center'}
+        justifyContent={'center'}>
+        <Image src={src} alt={alt} width="80%" height="80%" />
       </GridItem>
       <GridItem colSpan={3} alignContent={'center'}>
-        <Heading fontSize={['lg', '2xl', '3xl', '4xl']} mt={6}>
-          {t(heading)}
-        </Heading>
+        <Heading fontSize={['lg', 'xl', '2xl', '3xl']}>{t(heading)}</Heading>
       </GridItem>
       <GridItem colSpan={3}>
         <Text fontSize={['sm', 'lg', 'xl', '2xl']} fontWeight={400}>
@@ -251,7 +245,7 @@ const Page = () => {
           <Text fontSize={['md', 'lg', 'xl', '2xl']} className="vision">
             {t('section5.text')}
           </Text>
-          <Heading fontSize={['4xl', '5xl', '6xl', '7xl']} textAlign={'center'}>
+          <Heading fontSize={['3xl', '4xl', '5xl', '6xl']} textAlign={'center'}>
             {t('section5.heading')}
           </Heading>
           {items.map((item, index) => (

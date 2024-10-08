@@ -1,22 +1,17 @@
-import { isMobi } from '@/components/common/utill/device'
+import ClientLayout from '@/components/layout/ClientLayout'
 import { Footer } from '@/components/layout/Footer'
-import MobileHeader from '@/components/layout/mobile/MobileHeader'
-import NavBar from '@/components/layout/NavBar'
 import { locales } from '@/config'
 import '@/styles/global.css'
-import { ColorModeScript } from '@chakra-ui/react'
 import { NextIntlClientProvider } from 'next-intl'
 import {
   getMessages,
   getTranslations,
   unstable_setRequestLocale,
 } from 'next-intl/server'
-import { headers } from 'next/headers'
-import { ReactNode } from 'react'
 import { Providers } from '../providers'
 
 type Props = {
-  children: ReactNode
+  children: React.ReactNode
   params: { locale: string }
 }
 
@@ -33,10 +28,6 @@ export default async function LocaleLayout({
   const messages = await getMessages()
   const t = await getTranslations({ locale, namespace: 'LocaleLayout' })
 
-  // 서버에서 헤더를 통해 user-agent 가져오기
-  const userAgent = headers().get('user-agent') || ''
-  const isMobile = isMobi(userAgent) // 모바일 여부 판별
-
   return (
     <html lang={locale}>
       <head>
@@ -48,20 +39,7 @@ export default async function LocaleLayout({
         <Providers>
           <NextIntlClientProvider messages={messages}>
             <div className="container">
-              <header
-                style={{
-                  position: 'relative',
-                  top: 0,
-                  width: '100%',
-                  zIndex: 1000,
-                  backgroundColor: 'white',
-                }}>
-                {isMobile ? <MobileHeader /> : <NavBar />}
-              </header>
-
-              <ColorModeScript />
-              <main>{children}</main>
-
+              <ClientLayout>{children}</ClientLayout>
               <Footer />
             </div>
           </NextIntlClientProvider>

@@ -32,7 +32,7 @@ export const MobileHeader = () => {
     <>
       <Flex justifyContent="space-between" alignItems="center">
         <Link href="/" className={classes.logo}>
-          <Image src={logoImg} alt="logo" />
+          <Image src={logoImg} alt="logo" priority />
         </Link>
         <Button
           onClick={onOpen}
@@ -55,7 +55,12 @@ export const MobileHeader = () => {
               margin: '0 1em',
             }}>
             <Link href="/" onClick={onClose}>
-              <Image src={logoImg} alt="logo" style={{ width: '7em' }} />
+              <Image
+                src={logoImg}
+                alt="logo"
+                style={{ width: '7em' }}
+                priority
+              />
             </Link>
             <Box margin="0 2em 0 0">
               <LocaleSwitcher />

@@ -17,7 +17,7 @@ export default function NavBar() {
     <div className={classes.container}>
       <nav className={classes.nav}>
         <Link href="/">
-          <Image src={logoImg} alt="logo" className={classes.logo} />
+          <Image src={logoImg} alt="logo" className={classes.logo} priority />
         </Link>
         <ul className={classes.ul}>
           <li className={classes.li}>
