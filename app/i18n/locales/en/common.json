@@ -69,5 +69,15 @@
         }
       }
     }
+  },
+  "CeoGreeting": {
+    "heading": "CEO's Greeting",
+    "thankYou": "Thank you for visiting If Information Systems.",
+    "companyIntro": "Our company was founded by personnel responsible for the computerization of overseas branch operations of domestic banks and the head office's international financial operations. The name 'If' was derived from International Finance.",
+    "companyExpertise": "If Information Systems provides solutions in international finance and related fields, based on the knowledge and experience accumulated in major financial hubs such as London, Tokyo, Hong Kong, Singapore, and Shanghai. We are committed to contributing to society by supplying purely domestic products to domestic and foreign financial institutions.",
+    "coreValues": "If Information Systems values expertise and creativity in the financial field as the highest priority. We aim to maximize customer satisfaction by providing optimal financial solutions and grow into a global company through overseas expansion.",
+    "commitment": "All our employees are united and doing their best today to achieve this dream.",
+    "ceoTitle": "CEO of If Information Systems",
+    "ceoName": "Shin Hyun-Min"
   }
 }
