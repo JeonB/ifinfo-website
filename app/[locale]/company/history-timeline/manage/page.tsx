@@ -44,8 +44,22 @@ export default function TimelineManagerPage() {
     const fetchData = async () => {
       const response = await fetch('/api/timeline')
       const data = await response.json()
-      setTimelineData(data)
+
+      // Sort the fetched data by year in descending order
+      const sortedData = data.sort(
+        (a: YearData, b: YearData) => b.year - a.year,
+      )
+
+      // Sort each year's events in descending order by date
+      sortedData.forEach((yearData: YearData) => {
+        yearData.events.sort((a: Event, b: Event) =>
+          b.date.localeCompare(a.date),
+        )
+      })
+
+      setTimelineData(sortedData)
     }
+
     fetchData()
   }, [])
 
@@ -68,6 +82,9 @@ export default function TimelineManagerPage() {
     if (editIndex !== null) {
       const updatedTimeline = [...timelineData]
       updatedTimeline[editIndex.yearIdx].events[editIndex.eventIdx] = newEvent
+      updatedTimeline[editIndex.yearIdx].events.sort(
+        (a, b) => b.date.localeCompare(a.date), // Ensure descending order of events by date
+      )
       setTimelineData(updatedTimeline)
       setEditIndex(null)
     } else {
@@ -79,16 +96,19 @@ export default function TimelineManagerPage() {
         body: JSON.stringify({ year, date, description }),
       })
       const data = await response.json()
-      setTimelineData([...timelineData, data])
+      const updatedTimeline = [...timelineData, data]
+      updatedTimeline.sort((a, b) => b.year - a.year) // Sort years in descending order
+      updatedTimeline.forEach(yearData => {
+        yearData.events.sort((a: { date: any }, b: { date: string }) =>
+          b.date.localeCompare(a.date),
+        ) // Sort events in descending order
+      })
+      setTimelineData(updatedTimeline)
     }
 
     setYear('')
     setDate('')
     setDescription('')
-
-    // 동적 세그먼트를 포함한 상위 페이지로 이동
-    const parentPath = pathname.split('/').slice(0, -1).join('/')
-    router.push(parentPath)
   }
 
   const handleYearChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -167,7 +187,7 @@ export default function TimelineManagerPage() {
           </Button>
         </VStack>
 
-        <VStack spacing={4} align="start" mt={10}>
+        <VStack spacing={4} align="start" m={10}>
           {timelineData.map((yearData, yearIdx) => (
             <Box key={yearIdx} w="100%">
               <Text fontWeight="bold" fontSize="lg" color="blue.500" mb={4}>

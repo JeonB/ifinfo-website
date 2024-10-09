@@ -25,7 +25,7 @@ const colors = {
   gbs: {
     a: '#711F16',
     ag: 'linear-gradient(5deg,#5E1710, #7B1F15 60%, #922418 )',
-    b: '#A31111',
+    b: '#0F2769',
     c: '#DBC1BF',
     d: '#CFCFCF',
     e: '#D3D3D3',
@@ -38,7 +38,7 @@ const colors = {
     l: '#E3E3E3',
     m: '#6D6969',
     n: '#D9D9D9',
-    footer: '#518bff',
+    footer: '#191f28',
   },
 }
 
