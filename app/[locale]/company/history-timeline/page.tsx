@@ -1,27 +1,19 @@
+'use client'
+
 import { Box, Spinner } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import TimelineComponent from './TimelineComponent'
 
-export const revalidate = 86400 // ISR
-
-interface HistoryPageProps {
-  initialData: {
-    year: number
-    events: {
-      date: string
-      description: string
-    }[]
-  }[]
-}
-
-export default function HistoryPage({ initialData }: HistoryPageProps) {
-  const [timelineData, setTimelineData] = useState(initialData || [])
-  const [loading, setLoading] = useState(!initialData)
+export default function HistoryPage() {
+  const [timelineData, setTimelineData] = useState<
+    { year: number; events: { date: string; description: string }[] }[]
+  >([])
+  const [loading, setLoading] = useState(true)
 
   const fetchData = async () => {
     setLoading(true)
     try {
-      const response = await fetch('/api/timeline') // 클라이언트 패칭
+      const response = await fetch('/api/timeline') // 클라이언트 사이드에서 패칭
       if (response.ok) {
         const data = await response.json()
 
@@ -36,23 +28,24 @@ export default function HistoryPage({ initialData }: HistoryPageProps) {
         )
 
         setTimelineData(sortedData)
+      } else {
+        console.error('Failed to fetch data:', response.statusText)
       }
     } catch (error) {
       console.error('Error fetching data:', error)
     } finally {
-      setLoading(false)
+      setLoading(false) // 로딩 상태 종료
     }
   }
 
   useEffect(() => {
-    if (!initialData) {
-      fetchData() // 초기 데이터가 없으면 비동기로 데이터를 가져옴
-    }
+    fetchData() // 페이지 로드 시 데이터를 클라이언트 사이드에서 패칭
   }, [])
 
   return (
     <div>
       {loading ? (
+        // 로딩 중일 때 스피너를 표시
         <Box
           display="flex"
           justifyContent="center"
@@ -65,27 +58,4 @@ export default function HistoryPage({ initialData }: HistoryPageProps) {
       )}
     </div>
   )
-}
-
-export async function getStaticProps() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
-  const response = await fetch(`${baseUrl}/api/timeline`)
-  const data = await response.json()
-
-  const sortedData = data.sort(
-    (a: { year: number }, b: { year: number }) => b.year - a.year,
-  )
-
-  sortedData.forEach(
-    (yearData: { events: { date: string; description: string }[] }) => {
-      yearData.events.sort((a, b) => b.date.localeCompare(a.date))
-    },
-  )
-
-  return {
-    props: {
-      initialData: sortedData, // 페이지를 미리 생성할 때 사용
-    },
-    revalidate: 86400, // ISR을 통한 주기적 재생성
-  }
 }
