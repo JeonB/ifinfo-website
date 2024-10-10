@@ -16,7 +16,7 @@ const EventSchema: Schema = new Schema({
 })
 
 const YearDataSchema: Schema = new Schema({
-  year: { type: Number, required: true },
+  year: { type: Number, required: true, index: true },
   events: { type: [EventSchema], required: true },
 })
 

@@ -27,7 +27,7 @@ export default function NavBar() {
                 <Link href="/company/introduction">{t('Header.about_us')}</Link>
               </li>
               <li>
-                <Link href="/company/history-timeline">
+                <Link href="/company/history-timeline" prefetch={true}>
                   {t('Company.history')}
                 </Link>
               </li>

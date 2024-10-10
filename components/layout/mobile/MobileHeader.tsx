@@ -93,6 +93,7 @@ export const MobileHeader = () => {
                       {t('Header.about_us')}
                     </Link>
                     <Link
+                      prefetch={true}
                       className={classes.a}
                       href="/company/history-timeline"
                       onClick={onClose}>
