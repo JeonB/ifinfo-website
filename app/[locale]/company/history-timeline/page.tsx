@@ -1,61 +1,26 @@
-'use client'
-
-import { Box, Spinner } from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
 import TimelineComponent from './TimelineComponent'
 
-export default function HistoryPage() {
-  const [timelineData, setTimelineData] = useState<
-    { year: number; events: { date: string; description: string }[] }[]
-  >([])
-  const [loading, setLoading] = useState(true)
+// Server-side component that fetches data
+export default async function HistoryPage() {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+  const response = await fetch(`${baseUrl}/api/timeline`, {
+    next: { revalidate: 30 },
+  })
+  const timelineData = await response.json()
 
-  const fetchData = async () => {
-    setLoading(true)
-    try {
-      const response = await fetch('/api/timeline') // 클라이언트 사이드에서 패칭
-      if (response.ok) {
-        const data = await response.json()
+  const sortedData = timelineData.sort(
+    (a: { year: number }, b: { year: number }) => b.year - a.year,
+  )
 
-        const sortedData = data.sort(
-          (a: { year: number }, b: { year: number }) => b.year - a.year,
-        )
-
-        sortedData.forEach(
-          (yearData: { events: { date: string; description: string }[] }) => {
-            yearData.events.sort((a, b) => b.date.localeCompare(a.date))
-          },
-        )
-
-        setTimelineData(sortedData)
-      } else {
-        console.error('Failed to fetch data:', response.statusText)
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error)
-    } finally {
-      setLoading(false) // 로딩 상태 종료
-    }
-  }
-
-  useEffect(() => {
-    fetchData() // 페이지 로드 시 데이터를 클라이언트 사이드에서 패칭
-  }, [])
+  sortedData.forEach(
+    (yearData: { events: { date: string; description: string }[] }) => {
+      yearData.events.sort((a, b) => b.date.localeCompare(a.date))
+    },
+  )
 
   return (
     <div>
-      {loading ? (
-        // 로딩 중일 때 스피너를 표시
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          minH="100vh">
-          <Spinner size="xl" />
-        </Box>
-      ) : (
-        <TimelineComponent data={timelineData} />
-      )}
+      <TimelineComponent data={sortedData} />
     </div>
   )
 }
