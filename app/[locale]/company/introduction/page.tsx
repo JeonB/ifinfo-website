@@ -1,7 +1,6 @@
 'use client'
 import { Grid, GridItem, Heading, Image, Text } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
-import Head from 'next/head'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 import './styles.css'
 
@@ -46,17 +45,9 @@ const Section = ({
   const [visible, setVisible] = useState(false)
   const ref = useIntersectionObserver(setVisible)
 
-  const [imageLoaded, setImageLoaded] = useState(false)
-
   useEffect(() => {
-    if (visible) {
-      const img = document.createElement('img')
-      if (backgroundImage) {
-        img.src = backgroundImage
-      }
-      img.onload = () => setImageLoaded(true)
-    }
-  }, [visible, backgroundImage])
+    setVisibleSections(id, visible)
+  }, [visible, id])
 
   return (
     <div
@@ -64,7 +55,7 @@ const Section = ({
       ref={ref}
       className={`section fade-in-section ${visible ? 'is-visible' : ''}`}
       style={{
-        backgroundImage: imageLoaded ? `url(${backgroundImage})` : 'none',
+        backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}>
@@ -178,12 +169,6 @@ const Page = () => {
 
   return (
     <div style={{ display: 'flex' }}>
-      <Head>
-        <link rel="preload" href="/images/company/overview.png" as="image" />
-        <link rel="preload" href="/images/company/vision1.png" as="image" />
-        <link rel="preload" href="/images/company/vision2.png" as="image" />
-        <link rel="preload" href="/images/company/vision3.png" as="image" />
-      </Head>
       <MobileTableOfContents
         sections={sections}
         visibleSections={visibleSections}
