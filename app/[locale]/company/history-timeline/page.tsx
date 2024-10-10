@@ -1,10 +1,8 @@
 import TimelineComponent from './TimelineComponent'
 
-export const revalidate = 86400 // ISR 사용
-
 export default async function HistoryPage() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
-  const response = await fetch(`${baseUrl}/api/timeline`, { cache: 'no-store' }) // ISR을 위해 데이터 비캐싱 처리
+  const response = await fetch(`${baseUrl}/api/timeline`) // ISR을 위해 데이터 비캐싱 처리
   const timelineData = await response.json()
 
   const sortedData = timelineData.sort(
