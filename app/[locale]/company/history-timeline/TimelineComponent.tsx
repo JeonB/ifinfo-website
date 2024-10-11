@@ -1,5 +1,6 @@
 'use client'
 
+import { Event, YearData } from '@/models/YearData'
 import {
   Box,
   Flex,
@@ -9,16 +10,6 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react'
 import { useEffect, useRef, useState } from 'react'
-
-type Event = {
-  date: string
-  description: string
-}
-
-type YearData = {
-  year: number
-  events: Event[]
-}
 
 const TimelineItem = ({ date, description }: Event) => (
   <HStack align="flex-start" spacing={4} position="relative">

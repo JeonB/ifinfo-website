@@ -1,5 +1,6 @@
 'use client'
 import useAuth from '@/app/api/auth'
+import { Event, YearData } from '@/models/YearData'
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import {
   Box,
@@ -17,16 +18,6 @@ import {
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-type Event = {
-  date: string
-  description: string
-}
-
-type YearData = {
-  year: number
-  events: Event[]
-}
-
 export default function TimelineManagerPage() {
   useAuth()
   const [timelineData, setTimelineData] = useState<YearData[]>([])
@@ -37,31 +28,30 @@ export default function TimelineManagerPage() {
     yearIdx: number
     eventIdx: number
   } | null>(null)
+  const [dataChanged, setDataChanged] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('/api/timeline')
-      const data = await response.json()
+  const fetchTimelineData = async () => {
+    const response = await fetch('/api/timeline')
+    const data = await response.json()
 
-      // Sort the fetched data by year in descending order
-      const sortedData = data.sort(
-        (a: YearData, b: YearData) => b.year - a.year,
-      )
+    const sortedData = data.sort((a: YearData, b: YearData) => b.year - a.year)
 
-      // Sort each year's events in descending order by date
-      sortedData.forEach((yearData: YearData) => {
-        yearData.events.sort((a: Event, b: Event) =>
-          b.date.localeCompare(a.date),
-        )
+    sortedData.forEach((yearData: YearData) => {
+      yearData.events.sort((a: Event, b: Event) => {
+        const [aStartDate] = a.date.trim().split('~')
+        const [bStartDate] = b.date.trim().split('~')
+        return bStartDate.localeCompare(aStartDate)
       })
+    })
 
-      setTimelineData(sortedData)
-    }
+    setTimelineData(sortedData)
+  }
 
-    fetchData()
-  }, [])
+  useEffect(() => {
+    fetchTimelineData()
+  }, [dataChanged])
 
   const addEvent = async () => {
     if (!year) {
@@ -82,11 +72,30 @@ export default function TimelineManagerPage() {
     if (editIndex !== null) {
       const updatedTimeline = [...timelineData]
       updatedTimeline[editIndex.yearIdx].events[editIndex.eventIdx] = newEvent
-      updatedTimeline[editIndex.yearIdx].events.sort(
-        (a, b) => b.date.localeCompare(a.date), // Ensure descending order of events by date
-      )
+      updatedTimeline[editIndex.yearIdx].events.sort((a: Event, b: Event) => {
+        const [aStartDate] = a.date.trim().split('~')
+        const [bStartDate] = b.date.trim().split('~')
+        return bStartDate.localeCompare(aStartDate)
+      })
       setTimelineData(updatedTimeline)
+      const response = await fetch('/api/timeline', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          year: timelineData[editIndex.yearIdx].year,
+          eventIdx: editIndex.eventIdx,
+          date: newEvent.date,
+          description: newEvent.description,
+        }),
+      })
       setEditIndex(null)
+      if (response.ok) {
+        setDataChanged(!dataChanged)
+      } else {
+        console.error('Failed to add event:', response.statusText)
+      }
     } else {
       const response = await fetch('/api/timeline', {
         method: 'POST',
@@ -95,15 +104,11 @@ export default function TimelineManagerPage() {
         },
         body: JSON.stringify({ year, date, description }),
       })
-      const data = await response.json()
-      const updatedTimeline = [...timelineData, data]
-      updatedTimeline.sort((a, b) => b.year - a.year) // Sort years in descending order
-      updatedTimeline.forEach(yearData => {
-        yearData.events.sort((a: { date: any }, b: { date: string }) =>
-          b.date.localeCompare(a.date),
-        ) // Sort events in descending order
-      })
-      setTimelineData(updatedTimeline)
+      if (response.ok) {
+        setDataChanged(!dataChanged)
+      } else {
+        console.error('Failed to add event:', response.statusText)
+      }
     }
 
     setYear('')
@@ -122,14 +127,7 @@ export default function TimelineManagerPage() {
     }
   }
 
-  const handleDateBlur = () => {
-    if (date && !/^\d{4}\.\d{2}$/.test(date)) {
-      alert('날짜는 YYYY.MM 형식이어야 합니다.')
-      setDate('')
-    }
-  }
-
-  const handleEdit = (yearIdx: number, eventIdx: number) => {
+  const handleEdit = async (yearIdx: number, eventIdx: number) => {
     const event = timelineData[yearIdx].events[eventIdx]
     setYear(timelineData[yearIdx].year)
     setDate(event.date)
@@ -137,13 +135,56 @@ export default function TimelineManagerPage() {
     setEditIndex({ yearIdx, eventIdx })
   }
 
-  const handleDelete = (yearIdx: number, eventIdx: number) => {
+  const handleDelete = async (yearIdx: number, eventIdx: number) => {
     const updatedTimeline = [...timelineData]
     updatedTimeline[yearIdx].events.splice(eventIdx, 1)
     if (updatedTimeline[yearIdx].events.length === 0) {
       updatedTimeline.splice(yearIdx, 1)
     }
     setTimelineData(updatedTimeline)
+
+    const response = await fetch('/api/timeline', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ year: timelineData[yearIdx].year, eventIdx }),
+    })
+
+    if (response.ok) {
+      setDataChanged(!dataChanged)
+    } else {
+      console.error('Failed to delete event:', response.statusText)
+    }
+  }
+
+  const handleFileUpload = async () => {
+    const response = await fetch('/api/timeline/bulk', {
+      method: 'POST',
+    })
+
+    if (response.ok) {
+      setDataChanged(!dataChanged)
+    } else {
+      console.error('Failed to upload file:', response.statusText)
+    }
+  }
+
+  const handleDeleteAll = async () => {
+    const confirmed = window.confirm('정말로 삭제하겠습니까?')
+    if (!confirmed) {
+      return
+    }
+
+    const response = await fetch('/api/timeline/bulk', {
+      method: 'DELETE',
+    })
+
+    if (response.ok) {
+      setDataChanged(!dataChanged)
+    } else {
+      console.error('Failed to delete all events:', response.statusText)
+    }
   }
 
   return (
@@ -170,7 +211,6 @@ export default function TimelineManagerPage() {
               type="text"
               value={date}
               onChange={e => setDate(e.target.value)}
-              onBlur={handleDateBlur}
               placeholder="(e.g., 2024.03)"
             />
           </FormControl>
@@ -182,9 +222,17 @@ export default function TimelineManagerPage() {
               placeholder="연혁 설명 입력"
             />
           </FormControl>
-          <Button colorScheme="blue" onClick={addEvent}>
-            {editIndex !== null ? 'Update Event' : 'Add Event'}
-          </Button>
+          <HStack spacing={4} justifyContent="space-between">
+            <Button colorScheme="blue" onClick={addEvent}>
+              {editIndex !== null ? 'Update Event' : 'Add Event'}
+            </Button>
+            <Button colorScheme="blue" onClick={handleFileUpload}>
+              JSON 파일 업로드
+            </Button>
+            <Button colorScheme="red" onClick={handleDeleteAll}>
+              Delete All Events
+            </Button>
+          </HStack>
         </VStack>
 
         <VStack spacing={4} align="start" m={10}>

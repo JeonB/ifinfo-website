@@ -1,0 +1,177 @@
+{
+  "YearData": [
+    {
+      "year": 2024,
+      "events": [
+        {
+          "date": "2024-03 ~ 2024-11",
+          "description": "Reconstruction of NH Asset Management Company Business System"
+        },
+        {
+          "date": "2024-01 ~ 2025-03",
+          "description": "Reconstruction of Hana Bank CLS Payment System"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "events": [
+        {
+          "date": "2023-09 ~ 2025-05",
+          "description": "Development of Digitalization of Hana Bank Bond Trading System"
+        },
+        {
+          "date": "2023-09 ~ 2024-12",
+          "description": "Participation in the Construction of the Next Generation System of Hana Bank (China) Co., Ltd."
+        },
+        {
+          "date": "2023-07 ~ 2024-06",
+          "description": "Next Generation Leadville Project of Hana Bank Indonesia"
+        },
+        {
+          "date": "2023-07 ~ 2023-09",
+          "description": "Consulting for Interface Improvement of Local Report System of Woori Saudara Bank Indonesia"
+        },
+        {
+          "date": "2023-06 ~ 2024-06",
+          "description": "Construction of AIFUL LIBOR Dedicated Card System (Member Settlement)"
+        },
+        {
+          "date": "2023-06 ~ 2024-04",
+          "description": "Consulting for Requirement Definition for Reconstruction of KDB Industrial Bank Global Standard Banking System"
+        },
+        {
+          "date": "2023-06 ~ 2024-01",
+          "description": "Construction of Next Generation Computer System of Woori Finance Myanmar"
+        },
+        {
+          "date": "2023-06 ~ 2024-01",
+          "description": "Construction of Next Generation Computer System of Tutu Finance Myanmar"
+        },
+        {
+          "date": "2023-06 ~ 2023-08",
+          "description": "Improvement of Asset Allocation Business of Hana Bank MMT"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "events": [
+        {
+          "date": "2022-10 ~ 2023-07",
+          "description": "Construction of Hana Bank Canada Banking System (LDW)"
+        },
+        {
+          "date": "2022-09 ~ 2023-08",
+          "description": "Operation of JB Capital Myanmar GBS"
+        },
+        {
+          "date": "2022-09 ~ 2023-05",
+          "description": "Construction of AIFUL LIBOR Dedicated Card System (Bond/Sales)"
+        },
+        {
+          "date": "2022-08 ~ 2023-01",
+          "description": "Construction of Information Protection System of You&I Loan"
+        },
+        {
+          "date": "2022-07 ~ 2022-12",
+          "description": "Construction of NongHyup Finance Myanmar GBS Mobile System"
+        },
+        {
+          "date": "2022-04 ~ 2024-05",
+          "description": "Operation of KB Kookmin Bank E-Capital Market"
+        },
+        {
+          "date": "2022-02 ~ 2022-12",
+          "description": "KB Kookmin Bank E-Capital Market"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "events": [
+        {
+          "date": "2021-11 ~ 2022-09",
+          "description": "Computer Development for Application of Hana Bank Global Next Generation Pilot Branch"
+        },
+        {
+          "date": "2021-11 ~ 2022-04",
+          "description": "Construction of JB Capital Myanmar Computer System"
+        },
+        {
+          "date": "2021-10 ~ 2022-08",
+          "description": "Construction of Woori Bank Overseas Branch AML System"
+        },
+        {
+          "date": "2021-08 ~ 2021-12",
+          "description": "Construction of KB Kookmin Card Thailand Corporation Global IT System"
+        },
+        {
+          "date": "2021-08 ~ 2021-11",
+          "description": "Computer Development for Enhancement of Hana Bank TR System and Addition of Functions to Hana FX Trading System"
+        },
+        {
+          "date": "2021-07 ~ 2022-01",
+          "description": "Development of Hyundai Capital Mobility Service Platform"
+        },
+        {
+          "date": "2021-04 ~ 2021-10",
+          "description": "Construction of Hana Bank Mexico Banking System (Internal Control)"
+        },
+        {
+          "date": "2021-03 ~ 2021-08",
+          "description": "Computer Development for Improvement of Early Settlement of FX for Hana Bank Customers"
+        },
+        {
+          "date": "2021-02 ~ 2023-04",
+          "description": "Participation in the Development of Line Bank Japan (Information System, Accounting, Internet Banking)"
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "events": [
+        {
+          "date": "2020-12 ~ 2023-07",
+          "description": "Construction of OK Savings Bank Next Generation System"
+        },
+        {
+          "date": "2020-11 ~ 2021-04",
+          "description": "Construction of Hana Bank Overseas Branch Transaction Information Repository (TR) Reporting System"
+        },
+        {
+          "date": "2020-10 ~ 2025-02",
+          "description": "Operation of IBK Information System"
+        },
+        {
+          "date": "2020-07 ~ 2020-11",
+          "description": "Hana Bank Overseas Branch Loan Repayment Deferral Project"
+        },
+        {
+          "date": "2020-07 ~ 2020-09",
+          "description": "Promotion of IBK Global Banking System Enhancement"
+        },
+        {
+          "date": "2020-05 ~ 2021-06",
+          "description": "Localization Development and Opening of IBK (China) Global Standard System"
+        },
+        {
+          "date": "2020-03 ~ 2021-01",
+          "description": "Construction of Hana Bank Transaction Information Repository (TR) Reporting System"
+        },
+        {
+          "date": "2020-03 ~ 2020-09",
+          "description": "Expansion of Hana Bank Global Pilot Branch (Funds)"
+        },
+        {
+          "date": "2020-02 ~ 2020-07",
+          "description": "Enhancement of GLN Service Global Support"
+        },
+        {
+          "date": "2020-01 ~ 2020-11",
+          "description": "Construction of Woori Bank Overseas Branch AML System"
+        }
+      ]
+    }
+  ]
+}

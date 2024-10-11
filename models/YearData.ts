@@ -1,11 +1,11 @@
 import mongoose, { Document, Schema } from 'mongoose'
 
-interface Event {
+export interface Event {
   date: string
   description: string
 }
 
-interface YearData extends Document {
+export interface YearData extends Document {
   year: number
   events: Event[]
 }
