@@ -13,7 +13,7 @@ const useIntersectionObserver = (setVisible: (visible: boolean) => void) => {
         setVisible(entry.isIntersecting)
       },
       {
-        threshold: 0.5, // 50%가 뷰포트에 들어오면 트리거
+        threshold: 0.5,
       },
     )
 
