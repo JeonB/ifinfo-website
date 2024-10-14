@@ -242,10 +242,10 @@ const Page = () => {
         </Section>
 
         <Section id="section5" setVisibleSections={handleSetVisibleSections}>
-          <Text fontSize={['md', 'lg', 'xl', '2xl']} className="vision">
+          {/* <Text fontSize={['md', 'lg', 'xl', '2xl']} className="vision">
             {t('section5.text')}
-          </Text>
-          <Heading fontSize={['3xl', '4xl', '5xl', '6xl']} textAlign={'center'}>
+          </Text> */}
+          <Heading fontSize={['3xl', '4xl', '4xl', '5xl']} textAlign={'center'}>
             {t('section5.heading')}
           </Heading>
           {items.map((item, index) => (
