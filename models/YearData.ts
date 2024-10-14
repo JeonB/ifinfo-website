@@ -1,6 +1,7 @@
-import mongoose, { Document, Schema } from 'mongoose'
+import mongoose, { Document, Schema, Types } from 'mongoose'
 
 export interface Event {
+  _id?: Types.ObjectId
   date: string
   description: string
 }
@@ -10,10 +11,13 @@ export interface YearData extends Document {
   events: Event[]
 }
 
-const EventSchema: Schema = new Schema({
-  date: { type: String, required: true },
-  description: { type: String, required: true },
-})
+const EventSchema: Schema = new Schema(
+  {
+    date: { type: String, required: true },
+    description: { type: String, required: true },
+  },
+  { _id: true },
+)
 
 const YearDataSchema: Schema = new Schema({
   year: { type: Number, required: true, index: true },

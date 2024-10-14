@@ -1,4 +1,4 @@
-import YearData from '@/models/YearData'
+import YearData, { Event } from '@/models/YearData'
 import { connectDB } from '@/utils/connectdb'
 import { startSession } from 'mongoose'
 import { NextRequest, NextResponse } from 'next/server'
@@ -36,24 +36,32 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Failed to add event' }, { status: 500 })
   }
 }
+
 export async function PUT(req: NextRequest) {
   await connectDB()
-  const { year, eventIdx, date, description } = await req.json()
+  const { year, eventId, date, description } = await req.json()
 
   try {
     const yearData = await YearData.findOne({ year })
-    console.log(eventIdx)
     if (!yearData) {
       return NextResponse.json({ error: 'Year not found' }, { status: 404 })
+    } else {
+      const event = yearData.events.id(eventId)
+      if (event) {
+        event.date = date
+        event.description = description
+        await yearData.save()
+        return NextResponse.json(
+          { message: 'Event updated successfully' },
+          { status: 200 },
+        )
+      } else {
+        return NextResponse.json(
+          { message: 'Event not found' },
+          { status: 404 },
+        )
+      }
     }
-
-    yearData.events[eventIdx] = { date, description }
-    await yearData.save()
-
-    return NextResponse.json(
-      { message: 'Event updated successfully' },
-      { status: 200 },
-    )
   } catch (error) {
     return NextResponse.json(
       { error: 'Failed to update event' },
@@ -64,26 +72,45 @@ export async function PUT(req: NextRequest) {
 
 export async function DELETE(req: NextRequest) {
   await connectDB()
-  const { year, eventIdx } = await req.json()
+  const { year, eventId } = await req.json()
+
+  const session = await startSession()
+  session.startTransaction()
 
   try {
-    const yearData = await YearData.findOne({ year })
+    const yearData = await YearData.findOne({ year }).session(session)
     if (!yearData) {
+      await session.abortTransaction()
+      session.endSession()
       return NextResponse.json({ error: 'Year not found' }, { status: 404 })
     }
 
-    yearData.events.splice(eventIdx, 1)
-    if (yearData.events.length === 0) {
-      await YearData.deleteOne({ year })
-    } else {
-      await yearData.save()
+    const eventIndex = yearData.events.findIndex(
+      (event: Event) => event._id && event._id.equals(eventId),
+    )
+    if (eventIndex === -1) {
+      await session.abortTransaction()
+      session.endSession()
+      return NextResponse.json({ error: 'Event not found' }, { status: 404 })
     }
+    yearData.events.splice(eventIndex, 1)
+    if (yearData.events.length === 0) {
+      await YearData.deleteOne({ year }).session(session)
+    } else {
+      await yearData.save({ session })
+    }
+
+    await session.commitTransaction()
+    session.endSession()
 
     return NextResponse.json(
       { message: 'Event deleted successfully' },
       { status: 200 },
     )
   } catch (error) {
+    await session.abortTransaction()
+    session.endSession()
+    console.error('Failed to delete event:', error)
     return NextResponse.json(
       { error: 'Failed to delete event' },
       { status: 500 },

@@ -26,7 +26,7 @@ export default function TimelineManagerPage() {
   const [description, setDescription] = useState('')
   const [editIndex, setEditIndex] = useState<{
     yearIdx: number
-    eventIdx: number
+    eventId: string
   } | null>(null)
   const [dataChanged, setDataChanged] = useState(false)
   const router = useRouter()
@@ -71,7 +71,13 @@ export default function TimelineManagerPage() {
 
     if (editIndex !== null) {
       const updatedTimeline = [...timelineData]
-      updatedTimeline[editIndex.yearIdx].events[editIndex.eventIdx] = newEvent
+      const event = updatedTimeline[editIndex.yearIdx].events.find(
+        e => String(e._id) === editIndex.eventId,
+      )
+      if (event) {
+        event.date = newEvent.date
+        event.description = newEvent.description
+      }
       updatedTimeline[editIndex.yearIdx].events.sort((a: Event, b: Event) => {
         const [aStartDate] = a.date.trim().split('~')
         const [bStartDate] = b.date.trim().split('~')
@@ -85,7 +91,7 @@ export default function TimelineManagerPage() {
         },
         body: JSON.stringify({
           year: timelineData[editIndex.yearIdx].year,
-          eventIdx: editIndex.eventIdx,
+          eventId: editIndex.eventId,
           date: newEvent.date,
           description: newEvent.description,
         }),
@@ -127,17 +133,24 @@ export default function TimelineManagerPage() {
     }
   }
 
-  const handleEdit = async (yearIdx: number, eventIdx: number) => {
-    const event = timelineData[yearIdx].events[eventIdx]
-    setYear(timelineData[yearIdx].year)
-    setDate(event.date)
-    setDescription(event.description)
-    setEditIndex({ yearIdx, eventIdx })
+  const handleEdit = async (yearIdx: number, eventId: string) => {
+    const event = timelineData[yearIdx].events.find(
+      e => String(e._id) === eventId,
+    )
+    if (event) {
+      setYear(timelineData[yearIdx].year)
+      setDate(event.date)
+      setDescription(event.description)
+      setEditIndex({ yearIdx, eventId })
+    }
   }
 
-  const handleDelete = async (yearIdx: number, eventIdx: number) => {
+  const handleDelete = async (yearIdx: number, eventId: string) => {
     const updatedTimeline = [...timelineData]
-    updatedTimeline[yearIdx].events.splice(eventIdx, 1)
+    updatedTimeline[yearIdx].events = updatedTimeline[yearIdx].events.filter(
+      e => String(e._id) === eventId,
+    )
+    console.log(updatedTimeline[yearIdx].events)
     if (updatedTimeline[yearIdx].events.length === 0) {
       updatedTimeline.splice(yearIdx, 1)
     }
@@ -148,7 +161,7 @@ export default function TimelineManagerPage() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ year: timelineData[yearIdx].year, eventIdx }),
+      body: JSON.stringify({ year: timelineData[yearIdx].year, eventId }),
     })
 
     if (response.ok) {
@@ -211,7 +224,7 @@ export default function TimelineManagerPage() {
               type="text"
               value={date}
               onChange={e => setDate(e.target.value)}
-              placeholder="(e.g., 2024.03)"
+              placeholder="(e.g., 2024-03 ~ 2024-05)"
             />
           </FormControl>
           <FormControl>
@@ -241,8 +254,8 @@ export default function TimelineManagerPage() {
               <Text fontWeight="bold" fontSize="lg" color="blue.500" mb={4}>
                 {yearData.year}
               </Text>
-              {yearData.events.map((event, eventIdx) => (
-                <HStack key={eventIdx} spacing={4} align="flex-start">
+              {yearData.events.map(event => (
+                <HStack key={String(event._id)} spacing={4} align="flex-start">
                   <Box>
                     <Text fontWeight="bold" fontSize="sm">
                       {event.date}
@@ -252,12 +265,12 @@ export default function TimelineManagerPage() {
                   <IconButton
                     aria-label="Edit event"
                     icon={<EditIcon />}
-                    onClick={() => handleEdit(yearIdx, eventIdx)}
+                    onClick={() => handleEdit(yearIdx, String(event._id))}
                   />
                   <IconButton
                     aria-label="Delete event"
                     icon={<DeleteIcon />}
-                    onClick={() => handleDelete(yearIdx, eventIdx)}
+                    onClick={() => handleDelete(yearIdx, String(event._id))}
                   />
                 </HStack>
               ))}
