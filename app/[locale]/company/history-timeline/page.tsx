@@ -1,6 +1,6 @@
 import { Event, YearData } from '@/models/YearData'
 import TimelineComponent from './TimelineComponent'
-// Server-side component that fetches data
+
 export default async function HistoryPage() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
   const response = await fetch(`${baseUrl}/api/timeline`, {

@@ -29,8 +29,6 @@ export default function TimelineManagerPage() {
     eventId: string
   } | null>(null)
   const [dataChanged, setDataChanged] = useState(false)
-  const router = useRouter()
-  const pathname = usePathname()
 
   const fetchTimelineData = async () => {
     const response = await fetch('/api/timeline')

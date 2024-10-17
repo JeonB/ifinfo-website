@@ -114,13 +114,13 @@ export default function TimelineComponent({ data }: { data: YearData[] }) {
       direction="column"
       align={layout === 'center' ? 'center' : 'flex-start'}
       pl={layout === 'center' ? 0 : 4}>
-      <Text fontWeight="bold" fontSize="2xl" mb={4}>
-        🌎 회사 연혁
+      <Text fontWeight="bold" fontSize={['2xl', '3xl', '4xl']} mb={4}>
+        📈 연혁
       </Text>
-      <Text fontSize="xl" fontWeight="bold" mb={6}>
+      <Text fontSize={['xl', '2xl']} fontWeight="bold" mb={6}>
         2001년, 고객을 향한 <br />첫 걸음을 시작했습니다.
       </Text>
-      <Box maxW="600px" mt={10}>
+      <Box maxW="600px" m={10}>
         <Timeline data={data} />
       </Box>
     </Flex>
