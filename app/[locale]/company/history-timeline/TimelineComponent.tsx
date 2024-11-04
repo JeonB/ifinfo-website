@@ -36,7 +36,6 @@ const TimelineYear = ({
 
   useEffect(() => {
     if (yearRef.current) {
-      // 요소의 실제 높이를 계산하여 lineHeight 설정
       setLineHeight(yearRef.current.clientHeight)
     }
   }, [events])
@@ -54,7 +53,6 @@ const TimelineYear = ({
             position="relative"
             zIndex="1"
           />
-          {/* Vertical line */}
           {!isLast && (
             <Box
               position="absolute"

@@ -43,7 +43,6 @@ export default function Page({
       breakpoint: { max: 1024, min: 464 },
       items: 1,
       partialVisibilityGutter: 30,
-      // 줄임
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
